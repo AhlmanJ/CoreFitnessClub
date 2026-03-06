@@ -19,7 +19,11 @@
 
 a {
     color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
     text-decoration: none;
+    font-family: "DM Sans", sans-serif;
 
     &:hover {
         color: var(--color-accent);
@@ -77,21 +81,23 @@ html, body {
     margin: 0;
     font-size: 16px;
     font-weight: 400;
+    scroll-behavior: smooth;
     color: var(--color-gray);
     font-family: "DMSans", sans-serif;
 }
 
-.wrapper{
-    margin: 17px 16px;
+.wrapper {
+    margin-top: 17px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 16px;
     grid-template-rows: auto 1fr auto;
     height: 100dvh;
 }
 
 .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 16px;
-    margin-right: 16px;
+    padding-left: 0rem;
+    padding-right: 0rem;
     width: 100%;
 
     @media (width >= 768px) {
@@ -105,8 +111,411 @@ html, body {
     @media (width >= 1440px) {
         max-width: 1400px;
     }
+
+    @media (width < 1920px) {
+        max-width: 1920px;
+    }
 }
 
-.HomePage {
-    
+.Home .header {
+    width: 100%;
+    height: 100px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 25px 25px 0 0;
+    background-color: var(--color-darkBg);
+    background-image: url("/images/header/dark-section-img.svg");
+
+    .navbar {
+        display: none;
+    }
+
+    .become-memberTxt {
+        display: none;
+    }
+
+    .signIn-btn {
+        display: none;
+    }
+
+    @media (width <= 374px) {
+        padding: 0px;
+    }
+
+    @media (width >= 375px) {
+        padding: 15px;
+        max-width: 400px;
+    }
+
+    @media (width >= 768px) {
+        padding: 32px;
+        max-width: 720px;
+    }
+
+    @media (width >= 1250px) {
+        padding: 32px;
+        max-width: 1180px;
+
+        .menulogo-phone {
+            display: none;
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .become-memberTxt {
+            display: flex;
+        }
+
+        .signIn-btn {
+            display: flex;
+        }
+    }
+
+    @media (width >= 1440px) {
+        max-width: 1400px;
+    }
+
+    @media (width < 1920px) {
+        max-width: 1920px;
+    }
 }
+
+.menulogo-phone {
+    position: relative;
+    margin-left: 8px;
+
+    @media(width >= 374px) {
+        margin-left: 25px;
+    }
+
+    @media(width >= 425px) {
+        margin-left: 32px;
+    }
+
+    @media(width >= 500px) {
+        margin-left: 70px;
+    }
+
+    @media(width >= 768px) {
+        margin-left: 200px;
+    }
+
+    @media(width >= 1024px) {
+        margin-left: 330px;
+    }
+
+    @media(width >= 1247px) {
+        margin-left: 340px;
+    }
+}
+
+/* ---- From W3Schools "How to - Mobile Navigation Menu" tutorial and help debugging from ChatGPT. Nav bar ( Phone and Tablet ) ---- */
+
+.topnav {
+    position: relative;
+}
+
+.topnav #my-links {
+    width: 200px;
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}
+
+.topnav #my-links.show {
+    display: block;
+    border-radius: 10px;
+    background-color: var(--color-accent);
+}
+
+.topnav a {
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--color-charcoal);
+
+    &:hover {
+        text-decoration: underline;
+        color: var(--color-charcoal);
+    }
+}
+
+.topnav a.icon {
+    background: var(--color-darkBg);
+    display: block;
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 0;
+}
+
+/* --------------------- Nav bar End ( Phone and Tablet )--------------------- */
+
+/* --------------- Training link - dropdown ( Phone and Tablet ) ------------- */
+
+.nav-dropdown2 {
+    position: relative;
+}
+
+.nav-dropdown2 #my-links3 {
+    width: 200px;
+    height: 130px;
+    display: none;
+    position: absolute;
+    border-radius: 20px;
+    padding: 20px 0px;
+    border: 1px solid;
+    border-color: var(--color-charcoal);
+    background-color: var(--color-accent);
+    top: 35px;
+}
+
+.nav-dropdown2 #my-links3 a {
+    color: var(--color-charcoal);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.nav-dropdown2 #my-links3.show {
+    display: block;
+    border-radius: 10px;
+}
+
+.link-list2 {
+    width: 250px;
+    margin-top: -10px;
+    margin-left: -10px;
+    line-height: 10px;
+    color: var(--color-charcoal)
+}
+
+
+/* ----------------------------- Training link END --------------------------- */
+
+/* ---------------------            Nav Desktop-size        -------------------*/
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown #my-links2 {
+    width: 192px;
+    height: 134px;
+    display: none;
+    position: absolute;
+    border-radius: 20px;
+    padding: 20px 0px;
+    background-color: var(--color-accent);
+    left: 0px;
+    top: 40px;
+}
+
+.nav-dropdown #my-links2 a {
+    color: var(--color-charcoal);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.nav-dropdown #my-links2.show {
+    display: block;
+    border-radius: 10px;
+}
+
+.link-list {
+    width: 180px;
+    margin-top: -7px;
+    margin-left: -10px;
+    line-height: 35px;
+    color: var(--color-charcoal)
+}
+
+.navbar {
+    width: 320px;
+    justify-content: space-between;
+
+    @media ( width >= 1260px) {
+        width: 630px;
+        margin-right: 85px;
+    }
+
+    @media ( width < 1980px) {
+        width: 630px;
+        margin-right: 100px;
+    }
+}
+
+/* ----------------- nav bar End ( Desktop ) ------------------- */
+
+.header-rs {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signIn-btn {
+    height: 50px;
+    width: 130px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 50px;
+    background-color: var(--color-accent);
+}
+
+.signIn-btn:hover {
+    background-color: var(--color-white);
+}
+
+.signIn-btnTxt {
+    display: flex;
+    padding: 8px 17px;
+    color: var(--color-charcoal);
+}
+
+.singIn-btnIcon{
+    margin-top: 9px;
+    margin-left: -9px;
+}
+
+/* ----------------- Header design for the other pages -----------------*/
+
+.Memberships .header, .CustomerService .header, .MyAccount .header, .SignIn .header, .SignUp .header, .SetPassword .header, .NotFound .header {
+    width: 100%;
+    height: 100px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 25px;
+    background-color: var(--color-darkBg);
+    background-image: url("/images/header/dark-section-img.svg");
+
+    .navbar {
+        display: none;
+    }
+
+    .become-memberTxt {
+        display: none;
+    }
+
+    .signIn-btn {
+        display: none;
+    }
+
+    @media (width <= 374px) {
+        padding: 0px;
+    }
+
+    @media (width >= 375px) {
+        padding: 15px;
+        max-width: 400px;
+    }
+
+    @media (width >= 768px) {
+        padding: 32px;
+        max-width: 720px;
+    }
+
+    @media (width >= 1250px) {
+        padding: 32px;
+        max-width: 1180px;
+
+        .menulogo-phone {
+            display: none;
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .become-memberTxt {
+            display: flex;
+        }
+
+        .signIn-btn {
+            display: flex;
+        }
+    }
+
+    @media (width >= 1440px) {
+        max-width: 1400px;
+    }
+
+    @media (width < 1920px) {
+        max-width: 1920px;
+    }
+}
+
+.menulogo-phone {
+    position: relative;
+    margin-left: 8px;
+
+    @media(width >= 374px) {
+        margin-left: 25px;
+    }
+
+    @media(width >= 425px) {
+        margin-left: 32px;
+    }
+
+    @media(width >= 500px) {
+        margin-left: 70px;
+    }
+
+    @media(width >= 768px) {
+        margin-left: 200px;
+    }
+
+    @media(width >= 1024px) {
+        margin-left: 330px;
+    }
+
+    @media(width >= 1247px) {
+        margin-left: 340px;
+    }
+
+
+    .header-rs {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .signIn-btn {
+        height: 50px;
+        width: 130px;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        border-radius: 50px;
+        background-color: var(--color-accent);
+    }
+
+    .signIn-btn:hover {
+        background-color: var(--color-white);
+    }
+
+    .signIn-btnTxt {
+        display: flex;
+        padding: 8px 17px;
+        color: var(--color-charcoal);
+    }
+
+    .singIn-btnIcon {
+        margin-top: 9px;
+        margin-left: -9px;
+    }
+}
+
+/* ------------------------ Header design for the other pages (END) ------------------------*/

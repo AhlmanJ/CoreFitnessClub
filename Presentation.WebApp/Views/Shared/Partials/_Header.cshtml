@@ -1,0 +1,68 @@
+﻿<section class="container">
+
+    <div class="header">
+
+        <div class="company-logo">
+            <img src="~/images/header/logotype.svg" alt="Image of a company logo" />
+        </div>
+
+        <div class="topnav">
+            <div class="menulogo-phone">
+                <a href="javascript:void(0);" class="menulogo-phone" onclick="myFunction()">
+                    <i class="fa-solid fa-bars fa-2xl" style="color: rgb(243, 243, 243);"></i>
+                </a>
+            </div>
+
+            <div id="my-links" class="active meny">
+                <a asp-controller="" asp-action="" class="nav-links">Sign In</a>
+                <a asp-controller="" asp-action="" class="nav-links">Fitness Centers</a>
+                <a asp-controller="" asp-action="" class="nav-links">Memberships</a>
+
+                <div class="nav-dropdown2">
+                    <a href="javascript:void(0);" class="training-link2" onclick="myFunction3()">Training<i class="fa-solid fa-angle-down fa-sm"></i></a>
+
+                    <div id="my-links3">
+                        <ul class="link-list2">
+                            <li><a asp-controller="" asp-action="" class="nav-links3">Personal Training</a></li>
+                            <li><a asp-controller="" asp-action="" class="nav-links3">Group Training</a></li>
+                            <li><a asp-controller="" asp-action="" class="nav-links3">Padel</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a asp-controller="" asp-action="" class="nav-links">Customer Service</a>
+                <a asp-controller="" asp-action="" class="nav-links">Store</a>
+            </div>
+        </div>
+
+        <div class="navbar">
+                <a asp-controller="" asp-action="" class="nav-links">Fitness Centers</a>
+                <a asp-controller="" asp-action="" class="nav-links">Memberships</a>
+            
+            <div class="nav-dropdown">
+                <a href="javascript:void(0);" class="training-link" onclick="myFunction2()">Training<i class="fa-solid fa-angle-down fa-sm"></i></a>
+
+                <div id="my-links2">
+                    <ul class="link-list">
+                        <li><a asp-controller="" asp-action="" class="nav-links2">Personal Training</a></li>
+                        <li><a asp-controller="" asp-action="" class="nav-links2">Group Training</a></li>
+                        <li><a asp-controller="" asp-action="" class="nav-links2">Padel</a></li>
+                    </ul>
+                </div>
+            </div>
+                <a asp-controller="" asp-action="" class="nav-links">Customer Service</a>
+                <a asp-controller="" asp-action="" class="nav-links">Store</a>
+        </div>
+
+        <div class="header-rs">
+            <div class="become-memberTxt">
+                <h2>Become Member</h2>
+            </div>
+
+            <div class="signIn-btn">
+                @await Html.PartialAsync("Partials/_SignInButton")
+            </div>
+        </div>
+    </div>
+
+</section>

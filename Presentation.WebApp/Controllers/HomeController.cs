@@ -6,7 +6,7 @@ namespace Presentation.WebApp.Controllers
     {
         public IActionResult Home()
         {
-            ViewData["Tilte"] = "Home";
+            ViewData["Title"] = "Home";
 
             return View();
         }

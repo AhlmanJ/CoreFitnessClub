@@ -7,15 +7,23 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Presentation.WebApp.styles.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/58b9aa18c1.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="@ViewData["Title"]">
  
     <div class="wrapper">
-        <header></header>
+        <header>
+            @await Html.PartialAsync("Partials/_Header")
+        </header>
+
         <main>
             @RenderBody()
         </main>
-        <footer></footer>
+
+        <footer>
+
+        </footer>
+
     </div>
 
     <script src="~/js/site.js" asp-append-version="true"></script>

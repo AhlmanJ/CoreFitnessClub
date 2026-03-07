@@ -134,7 +134,7 @@ html, body {
         display: none;
     }
 
-    .become-memberTxt {
+    .becomeMember {
         display: none;
     }
 
@@ -168,7 +168,7 @@ html, body {
             display: flex;
         }
 
-        .become-memberTxt {
+        .becomeMember {
             display: flex;
         }
 
@@ -441,9 +441,11 @@ html, body {
     }
 }
 
-.menulogo-phone {
+.menuIcon-phone {
     position: relative;
     margin-left: 8px;
+
+    &:hover i { color: var(--color-accent) !important;}
 
     @media(width >= 374px) {
         margin-left: 25px;

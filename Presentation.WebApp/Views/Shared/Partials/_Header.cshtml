@@ -1,4 +1,6 @@
-﻿<section class="container">
+﻿<!-- // Help from ChatGPT on how to change link in the Header depending on the Page/View. See row: 62. -->
+
+<section class="container">
 
     <div class="header">
 
@@ -8,8 +10,8 @@
 
         <div class="topnav">
             <div class="menulogo-phone">
-                <a href="javascript:void(0);" class="menulogo-phone" onclick="myFunction()">
-                    <i class="fa-solid fa-bars fa-2xl" style="color: rgb(243, 243, 243);"></i>
+                <a href="javascript:void(0);" class="menulogo-phone" onclick="myFunction()"> 
+                    <i class="fa-solid fa-bars fa-2xl" style="color: rgb(243, 243, 243);"></i> 
                 </a>
             </div>
 
@@ -55,8 +57,15 @@
         </div>
 
         <div class="header-rs">
-            <div class="become-memberTxt">
-                <h2>Become Member</h2>
+            <div class="becomeMember"> 
+                <!-- Help from ChatGPT on how to switch link in Header if on specific page. -->
+                @if (ViewData["ShowOurClassesLink"] as bool? == true)
+                {   
+                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
+                    
+                } else {
+                    <a asp-controller="" asp-action="" class="becomeMember-link">Become Member</a>
+                }
             </div>
 
             <div class="signIn-btn">

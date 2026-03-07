@@ -96,6 +96,8 @@ html, body {
 }
 
 .container {
+    display: flex;
+    justify-content: center;
     padding-left: 0rem;
     padding-right: 0rem;
     width: 100%;
@@ -146,17 +148,17 @@ html, body {
 
     @media (width >= 375px) {
         padding: 15px;
-        max-width: 400px;
+
     }
 
     @media (width >= 768px) {
         padding: 32px;
-        max-width: 720px;
+
     }
 
     @media (width >= 1250px) {
         padding: 32px;
-        max-width: 1180px;
+
 
         .menulogo-phone {
             display: none;
@@ -175,13 +177,7 @@ html, body {
         }
     }
 
-    @media (width >= 1440px) {
-        max-width: 1400px;
-    }
 
-    @media (width < 1920px) {
-        max-width: 1920px;
-    }
 }
 
 .menulogo-phone {
@@ -418,17 +414,14 @@ html, body {
 
     @media (width >= 375px) {
         padding: 15px;
-        max-width: 400px;
     }
 
     @media (width >= 768px) {
         padding: 32px;
-        max-width: 720px;
     }
 
     @media (width >= 1250px) {
         padding: 32px;
-        max-width: 1180px;
 
         .menulogo-phone {
             display: none;
@@ -445,14 +438,6 @@ html, body {
         .signIn-btn {
             display: flex;
         }
-    }
-
-    @media (width >= 1440px) {
-        max-width: 1400px;
-    }
-
-    @media (width < 1920px) {
-        max-width: 1920px;
     }
 }
 
@@ -519,3 +504,242 @@ html, body {
 }
 
 /* ------------------------ Header design for the other pages (END) ------------------------*/
+
+.footer-section {
+    height: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--color-lightBg);
+
+    @media (width >= 1440px) {
+        height: 660px;
+    }
+
+
+    .footer {
+        height: 80px;
+        width: 100%;
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        background-color: var(--color-darkBg);
+        background-image: url("/images/footer/dark-section-img.svg");
+
+        .footerContent-phone {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .footerContent-desktop {
+            height: 490px;
+            width: 800px;
+            display: none;
+            justify-content: center;
+
+            @media (width >= 1600px) {
+                width: 1194px;
+            }
+
+            .footer-section1 {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                .footer-logo {
+                    height: 50px;
+                    width: 214px;
+                    margin-top: 20px;
+                }
+
+                .footerH3-container {
+
+                    .footerH3-1 {
+                        font-size: 20px;
+                        color: var(--color-white);
+
+                        @media (width >= 1600px) {
+                            font-size: 28px;
+                        }
+                    }
+
+                    .footerH3-2 {
+                        font-size: 20px;
+                        text-align: end;
+                        color: var(--color-white);
+
+                        @media (width >= 1600px) {
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+
+            .footer-section2 {
+                margin-top: 38px;
+
+                .footer-line {
+                    width: 800px;
+                    opacity: 20%;
+                    border: 1px solid #D6EB31;
+
+                    @media (width >= 1600px) {
+                        width: 1194px;
+                    }
+                }
+            }
+
+            .footer-section3 {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                .footerAddress-container {
+
+                    .ourLocation-container {
+                        height: 228px;
+                        width: 372px;
+
+                        .footer-locationTxt {
+                            font-size: 16px;
+                            font-weight: 600;
+                            margin-top: 50px;
+                            color: var(--color-white);
+                            font-family: "Poppins", sans-serif;
+                        }
+
+                        .footer-txt1 {
+                            color: var(--color-white);
+                            font-size: 16px;
+                            font-weight: 400;
+                            margin-bottom: 10px;
+                            font-family: "DM Sans", sans-serif;
+                        }
+
+                        .footer-txt2 {
+                            color: var(--color-white);
+                            font-size: 16px;
+                            font-weight: 400;
+                            margin-top: -10px;
+                            margin-bottom: 30px;
+                            font-family: "DM Sans", sans-serif;
+                        }
+
+                        .footer-txt3 {
+                            color: var(--color-white);
+                            font-size: 14px;
+                            font-weight: 400;
+                            font-family: "DM Sans", sans-serif;
+                        }
+                    }
+                }
+
+                .hours-container {
+                    height: 210px;
+                    width: 210px;
+                    text-align: end;
+
+                    .hours-txt1 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin-top: 50px;
+                        color: var(--color-white);
+                        font-family: "Poppins", sans-serif;
+                    }
+
+                    .hours-txt2 {
+                        color: var(--color-white);
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                        font-family: "DM Sans", sans-serif;
+                    }
+
+                    .hours-txt3 {
+                        color: var(--color-white);
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                        font-family: "DM Sans", sans-serif;
+                    }
+
+                    .hours-txt4 {
+                        font-size: 16px;
+                        font-weight: 600;
+                        margin-top: 50px;
+                        color: var(--color-white);
+                        font-family: "Poppins", sans-serif;
+                    }
+
+                    .hours-txt5 {
+                        color: var(--color-white);
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-bottom: 10px;
+                        font-family: "DM Sans", sans-serif;
+                    }
+                }
+            }
+
+            .footer-section4 {
+                margin-top: 44px;
+
+                .footer-line {
+                    width: 800px;
+                    opacity: 20%;
+                    border: 1px solid #D6EB31;
+
+                    @media (width >= 1600px) {
+                        width: 1194px;
+                    }
+                }
+            }
+
+            .footer-section5 {
+                margin-top: 35px;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+
+                .copyright-txt {
+                    color: var(--color-white);
+                    font-size: 16px;
+                    font-weight: 400;
+                    font-family: "DM Sans", sans-serif;
+                }
+            }
+        }
+
+        @media (width >= 768px) {
+            width: 550px;
+        }
+
+        @media (width >= 1024px) {
+            width: 800px;
+        }
+
+        @media (width >= 1440px) {
+            width: 900px;
+            height: 600px;
+
+            .footerContent-phone {
+                display: none;
+            }
+
+            .footerContent-desktop {
+                display: block;
+            }
+        }
+
+        @media (width >= 1600px) {
+            width: 1320px;
+        }
+    }
+}

@@ -5,7 +5,61 @@
 
 <div class="container"> 
     <div class="home-page">
+        <section class="hero">
 
-        <div class="box"></div>
+            <div class="hero-ls">
+
+                <div class="hero-section1">
+                    <span class="bullet"></span>
+                    <h1 class="hero-h1-section1">Strong Body. Strong Mind.</h1>
+                </div>
+
+                <div class="hero-section2">
+                    <h1 class="hero-h1-section2-1">Build Strength Boost</h1>
+                    <h1 class="hero-h1-section2-2">Confidence Today!</h1>
+                </div>
+
+                <div class="hero-section3">
+                    <h2 class="hero-h2-section3-1">Begin your fitness journey with expert trainers, modern equipment, and a</h2>
+                    <h2 class="hero-h2-section3-2">supportive environment designed to help you build streangth and confidence.</h2>
+                </div>
+
+                <div class="hero-checkboxes">
+                    <div class="hero-checkboxes-ls">
+                        <div class="hero-checkbox1">
+                            <i class="fa-regular fa-circle-check" style="color: #d6eb31;"></i>
+                            <h2>Transform your body with training</h2>
+                        </div>
+                        <div class="hero-checkbox2">
+                            <i class="fa-regular fa-circle-check" style="color: #d6eb31;"></i>
+                            <h2>Build confidence through fitness</h2>
+                        </div>
+                    </div>
+
+                    <div class="hero-checkboxes-rs">
+                        <div class="hero-checkbox3">
+                            <i class="fa-regular fa-circle-check" style="color: #d6eb31;"></i>
+                            <h2>Personal training for real results</h2>
+                        </div>
+                        <div class="hero-checkbox4">
+                            <i class="fa-regular fa-circle-check" style="color: #d6eb31;"></i>
+                            <h2>Fitness tailored to your goals</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-ls-line"></div>
+
+                <div class="getStarted-btn">
+                    @await Html.PartialAsync("Partials/_GetStartedButton")
+                </div>
+                
+            </div>
+
+            <div class="hero-rs">
+                    <img src="~/images/hero/hero-image.svg" alt="Image of two people in workout clothes posing with dumbbells." />
+            </div>
+
+        </section>
     </div>
 </div>

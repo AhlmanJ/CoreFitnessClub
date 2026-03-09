@@ -903,6 +903,210 @@ html, body {
             }
         }
     }
+
+    .aboutUs-section {
+        height: 770px;
+        width: 100%;
+
+        .about-us {
+            height: 1200px;
+            width: 100%;
+
+            @media (width >= 768px) {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+            }
+
+            @media (width >= 1440px) {
+                margin-top: 73px;
+            }
+
+            @media (width >= 1600px) {
+                width: 1287px;
+            }
+
+            .about-us-ls {
+                width: 100%;
+
+                .aboutUs-img {
+                    width: 290px;
+
+                    @media (width >= 375px) {
+                        width: 345px;
+                    }
+
+                    @media (width >= 425px) {
+                        width: 395px;
+                    }
+
+                    @media (width >= 768px) {
+                        width: 369px;
+                    }
+
+                    @media (width >= 1024px) {
+                        width: 497px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 587px;
+                        width: 675px;
+                    }
+
+                    @media (width >= 1600px) {
+                        height: 587px;
+                        width: 675px;
+                    }
+                }
+            }
+
+            .about-us-rs {
+                width: 100%;
+                margin-top: -100px;
+
+                @media (width >= 1400px) {
+                    margin-top: -90px;
+                    margin-left: 30px;
+                }
+
+                .aboutUs-section1 {
+                    height: 30px;
+                    width: 108px;
+                    display: flex;
+                    margin-top: 117px;
+                    margin-bottom: 10px;
+                    border-radius: 25px;
+                    align-items: center;
+                    justify-content: space-around;
+                    background-color: var(--color-charcoal);
+
+                    @media (width >= 1600px) {
+                        margin-top: 125px;
+                    }
+
+                    .aboutUs-bullet {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        margin-left: 0px;
+                        background-color: var(--color-accent);
+                    }
+
+                    .aboutUs-section1-txt {
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin-left: -25px;
+                        color: var(--color-white);
+                        font-family: "DM Sans", sans-serif;
+                    }
+                }
+
+                .aboutUs-section2 {
+                    width: 100%;
+
+                    .aboutUs-section2-txt1 {
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-top: 0px;
+                        color: var(--color-charcoal);
+                        font-family: "Poppins", sans-serif;
+
+                        @media (width >= 768px) {
+                            font-size: 25px;
+                            margin-top: -8px;
+                        }
+
+                        @media (width >= 1440px) {
+                            font-size: 48px;
+                            margin-top: 0px;
+                        }
+                    }
+
+                    .aboutUs-section2-txt2 {
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-top: -25px;
+                        color: var(--color-charcoal);
+                        font-family: "Poppins", sans-serif;
+
+                        @media (width >= 768px) {
+                            font-size: 25px;
+                            margin-top: -30px;
+                        }
+
+                        @media (width >= 1440px) {
+                            font-size: 48px;
+                            margin-top: -65px;
+                        }
+                    }
+                }
+
+                .aboutUs-section3 {
+                    width: 100%;
+
+                    @media (width >= 1440px) {
+                        margin-top: -27px;
+                    }
+                }
+
+                .aboutUs-section4 {
+                    height: 152px;
+                    width: 100%;
+
+                    @media (width >= 1600px) {
+                        margin-top: 48px;
+                    }
+
+                    .aboutUs-section4-container {
+                        height: 152px;
+                        width: 100%;
+                        padding: 35px 20px;
+                        display: flex;
+                        align-content: center;
+                        justify-content: center;
+                        border-radius: 20px;
+                        background-color: var(--color-white);
+
+                        @media (width >= 1440px) {
+                            margin-top: 58px;
+                        }
+
+                        @media (width >= 1600px) {
+                            width: 613px;
+                            margin-top: 30px;
+                        }
+
+                        .aboutUs-section4-txtContainer {
+
+                            .aboutUs-section4-txt1 {
+                                font-size: 14px;
+
+                                @media (width >= 1024px) {
+                                    font-size: 16px;
+                                    margin-top: 8px;
+                                }
+                            }
+
+                            .aboutUs-section4-txt2, .aboutUs-section4-txt3 {
+                                font-size: 14px;
+
+                                @media (width >= 1024px) {
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        .quote-icon {
+                            height: 62.63px;
+                            width: 83px;
+                            margin-top: 5px;
+                            margin-left: -65px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .getStarted-btn {

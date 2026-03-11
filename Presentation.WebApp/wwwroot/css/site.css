@@ -908,8 +908,21 @@ html, body {
         height: 770px;
         width: 100%;
 
+        @media (width >= 768px) {
+            height: 450px;
+        }
+
+        @media (width >= 1024px) {
+            height: 500px;
+        }
+
+        @media (width >= 1440px) {
+            height: 770px;
+        }
+
+
         .about-us {
-            height: 1200px;
+            height: 770px;
             width: 100%;
 
             @media (width >= 768px) {
@@ -945,7 +958,7 @@ html, body {
                     }
 
                     @media (width >= 1024px) {
-                        width: 497px;
+                        width: 450px;
                     }
 
                     @media (width >= 1440px) {
@@ -969,40 +982,55 @@ html, body {
                     margin-left: 30px;
                 }
 
-                .aboutUs-section1 {
-                    height: 30px;
-                    width: 108px;
+                .aboutUs-section1-container {
                     display: flex;
-                    margin-top: 117px;
-                    margin-bottom: 10px;
-                    border-radius: 25px;
-                    align-items: center;
-                    justify-content: space-around;
-                    background-color: var(--color-charcoal);
+                    align-content: center;
+                    justify-content: center;
 
-                    @media (width >= 1600px) {
-                        margin-top: 125px;
+                    @media (width >= 768px) {
+                        justify-content: start;
                     }
 
-                    .aboutUs-bullet {
-                        width: 5px;
-                        height: 5px;
-                        border-radius: 50%;
-                        margin-left: 0px;
-                        background-color: var(--color-accent);
-                    }
+                    .aboutUs-section1 {
+                        height: 30px;
+                        width: 108px;
+                        display: flex;
+                        margin-top: 117px;
+                        margin-bottom: 10px;
+                        border-radius: 25px;
+                        align-items: center;
+                        justify-content: space-around;
+                        background-color: var(--color-charcoal);
 
-                    .aboutUs-section1-txt {
-                        font-size: 14px;
-                        font-weight: 600;
-                        margin-left: -25px;
-                        color: var(--color-white);
-                        font-family: "DM Sans", sans-serif;
+                        @media (width >= 1600px) {
+                            margin-top: 125px;
+                        }
+
+                        .aboutUs-bullet {
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            margin-left: 0px;
+                            background-color: var(--color-accent);
+                        }
+
+                        .aboutUs-section1-txt {
+                            font-size: 14px;
+                            font-weight: 600;
+                            margin-left: -25px;
+                            color: var(--color-white);
+                            font-family: "DM Sans", sans-serif;
+                        }
                     }
                 }
 
                 .aboutUs-section2 {
                     width: 100%;
+                    text-align: center;
+
+                    @media (width >= 768px) {
+                        text-align: start;
+                    }
 
                     .aboutUs-section2-txt1 {
                         font-size: 20px;
@@ -1104,6 +1132,262 @@ html, body {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.ourPrograms-section {
+    height: 1250px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--color-white);
+
+    @media (width >= 768px) {
+        height: 600px;
+    }
+
+    @media (width >= 1440px) {
+        height: 855px;
+    }
+
+    .ourPrograms {
+        height: 1200px;
+        width: 100%;
+        display: grid;
+        text-align: center;
+        align-content: start;
+        justify-content: center;
+
+        @media (width >= 768px) {
+            height: 600px;
+            margin-top: 40px;
+        }
+
+        @media (width >= 1024px) {
+            height: 855px;
+        }
+
+        @media (width >= 1440px) {
+            margin-top: 36px;
+            align-content: center;
+        }
+
+        .ourPrograms-section1 {
+            width: 100%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+
+            .ourPrograms-section1-container {
+                height: 30px;
+                width: 136px;
+                display: flex;
+                margin-top: 117px;
+                margin-bottom: 10px;
+                border-radius: 25px;
+                align-items: center;
+                justify-content: space-around;
+                background-color: var(--color-charcoal);
+
+                @media (width >= 768px) {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+
+                @media (width >= 1440px) {
+                    margin-top: -57px;
+                    margin-bottom: 0px;
+                }
+
+                .ourPrograms-bullet {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    margin-left: 0px;
+                    background-color: var(--color-accent);
+                }
+
+                .ourPrograms-section1-txt {
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-left: -25px;
+                    color: var(--color-white);
+                    font-family: "DM Sans", sans-serif;
+                }
+            }
+        }
+
+        .ourPrograms-section2 {
+            width: 100%;
+
+            @media (width >= 1600px) {
+                margin-bottom: -13px;
+            }
+
+            .ourPrograms-section2-txt1 {
+                font-size: 20px;
+
+                @media (width >= 768px) {
+                    font-size: 40px;
+                }
+
+                @media (width >= 1024px) {
+                    font-size: 48px;
+                }
+
+                @media (width >= 1440px) {
+                    height: 70px;
+                    margin-bottom: -4px;
+                }
+            }
+
+            .ourPrograms-section2-txt2 {
+                font-size: 20px;
+
+                @media (width >= 768px) {
+                    font-size: 40px;
+                }
+
+                @media (width >= 1024px) {
+                    font-size: 48px;
+                    margin-top: 3px;
+                }
+            }
+        }
+
+        .ourPrograms-section3 {
+            height: 100%;
+            width: 100%;
+            margin-left: 4px;
+
+            @media (width >= 425px) {
+                margin-left: 10px;
+            }
+
+            @media (width >= 768px) {
+                width: 750px;
+                margin-left: 0px;
+            }
+
+            @media (width >= 1024px) {
+                width: 950px;
+            }
+
+            @media (width >= 1440px) {
+                width: 1284px;
+            }
+
+            @media (width >= 1600px) {
+                margin-top: 43px;
+            }
+
+            .ourPrograms-img-container {
+                width: 100%;
+                display: block;
+
+                @media (width >= 768px) {
+                    width: 740px;
+                    display: flex;
+                    align-content: center;
+                    justify-content: space-around;
+                }
+
+                @media (width >= 1024px) {
+                    width: 950px;
+                }
+
+                @media (width >= 1440px) {
+                    width: 1284px;
+                }
+
+
+                .ourPrograms-img1 {
+                    height: 300px;
+                    width: 280px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    @media (width >= 768px) {
+                        height: 300px;
+                        width: 220px;
+                    }
+
+                    @media (width >= 1024px) {
+                        width: 300px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 400px;
+                        width: 400px;
+                    }
+                }
+
+                .ourPrograms-img2 {
+                    height: 300px;
+                    width: 280px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    @media (width >= 768px) {
+                        height: 300px;
+                        width: 220px;
+                    }
+
+                    @media (width >= 1024px) {
+                        width: 300px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 400px;
+                        width: 400px;
+                    }
+                }
+
+                .ourPrograms-img3 {
+                    height: 300px;
+                    width: 280px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    @media (width >= 768px) {
+                        height: 300px;
+                        width: 220px;
+                    }
+
+                    @media (width >= 1024px) {
+                        width: 300px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 400px;
+                        width: 400px;
+                    }
+                }
+            }
+        }
+
+        .ourPrograms-section4 {
+            display: block;
+            text-align: center;
+
+            @media (width >= 1024px) {
+                display: flex;
+                margin-top: 20px;
+                align-content: center;
+                justify-content: center;
+            }
+
+            @media (width >= 1440px) {
+                margin-top: 43px;
+            }
+
+            .ourPrograms-navlink {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-black);
+                text-decoration: underline;
+                font-family: "DM Sans", sans-serif;
             }
         }
     }

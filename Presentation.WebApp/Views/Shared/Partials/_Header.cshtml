@@ -5,7 +5,7 @@
     <div class="header">
 
         <div class="company-logo">
-            <a asp-controller="Home" asp-action="Home" class="nav-links"><img src="~/images/header/logotype.svg" alt="Image of a company logo" /></a>
+            <a asp-controller="Home" asp-action="Index" class="nav-links"><img src="~/images/header/logotype.svg" alt="Image of a company logo" /></a>
         </div>
 
         <div class="topnav">
@@ -18,7 +18,7 @@
             <div id="my-links" class="active meny">
                 <a asp-controller="" asp-action="" class="nav-links">Sign In</a>
                 <a asp-controller="" asp-action="" class="nav-links">Fitness Centers</a>
-                <a asp-controller="" asp-action="" class="nav-links">Memberships</a>
+                <a asp-controller="Memberships" asp-action="Index" class="nav-links">Memberships</a>
 
                 <div class="nav-dropdown2">
                     <a href="javascript:void(0);" class="training-link2" onclick="myFunction3()">Training<i class="fa-solid fa-angle-down fa-sm"></i></a>
@@ -39,7 +39,7 @@
 
         <div class="navbar">
                 <a asp-controller="" asp-action="" class="nav-links">Fitness Centers</a>
-                <a asp-controller="" asp-action="" class="nav-links">Memberships</a>
+            <a asp-controller="Memberships" asp-action="Index" class="nav-links">Memberships</a>
             
             <div class="nav-dropdown">
                 <a href="javascript:void(0);" class="training-link" onclick="myFunction2()">Training<i class="fa-solid fa-angle-down fa-sm"></i></a>

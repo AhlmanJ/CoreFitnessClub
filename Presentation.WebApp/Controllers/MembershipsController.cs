@@ -2,11 +2,11 @@
 
 namespace Presentation.WebApp.Controllers
 {
-    public class HomeController : Controller
+    public class MembershipsController : Controller
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Home";
+            ViewData["Title"] = "Memberships";
 
             return View();
         }

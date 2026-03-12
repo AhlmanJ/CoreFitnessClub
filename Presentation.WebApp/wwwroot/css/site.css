@@ -349,6 +349,7 @@ html, body {
 }
 
 .signIn-btn:hover {
+    text-decoration: underline;
     background-color: var(--color-white);
 }
 
@@ -1436,6 +1437,7 @@ html, body {
 }
 
 .getStarted-btn:hover {
+    text-decoration: underline;
     background-color: var(--color-white);
 }
 

@@ -58,14 +58,7 @@
 
         <div class="header-rs">
             <div class="becomeMember"> 
-                <!-- Help from ChatGPT on how to switch link in Header if on specific page. -->
-                @if (ViewData["ShowOurClassesLink"] as bool? == true)
-                {   
-                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
-                    
-                } else {
                     <a asp-controller="" asp-action="" class="becomeMember-link">Become Member</a>
-                }
             </div>
 
             <div class="signIn-btn">

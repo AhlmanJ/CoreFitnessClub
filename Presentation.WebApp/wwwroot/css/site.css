@@ -120,7 +120,7 @@ html, body {
     }
 }
 
-.Home .header {
+.header {
     width: 100%;
     height: 100px;
     padding: 0px;
@@ -362,130 +362,6 @@ html, body {
     margin-top: 9px;
     margin-left: -9px;
 }
-
-/* ----------------- Header design for the other pages -----------------*/
-
-.Memberships .header, .CustomerService .header, .MyAccount .header, .SignIn .header, .SignUp .header, .SetPassword .header, .NotFound .header {
-    width: 100%;
-    height: 100px;
-    padding: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 25px;
-    background-color: var(--color-darkBg);
-    background-image: url("/images/header/dark-section-img.svg");
-
-    .navbar {
-        display: none;
-    }
-
-    .become-memberTxt {
-        display: none;
-    }
-
-    .signIn-btn {
-        display: none;
-    }
-
-    @media (width <= 374px) {
-        padding: 0px;
-    }
-
-    @media (width >= 375px) {
-        padding: 15px;
-    }
-
-    @media (width >= 768px) {
-        padding: 32px;
-    }
-
-    @media (width >= 1250px) {
-        padding: 32px;
-
-        .menulogo-phone {
-            display: none;
-        }
-
-        .navbar {
-            display: flex;
-        }
-
-        .become-memberTxt {
-            display: flex;
-        }
-
-        .signIn-btn {
-            display: flex;
-        }
-    }
-}
-
-.menuIcon-phone {
-    position: relative;
-    margin-left: 8px;
-
-    &:hover i { color: var(--color-accent) !important;}
-
-    @media(width >= 374px) {
-        margin-left: 25px;
-    }
-
-    @media(width >= 425px) {
-        margin-left: 32px;
-    }
-
-    @media(width >= 500px) {
-        margin-left: 70px;
-    }
-
-    @media(width >= 768px) {
-        margin-left: 200px;
-    }
-
-    @media(width >= 1024px) {
-        margin-left: 330px;
-    }
-
-    @media(width >= 1247px) {
-        margin-left: 340px;
-    }
-
-
-    .header-rs {
-        width: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .signIn-btn {
-        height: 50px;
-        width: 130px;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        border-radius: 50px;
-        background-color: var(--color-accent);
-    }
-
-    .signIn-btn:hover {
-        background-color: var(--color-white);
-    }
-
-    .signIn-btnTxt {
-        display: flex;
-        padding: 8px 17px;
-        color: var(--color-charcoal);
-    }
-
-    .singIn-btnIcon {
-        margin-top: 9px;
-        margin-left: -9px;
-    }
-}
-
-/* ------------------------ Header design for the other pages (END) ------------------------*/
 
 .home-page {
     width: 100%;
@@ -1123,7 +999,6 @@ html, body {
         }
     }
 
-
     .ourPrograms-section {
         height: 1250px;
         width: 100%;
@@ -1548,6 +1423,7 @@ html, body {
         }
     }
 }
+
 .getStarted-btn {
     height: 50px;
     width: 168px;

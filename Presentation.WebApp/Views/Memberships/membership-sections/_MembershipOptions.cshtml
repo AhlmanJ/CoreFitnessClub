@@ -1,0 +1,46 @@
+﻿<div class="container">
+    
+    <div class="_membershipOptions-Content">
+
+        <div class="membershipOptions-section1">
+            <h3 class="membershipOptions-section1-txt">Our Membership Offers</h3>
+        </div>
+
+        <div class="membershipOptions-section2">
+            @await Html.PartialAsync("membership-sections/section-partials/_MembershipOptionsCard")
+            @await Html.PartialAsync("membership-sections/section-partials/_MembershipOptionsCard")
+            @await Html.PartialAsync("membership-sections/section-partials/_MembershipCallUsCard")
+        </div>
+
+        <div class="callUsCard2">
+            <div class="callUsCard-getYourMembership">
+                Get Your Membership
+            </div>
+
+            <div class="callUsCard-phonenr">
+                Call Us At: +(46) 8 410 521 00
+            </div>
+        </div>
+
+        <div class="membershipOptions-section3">
+            <div class="membershipOptions-listItems-container">
+                <div class="membershipOptions-listItems1">
+                    <div class="clendar-icon"><i class="fa-regular fa-calendar-check" style="color: #d6eb31;"></i></div>
+                    <p class="listItems-text">Get 30 day free trial</p>
+                </div>
+
+                <div class="membershipOptions-listItems2">
+                    <div><i class="fa-regular fa-credit-card" style="color: #d6eb31;"></i></div>
+                    <p class="listItems-text">No any hidden fees pay</p>
+                </div>
+
+                <div class="membershipOptions-listItems3">
+                    <div><i class="fa-regular fa-clock" style="color: #d6eb31;"></i></div>
+                    <p class="listItems-text">You can cancel anytime</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

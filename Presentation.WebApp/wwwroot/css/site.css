@@ -15,6 +15,7 @@
     --color-black: #000000;
     --color-red: #E50004;
     --color-charcoal: #27252F;
+    --color-cardBlack: #080517;
 }
 
 a {
@@ -362,6 +363,33 @@ html, body {
 .singIn-btnIcon{
     margin-top: 9px;
     margin-left: -9px;
+}
+
+.getStarted-btn {
+    height: 50px;
+    width: 168px;
+    margin-top: 44px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 50px;
+    background-color: var(--color-accent);
+}
+
+.getStarted-btn:hover {
+        text-decoration: underline;
+        background-color: var(--color-white);
+    }
+
+.getStarted-btnTxt {
+    display: flex;
+    padding: 8px 17px;
+    color: var(--color-charcoal);
+}
+
+.getStarted-btnIcon {
+    margin-top: 9px;
+    margin-left: -11px;
 }
 
 .home-page {
@@ -1425,32 +1453,621 @@ html, body {
     }
 }
 
-.getStarted-btn {
+.membership-page {
+    height: 100%;
+    width: 100%;
+    margin-top: 24px;
+
+    .membershipPage-section1 {
+        height: 1780px;
+        width: 100%;
+
+        @media (width >= 768px) {
+            height: 900px;
+        }
+
+        @media (width >= 1440px) {
+            height: 950px;
+        }
+
+        ._membershipOptions-Content {
+            height: 100%;
+            width: 100%;
+            display: block;
+
+            @media (width >= 768px) {
+                width: 650px;
+            }
+
+            @media (width >= 1024px) {
+                width: 720px;
+            }
+
+            @media (width >= 1440px) {
+                height: 771px;
+                width: 1265px;
+                display: grid;
+                align-content: center;
+            }
+
+            .membershipOptions-section1 {
+                height: 100%;
+                width: 100%;
+                display: grid;
+                text-align: center;
+                align-content: start;
+
+                @media (width >= 1440px) {
+                    height: 207px;
+                    width: 100%;
+                    display: grid;
+                    margin-top: 83px;
+                    text-align: center;
+                    align-content: start;
+                }
+
+                .membershipOptions-section1-txt {
+                    font-size: 25px;
+
+                    @media (width >= 768px) {
+                        font-size: 35px;
+                    }
+
+                    @media (width >= 1024px) {
+                        font-size: 40px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 207px;
+                        width: 100%;
+                        display: grid;
+                        font-size: 48px;
+                        text-align: center;
+                        align-content: center;
+                    }
+                }
+            }
+
+            .membershipOptions-section2 {
+                height: 100%;
+                width: 100%;
+                margin-top: 20px;
+                display: block;
+
+                @media (width >= 768px) {
+                    height: 612px;
+                    display: flex;
+                    margin-top: 20px;
+                    align-content: center;
+                    justify-content: space-between;
+                }
+
+                @media (width >= 1440px) {
+                    margin-top: 0px;
+                }
+
+                .membershipCard-container {
+                    height: 612px;
+                    width: 300px;
+                    margin-bottom: 50px;
+                    border-radius: 20px;
+                    background-color: var(--color-white);
+
+                    @media (width >= 375px) {
+                        margin-left: 25px;
+                    }
+
+                    @media (width >= 425px) {
+                        margin-left: 45px;
+                    }
+
+                    @media (width >= 768px) {
+                        margin-left: 0px;
+                    }
+
+                    @media (width >= 1024px) {
+                        margin-left: 0px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 612px;
+                        width: 404px;
+                        margin-bottom: 0px;
+                        border-radius: 20px;
+                        background-color: var(--color-white);
+                    }
+
+                    .card-section1 {
+                        height: 130px;
+                        width: 100%;
+                        display: grid;
+                        margin-left: 10px;
+                        align-content: center;
+
+                        @media (width >= 1440px) {
+                            margin-left: 43px;
+                        }
+
+                        .cardImage-container {
+                            height: 50px;
+                            width: 50px;
+                            display: grid;
+                            align-content: center;
+                            justify-content: center;
+                            border-radius: 50px;
+                            background-color: var(--color-accent);
+                        }
+                    }
+
+                    .card-section2 {
+                        width: 100%;
+                        margin-left: 10px;
+
+                        @media (width >= 1440px) {
+                            margin-left: 43px;
+                        }
+
+                        .card-h3 {
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: var(--color-cardBlack);
+                            font-family: "Poppins", sans-serif;
+                        }
+                    }
+
+                    .card-section3 {
+                        height: 36px;
+                        width: 100%;
+                        display: grid;
+                        align-content: center;
+
+                        @media (width >= 1440px) {
+                            margin-left: 43px;
+                        }
+
+                        .card-section3-content {
+                            width: 300px;
+                            border: 1px solid #E6E6E6;
+
+                            @media (width >= 1440px) {
+                                width: 310px;
+                            }
+                        }
+                    }
+
+                    .card-section4 {
+                        height: 53px;
+                        width: 100%;
+                        display: grid;
+                        margin-left: 10px;
+                        align-content: center;
+
+                        @media (width >= 1440px) {
+                            margin-left: 43px;
+                        }
+
+                        .rb {
+                            display: block;
+                        }
+                    }
+
+                    .card-section5 {
+                        height: 163px;
+                        width: 100%;
+                        display: flex;
+                        margin-left: 10px;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        @media (width >= 1440px) {
+                            margin-left: 43px;
+                        }
+
+                        .card-section5-checkboxes {
+                            height: 38px;
+                            width: 310px;
+                            display: flex;
+                            align-items: center;
+
+                            .check-container {
+                                height: 14px;
+                                width: 14px;
+                                display: flex;
+                                margin-right: 8px;
+                                align-items: center;
+                                border-radius: 20px;
+                                background-color: var(--color-accent);
+                            }
+                        }
+                    }
+
+                    .price-card {
+                        height: 230px;
+                        width: 300px;
+                        margin-top: -35px;
+                        margin-bottom: 30px;
+                        border-radius: 20px;
+                        background-color: var(--color-cardBlack);
+
+                        @media (width >= 1440px) {
+                            height: 190px;
+                            width: 380px;
+                            margin-top: -28px;
+                            margin-left: 13px;
+                            margin-bottom: 0px;
+                            border-radius: 20px;
+                            background-color: var(--color-cardBlack);
+                        }
+
+                        .price-card-section1 {
+                            height: 116px;
+                            display: flex;
+                            margin-top: 30px;
+                            margin-left: 15px;
+                            margin-right: 14px;
+                            align-content: center;
+                            justify-content: space-between;
+
+
+                            @media (width >= 1440px) {
+                                height: 116px;
+                                display: flex;
+                                margin-top: 30px;
+                                margin-left: 15px;
+                                margin-right: 14px;
+                                align-content: center;
+                                justify-content: space-between;
+                            }
+
+
+                            .price-card-ls {
+                                width: 190px;
+                                margin-top: 5px;
+
+                                .card-price {
+                                    font-size: 25px;
+                                    font-weight: 700;
+                                    color: var(--color-white);
+                                    font-family: "Poppins", sans-serif;
+                                }
+
+                                .priceTxt-monthly {
+                                    font-size: 12px;
+                                    font-weight: 500;
+                                    margin-left: -1px;
+                                    color: var(--color-white);
+                                    font-family: "DM Sans", sans-serif;
+                                }
+
+                                .priceTxt-classes {
+                                    margin-top: -24px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: var(--color-white);
+                                    font-family: "DM Sans", sans-serif;
+                                }
+                            }
+
+                            .price-card-rs {
+                                width: 190px;
+                                display: flex;
+                                margin-top: 35px;
+                                align-content: center;
+                                justify-content: end;
+                            }
+                        }
+
+                        .price-card-section2 {
+                            width: 100%;
+                            margin-top: 45px;
+
+                            @media (width >= 1440px) {
+                                margin-top: 0px;
+                                margin-left: 15px;
+                            }
+
+                            .priceCard-line {
+                                width: 300px;
+                                border: 1px solid;
+                                border-color: var(--color-charcoal);
+
+                                @media (width >= 1440px) {
+                                    width: 350px;
+                                }
+                            }
+                        }
+
+                        .price-card-section3 {
+                            margin-top: 19px;
+
+                            .priceCard-bottomTxt {
+                                font-size: 16px;
+                                font-weight: 400;
+                                text-align: center;
+                                color: var(--color-white);
+                                font-family: "DM Sans", sans-serif;
+                            }
+                        }
+                    }
+                }
+
+                .callUsCard-container {
+                    height: 312px;
+                    width: 300px;
+                    border-radius: 20px;
+                    background-color: var(--color-cardBlack);
+
+                    @media (width >= 375px) {
+                        margin-left: 25px;
+                    }
+
+                    @media (width >= 425px) {
+                        margin-left: 45px;
+                    }
+
+                    @media (width >= 768px) {
+                        display: none;
+                        margin-left: 0px;
+                    }
+
+                    @media (width >= 1440px) {
+                        height: 612px;
+                        width: 404px;
+                        display: block;
+                        border-radius: 20px;
+                        background-color: var(--color-cardBlack);
+                    }
+
+                    .callUsCard-imgContainer {
+                        z-index: 0;
+                        display: none;
+                        position: absolute;
+
+                        @media (width >= 1440px) {
+                            display: block;
+                        }
+                    }
+
+                    .callUsCard-section1 {
+                        height: 90px;
+                        display: grid;
+                        font-size: 18px;
+                        margin-top: 8px;
+                        font-weight: 600;
+                        text-align: center;
+                        align-content: center;
+                        color: var(--color-white);
+                        font-family: "Poppins", sans-serif;
+                    }
+
+                    .callUsCard-section2 {
+                        height: 90px;
+                        font-size: 16px;
+                        font-weight: 400;
+                        margin-top: -20px;
+                        text-align: center;
+                        color: var(--color-white);
+                        font-family: "DM Sans", sans-serif;
+
+                        .rb {
+                            display: block;
+                        }
+                    }
+
+                    .callUsCard-section3 {
+                        height: 13px;
+                        width: 100%;
+                        margin-top: -23px;
+                        margin-left: 10px;
+
+                        @media (width >= 1440px) {
+                            height: 13px;
+                            width: 100%;
+                            margin-top: -23px;
+                            margin-left: 43px;
+                        }
+
+
+                        .callUsCard-line {
+                            width: 280px;
+                            border: 1px solid #27252F;
+
+                            @media (width >= 1440px) {
+                                width: 323px;
+                            }
+                        }
+                    }
+
+                    .callUsCard-section4 {
+                        height: 53px;
+                        font-size: 20px;
+                        font-weight: 800;
+                        margin-top: 8px;
+                        text-align: center;
+                        color: var(--color-white);
+                        font-family: "Poppins", sans-serif;
+                    }
+
+                    .callUsCard-section5 {
+                        height: 100px;
+                        display: flex;
+                        margin-top: 15px;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .callUsCard2 {
+                height: 100px;
+                width: 650px;
+                display: none;
+                margin-top: 50px;
+                align-items: center;
+                justify-content: space-around;
+                border-radius: 20px;
+                background-color: var(--color-cardBlack);
+
+                @media (width >= 768px) {
+                    display: flex;
+                }
+
+                @media (width >= 1024px) {
+                    width: 720px;
+                }
+
+                @media (width >= 1440px) {
+                    display: none;
+                }
+
+                .callUsCard-getYourMembership {
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-align: center;
+                    color: var(--color-white);
+                    font-family: "Poppins", sans-serif;
+                }
+
+                .callUsCard-phonenr {
+                    font-size: 20px;
+                    font-weight: 800;
+                    text-align: center;
+                    color: var(--color-white);
+                    font-family: "Poppins", sans-serif;
+                }
+            }
+
+            .membershipOptions-section3 {
+                width: 100%;
+                display: block;
+
+                @media (width >= 768px) {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .membershipOptions-listItems-container {
+                    display: none;
+                    margin-top: 0px;
+                    align-content: center;
+                    justify-content: space-around;
+
+                    @media (width >= 375px) {
+                        display: flex;
+                        margin-top: 10px;
+                        margin-left: 25px;
+                    }
+
+                    @media (width >= 425px) {
+                        margin-left: 45px;
+                    }
+
+                    @media (width >= 768px) {
+                        width: 650px;
+                        margin-left: 0px;
+                    }
+
+                    @media (width >= 1024px) {
+                        width: 720px;
+                    }
+
+                    @media (width >= 1440px) {
+                        width: 760px;
+                        margin-top: 46px;
+                        margin-left: -10px;
+                        align-content: center;
+                        justify-content: space-around;
+                    }
+
+
+                    .listItems-text {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: var(--color-black);
+                        font-family: "DM Sans", sans-serif;
+                    }
+
+                    .membershipOptions-listItems1 {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .membershipOptions-listItems2 {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .membershipOptions-listItems3 {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.joinNow-btn {
     height: 50px;
-    width: 168px;
-    margin-top: 44px;
+    width: 135px;
     display: grid;
     align-content: center;
     justify-content: center;
     border-radius: 50px;
+    cursor: pointer;
     background-color: var(--color-accent);
 }
 
-.getStarted-btn:hover {
+.joinNow-btn:hover {
     text-decoration: underline;
     background-color: var(--color-white);
 }
 
-.getStarted-btnTxt {
+.joinNow-btnTxt {
     display: flex;
-    padding: 8px 17px;
+    padding: 5px 3px;
+    color: var(--color-white);
     color: var(--color-charcoal);
 }
 
-.getStarted-btnIcon {
-    margin-top: 9px;
-    margin-left: -11px;
+.joinNow-btnIcon {
+    margin-top: 7px;
+    margin-left: 2px;
 }
+
+/*--*/
+
+.callUsToday-btn {
+    height: 50px;
+    width: 175px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--color-accent);
+}
+
+.callUsToday-btn:hover {
+    text-decoration: underline;
+    background-color: var(--color-white);
+}
+
+.callUsToday-btnTxt {
+    display: flex;
+    padding: 5px 3px;
+    color: var(--color-white);
+    color: var(--color-charcoal);
+}
+
+.callUsToday-btnIcon {
+    margin-top: 7px;
+    margin-left: 2px;
+}
+
 
 .footer-section {
     height: 140px;

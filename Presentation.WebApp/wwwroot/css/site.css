@@ -2342,7 +2342,7 @@ html, body {
                     }
 
                     @media (width >= 1440px) {
-                        margin-left: 0px;
+                        margin-left: 27px;
                     }
 
                     .faqContent-dot {
@@ -2376,11 +2376,12 @@ html, body {
                         text-align: center;
 
                         @media (width >= 768px) {
-                            font-size: 48px;
+                            font-size: 47px;
                         }
 
                         @media (width >= 1440px) {
                             text-align: start;
+                            margin-left: 27px;
                         }
                     }
                 }

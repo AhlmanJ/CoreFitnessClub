@@ -40,3 +40,25 @@ function myFunction2() {
 };
 
 // ---------------------------------------------------
+
+
+
+// ----------------- Accordion -----------------------
+
+const items = document.querySelectorAll('.item');
+
+items.forEach(item => {
+    item.addEventListener('click', () => {
+        const active = document.querySelector('.item.active');
+
+        if (active === item) {
+            item.classList.remove('active');
+        }
+        else {
+            active?.classList.remove('active');
+            item.classList.add('active');
+        }
+    });
+});
+
+// ---------------------------------------------------

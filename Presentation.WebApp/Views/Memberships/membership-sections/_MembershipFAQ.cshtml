@@ -1,0 +1,22 @@
+﻿<div class="container">
+    <div class="faqContent-container">
+        <div class="faqContent-ls">
+            <img src="~/images/membership-page/faq-section/faqs-image 1.svg" alt="An image of a person lifting a barbell." class="faq-img"/>
+        </div>
+
+        <div class="faqContent-rs">
+            <div class="faqContentRs-section1">
+                <span class="faqContent-dot"></span>
+                <p class="faqContentRs-section1-txt">Frequently Asked Questions</p>
+            </div>
+
+            <div class="faqContentRs-section2-container">
+                <h3 class="faqContentRs-section2-txt">Common questions about gym and training</h3>
+            </div>
+
+            <div class="accordionSection-container">
+            @await Html.PartialAsync("Partials/_Accordion")
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,16 @@
-﻿<div class="container">
+﻿@{
+    ViewData["Title"] = "Customer Service";
+}
+
+<div class="container">
     <div class="customerService-page">
 
         <div class="customerService-section1">
             <h3 class="customerService-section1-txt">Customer Service</h3>
         </div>
 
+        <div class="customerService-section2">
+            @await Html.PartialAsync("customerService-sections/_contact-form")
+        </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Presentation.WebApp.ViewModels;
 
 namespace Presentation.WebApp.Controllers
 {
@@ -9,6 +10,16 @@ namespace Presentation.WebApp.Controllers
             ViewData["Title"] = "CustomerService";
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactFormViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Index",model);
+
+
+            return RedirectToAction("Index");
         }
     }
 }

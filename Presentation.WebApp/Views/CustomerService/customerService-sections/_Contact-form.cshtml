@@ -1,0 +1,99 @@
+﻿@model ContactFormViewModel
+
+<div class="contactForm-container">
+    <div class="contactForm-ls">
+        <img src="~/images/customerService-page/contact-us-image 1.svg" alt="A picture of a woman exercising." class="contactForm-img" />
+        <div class="contactInfo-container">
+
+            <div class="contactInfo-wrapper">
+                <div class="icon-wrapper">
+                    <img src="~/images/customerService-page/phone-icon.svg" alt="A phone icon" />
+                </div>
+                <div class="contactInfo-textWrapper">
+                    <h3 class="contactInfo-txt1">Phone Number</h3>
+                    <p class="contactInfo-txt2">+(46) 8 410 521 00</p>
+                </div>
+            </div>
+
+            <div class="contactInfo-wrapper">
+                <div class="icon-wrapper">
+                    <img src="~/images/customerService-page/mail-icon.svg" alt="A mail icon" />
+                </div>
+                <div class="contactInfo-textWrapper">
+                    <h3 class="contactInfo-txt1">Email Address</h3>
+                    <p class="contactInfo-txt2">info@corefitness.se</p>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+
+    <div class="contactForm-rs">
+        <div class="formRs-wrapper">
+            <div class="contactForm-rs-section1">
+                <h3 class="contactForm-rs-section1Txt">
+                    Contact Us Today
+                </h3>
+            </div>
+
+            <div class="contactForm-rs-section2">
+                <p class="contactForm-rs-section2Txt">
+                    Ready to begin your fitness journey? Contact GymPro today and let our expert trainers guide you with the right program and support.
+                </p>
+            </div>
+
+            <div class="contactForm-rs-section3">
+                <form asp-action="Contact" method="post" novalidate>
+                
+                    <div class="contactForm-section1">
+                        <div class="placeholder-wrapper">
+                            <label class="label" asp-for="FirstName">First Name *</label>
+                            <input class="input" asp-for="FirstName">
+                            <span asp-validation-for="FirstName"></span>
+                        </div>
+
+                        <div class="placeholder-wrapper">
+                            <label class="label" asp-for="LastName">Last Name *</label>
+                            <input class="input" asp-for="LastName">
+                            <span asp-validation-for="LastName"></span>
+                        </div>
+                    </div>
+
+                    <div class="contactForm-section2">
+                        <div class="placeholder-wrapper">
+                            <label class="label" asp-for="Email">Email Address *</label>
+                            <input class="input" asp-for="Email">
+                            <span asp-validation-for="Email"></span>
+                        </div>
+
+                        <div class="placeholder-wrapper">
+                            <label class="label" asp-for="Phonenumber">Phone Number</label>
+                            <input class="input" asp-for="Phonenumber">
+                            <span asp-validation-for="Phonenumber"></span>
+                        </div>
+                    </div>
+
+                    <div class="contactForm-section3">
+                        <div class="placeholder-wrapper">
+                            <label class="label" asp-for="Message">Message *</label>
+                            <input class="message-input" asp-for="Message">
+                            <span asp-validation-for="Message"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="contactForm-submitBtn">
+                    
+                        <div class="contactForm-submitBtnTxt">Submit Message</div>
+                    
+                        <div class="contactForm-btnIcon">
+                            <i class="fa-solid fa-angle-right" style="color: #27252f;"></i>
+                        </div>
+
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

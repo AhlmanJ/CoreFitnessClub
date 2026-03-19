@@ -2696,6 +2696,7 @@ html, body {
 
         @media (width >= 1440px) {
             height: 911px;
+            margin-bottom: 95px;
             align-content: center;
         }
 
@@ -2711,7 +2712,6 @@ html, body {
                 height: 786px;
                 width: 100%;
             }
-
 
             @media (width >= 1440px) {
                 width: 1320px;
@@ -3012,6 +3012,169 @@ html, body {
                             font-size: 22px;
                             margin-left: 18px;
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    .customerService-section3 {
+        height: 890px;
+        width: 100%;
+
+        @media (width >= 375px) {
+            margin-top: 30px;
+        }
+
+        @media (width >= 425px) {
+            margin-top: 30px;
+        }
+
+        @media (width >= 1024px) {
+            height: 1650px;
+        }
+
+        @media (width >= 1440px) {
+            height: 830px;
+        }
+
+        .faqContent-container {
+            display: block;
+            align-content: center;
+
+            @media (width >= 768px) {
+                height: 562px;
+            }
+
+            @media (width >= 1024px) {
+                height: 800px;
+                margin-top: 40px;
+            }
+
+            @media (width >= 1440px) {
+                height: 870px;
+                display: flex;
+                margin-top: -30px;
+                align-content: center;
+                justify-content: space-between;
+            }
+
+            .faqContent-ls {
+                height: 100%;
+                width: 500px;
+                display: none;
+
+                @media (width >= 1024px) {
+                    width: 660px;
+                    display: block;
+                }
+            }
+
+            .faqContent-rs {
+                height: 100%;
+                width: 320px;
+                display: block;
+                margin: 0px 10px;
+
+                @media (width >= 768px) {
+                    height: 100%;
+                    width: 660px;
+                    margin: 0px 0px;
+                }
+
+                @media (width >= 1440px) {
+                    height: 100%;
+                    width: 660px;
+                }
+
+                @media (width >= 1600px) {
+                    margin-left: 0px;
+                }
+
+                .faqContentRs-section1 {
+                    height: 30px;
+                    width: 233px;
+                    display: flex;
+                    margin-top: 0px;
+                    margin-left: 47px;
+                    margin-bottom: 10px;
+                    border-radius: 25px;
+                    align-items: center;
+                    justify-content: space-around;
+                    background-color: var(--color-charcoal);
+
+                    @media (width >= 425px) {
+                        margin-left: 43px;
+                    }
+
+                    @media (width >= 768px) {
+                        margin-left: 210px;
+                    }
+
+                    @media (width >= 1024px) {
+                        margin-left: 213px;
+                    }
+
+                    @media (width >= 1440px) {
+                        margin-left: 27px;
+                    }
+
+                    .faqContent-dot {
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        margin-left: 0px;
+                        background-color: var(--color-accent);
+                    }
+
+                    .faqContentRs-section1-txt {
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin-left: -25px;
+                        color: var(--color-white);
+                        font-family: "DM Sans", sans-serif;
+                    }
+                }
+
+                .faqContentRs-section2-container {
+                    line-height: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+
+                    @media (width >= 768px) {
+                        line-height: 65px;
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                    }
+
+                    .faqContentRs-section2-txt {
+                        font-size: 18px;
+                        text-align: center;
+
+                        @media (width >= 768px) {
+                            font-size: 47px;
+                        }
+
+                        @media (width >= 1440px) {
+                            text-align: start;
+                            margin-left: 27px;
+                        }
+                    }
+                }
+
+                .accordionSection-container {
+                    margin-top: 30px;
+
+                    @media (width >= 768px) {
+                        margin-top: 5px;
+                    }
+
+                    @media (width >= 1024px) {
+                        margin-top: 5px;
+                    }
+
+                    @media (width >= 1440px) {
+                        margin-top: -40px;
                     }
                 }
             }

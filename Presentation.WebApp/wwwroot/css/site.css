@@ -134,13 +134,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: 25px 25px 25px 25px;
+    border-radius: 25px 25px 0 0;
     background-color: var(--color-darkBg);
     background-image: url("/images/header/dark-section-img.svg");
-
-    @media (width >= 768px) {
-        border-radius: 25px 25px 0 0;
-    }
 
     .navbar {
         display: none;
@@ -389,6 +385,19 @@ html, body {
     justify-content: center;
     border-radius: 50px;
     background-color: var(--color-accent);
+    margin-left: 60px;
+
+    @media (width >= 375px) {
+        margin-left: 85px;
+    }
+
+    @media (width >= 425px) {
+        margin-left: 110px;
+    }
+
+    @media (width >= 768px) {
+        margin-left: 0px;
+    }
 }
 
     .getStarted-btn:hover {
@@ -632,7 +641,7 @@ html, body {
     .hero {
         height: 756px;
         width: 100%;
-        display: none;
+        display: flex;
         align-content: center;
         justify-content: space-around;
         background-position-y: -100px;
@@ -643,10 +652,6 @@ html, body {
 
         .hero-rs {
             display: none;
-        }
-
-        @media (width >= 768px) {
-            display: flex;
         }
 
         @media (width >= 1440px) {
@@ -665,11 +670,24 @@ html, body {
                 width: 215px;
                 display: flex;
                 margin-top: 117px;
+                margin-left: 30px;
                 margin-bottom: 10px;
                 border-radius: 25px;
                 align-items: center;
                 justify-content: space-evenly;
                 background-color: var(--color-charcoal);
+
+                @media (width >= 375px) {
+                    margin-left: 65px;
+                }
+
+                @media (width >= 425px) {
+                    margin-left: 90px;
+                }
+
+                @media (width >= 768px) {
+                    margin-left: 0px;
+                }
 
                 .dot {
                     width: 5px;
@@ -689,14 +707,79 @@ html, body {
             }
 
             .hero-h1-section2-1 {
+                font-size: 25px;
+                margin-left: 10px;
+
+                @media (width >= 375px) {
+                    margin-left: 40px;
+                }
+
+                @media (width >= 425px) {
+                    margin-left: 65px;
+                }
+
+                @media (width >= 768px) {
+                    font-size: 54px;
+                    margin-left: 0px;
+                }
             }
 
             .hero-h1-section2-2 {
-                margin-top: -18px;
+                font-size: 25px;
+                margin-top: -10px;
+                margin-left: 15px;
+
+                @media (width >= 375px) {
+                    margin-left: 50px;
+                }
+
+                @media (width >= 425px) {
+                    margin-left: 75px;
+                }
+
+                @media (width >= 768px) {
+                    font-size: 54px;
+                    margin-top: -18px;
+                    margin-left: 0px;
+                }
             }
 
             .hero-section3 {
+                width: 280px;
+                max-width: 600px;
                 margin-top: 18px;
+                text-align: center;
+
+                @media (width >= 375px) {
+                    width: 310px;
+                    margin-left: 10px;
+                }
+
+                @media (width >= 420px) {
+                    width: 350px;
+                }
+
+                @media (width >= 768px) {
+                    width: 750px;
+                    margin-left: 0px;
+                    text-align: start;
+                }
+
+                .hero-h2-section3-1 {
+                    font-size: 14px;
+
+                    @media (width >= 768px) {
+                        font-size: 16px;
+                    }
+                }
+
+                .hero-h2-section3-2 {
+                    font-size: 14px;
+
+                    @media (width >= 768px) {
+                        font-size: 16px;
+                    }
+                }
             }
 
             .hero-checkboxes {
@@ -704,7 +787,21 @@ html, body {
                 width: 600px;
                 margin-top: 50px;
                 display: flex;
+                flex-direction: column;
                 justify-content: space-between;
+
+                @media (width >= 375px) {
+                    margin-left: 25px;
+                }
+
+                @media (width >= 425px) {
+                    margin-left: 45px;
+                }
+
+                @media (width >= 768px) {
+                    margin-left: 0px;
+                    flex-direction: row;
+                }
 
                 .hero-checkboxes-ls {
                     display: flex;
@@ -714,31 +811,52 @@ html, body {
                     .hero-checkbox1 {
                         display: flex;
                         align-items: center;
-                        gap: 10px;
+                        gap: 5px;
+
+                        @media (width >= 768px) {
+                            gap: 10px;
+                        }
                     }
 
                     .hero-checkbox2 {
                         display: flex;
                         align-items: center;
                         gap: 10px;
+
+                        @media (width >= 768px) {
+                            gap: 10px;
+                        }
                     }
                 }
 
                 .hero-checkboxes-rs {
                     display: flex;
+                    margin-top: 15px;
                     flex-direction: column;
                     gap: 15px;
+
+                    @media (width >= 768px) {
+                        margin-top: 0px;
+                    }
 
                     .hero-checkbox3 {
                         display: flex;
                         align-items: center;
-                        gap: 10px;
+                        gap: 5px;
+
+                        @media (width >= 768px) {
+                            gap: 10px;
+                        }
                     }
 
                     .hero-checkbox4 {
                         display: flex;
                         align-items: center;
-                        gap: 10px;
+                        gap: 5px;
+
+                        @media (width >= 768px) {
+                            gap: 10px;
+                        }
                     }
                 }
             }

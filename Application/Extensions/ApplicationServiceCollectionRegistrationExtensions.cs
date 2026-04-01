@@ -11,6 +11,8 @@ public static class ApplicationServiceCollectionRegistrationExtensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration, IHostEnvironment env)
     {
+        services.AddMemberServices();
+
         return services;
     }
 }

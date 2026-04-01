@@ -1,0 +1,72 @@
+﻿@model RegisterEmailForm
+
+@{
+    Layout = "Layouts/_AuthLayout";
+    ViewData["Title"] = "Become a Member";
+}
+
+<section class="signUp-section">
+
+    <div class="signUpForm-wrapper">
+        <form asp-action="SignUp" asp-controller="Authentication" method="post" novalidate>
+            <!-- Anti-forgery token sent with the form. Verified by [ValidateAntiForgeryToken] in the controller on submit. -->
+            @Html.AntiForgeryToken()
+
+            <h1 class="signUpForm-h1">Become a Member</h1>
+
+            <p class="signUpForm-p">
+                Log in to continue your fitness journey with full access to your customized program, training
+                history, and progress tracking. Stay consistent, monitor your development, and keep moving
+                forward with the structure and support built into your account.
+            </p>
+            <hr class="signUpForm-line" />
+
+            <div class="signUpLogos-Wrapper">
+                <dív class="signUpForm-signUpLogos">
+           
+                    <div class="logo1-wrapper">logo1</div>
+                    <div class="logo2-wrapper">logo2</div>
+                    <div class="logo3-wrapper">logo3</div>
+
+                </dív>
+            </div>
+
+            <div class="signUpForm-lineTextWrapper">
+                <div class="line1"></div>
+                <p class="signUpLine-text">OR CONTINUE WITH</p>
+                <div class="line2"></div>
+            </div>
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <p class="additional-information">
+                    @ViewData["ErrorMessage"]
+                </p>
+            }
+
+            <div class="signUpForm-group">
+                <label class="singUp-form-label" asp-for="Email"></label>
+                <input class="signUp-form-input" asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+
+            <div class="signUpFormBtn-wrapper">
+                <button class="signUpForm-btn" type="submit">
+                    <div></div>
+
+                    <div class="SignUpForm-submitBtnTxt">Continue</div>
+
+                    <div class="SignUpForm-btnIcon">
+                        <i class="fa-solid fa-angle-right" style="color: #27252f;"></i>
+                    </div>
+                </button>
+            </div>
+
+            <div class="signUpForm-verificationCode">
+                <p class="verificationCode">We will send a verification code to your email address.</p>
+            </div>
+        </form>
+    </div>
+</section>

@@ -16,8 +16,24 @@
             </div>
 
             <div id="my-links" class="active meny">
-                <a asp-controller="" asp-action="" class="nav-links">Sign In</a>
-                <a asp-controller="Authentication" asp-action="SignUp" class="becomeMember-link">Become Member</a>
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <a asp-controller="Account" asp-action="My" class="nav-links">My Account</a>
+                }
+                else
+                {
+                    <a asp-controller="Authentication" asp-action="SignIn" class="nav-links">Sign In</a>
+                }
+
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
+                }
+                else
+                {
+                    <a asp-controller="Authentication" asp-action="SignUp" class="becomeMember-link">Become Member</a>
+                }
+
                 <a asp-controller="" asp-action="" class="nav-links">Fitness Centers</a>
                 <a asp-controller="Memberships" asp-action="Index" class="nav-links">Memberships</a>
 
@@ -58,12 +74,22 @@
         </div>
 
         <div class="header-rs">
-            <div class="becomeMember"> 
-                <a asp-controller="Authentication" asp-action="SignUp" class="becomeMember-link">Become Member</a>
-            </div>
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <div class="becomeMember">
+                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
+                </div>
 
-            @await Html.PartialAsync("Partials/_SignInButton")
+                @await Html.PartialAsync("Partials/_MyAccountButton")
+            } 
+            else 
+            {
+                <div class="becomeMember"> 
+                    <a asp-controller="Authentication" asp-action="SignUp" class="becomeMember-link">Become Member</a>
+                </div>
 
+                @await Html.PartialAsync("Partials/_SignInButton")
+            }
         </div>
     </div>
 

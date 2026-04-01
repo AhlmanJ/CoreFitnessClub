@@ -3309,4 +3309,587 @@ html, body {
 
 /*  ------ FOOTER - END ------  */
 
+.signIn-section {
+    height: 1695px;
+    width: 100%;
+    display: grid;
+    margin-top: 266px;
+    justify-content: center;
+
+    .signInForm-wrapper {
+        height: 950px;
+        width: 860px;
+        padding: 68px 90px;
+        border-radius: 20px;
+        background-color: var(--color-white);
+
+        .signInForm-h1 {
+            margin-top: -20px;
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--color-black);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .signInForm-p {
+            margin-top: -1px;
+        }
+
+        .signInForm-line {
+            border: none;
+            height: 1px;
+            margin-top: 50px;
+            background-color: var(--color-faqLine);
+        }
+
+        .signInLogos-Wrapper {
+            height: 218px;
+            width: 100%;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+
+            .signInForm-signInLogos {
+                height: 100%;
+                width: 209px;
+                display: flex;
+                margin-top: -20px;
+                align-content: center;
+                justify-content: space-between;
+
+                .logo1-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+
+                .logo2-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+
+                .logo3-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+            }
+        }
+
+        .signInForm-lineTextWrapper {
+            display: flex;
+            margin-top: -30px;
+            align-items: center;
+            justify-content: center;
+
+            .line1 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+
+            .signInLine-text {
+                width: 184px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .line2 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .additional-information {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .signInForm-group.password {
+            margin-top: 8px;
+        }
+
+        .signInForm-group {
+            gap: 15px;
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+
+            .singIn-form-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+
+            .signInFormLable-wrapper {
+                width: 734px;
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                .forgotPassword-link {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--color-accent);
+                    font-family: "Poppins", sans-serif;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: var(--color-charcoal);
+                    }
+                }
+            }
+
+            .signIn-form-input {
+                height: 58px;
+                width: 734px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 20px;
+                border-radius: 10px;
+                font-family: "DM Sans", sans-serif;
+                color: var(--color-PlaceHolderTxt);
+                background-color: var(--color-lightBg);
+            }
+        }
+
+        .signInFormBtn-wrapper {
+            display: flex;
+            margin-top: 37px;
+            align-content: center;
+            justify-content: center;
+
+            .signInForm-btn {
+                height: 50px;
+                width: 556px;
+                border: none;
+                display: flex;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: space-between;
+                color: var(--color-charcoal);
+                font-family: "DM Sans", sans-serif;
+                background-color: var(--color-accent);
+
+                &:hover {
+                    border: 2px solid;
+                    color: var(--color-charcoal);
+                }
+
+                .SignInForm-submitBtnTxt {
+                }
+
+                .SignInForm-btnIcon {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .signInForm-group-rememberMe {
+            display: flex;
+            align-content: center;
+            justify-content: start;
+        }
+
+        .signInForm-group-checkbox {
+            display: flex;
+            margin-top: 12px;
+            align-content: center;
+            justify-content: center;
+
+            .signIn-form-input[type="checkbox"] {
+                transform: scale(1.8);
+            }
+
+            .TermsAndConditions {
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 10px;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+        }
+    }
+}
+
+.signUp-section {
+    height: 1695px;
+    width: 100%;
+    display: grid;
+    margin-top: 266px;
+    justify-content: center;
+
+    .signUpForm-wrapper {
+        height: 850px;
+        width: 860px;
+        padding: 68px 90px;
+        border-radius: 20px;
+        background-color: var(--color-white);
+
+        .signUpForm-h1 {
+            margin-top: -20px;
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--color-black);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .signUpForm-p {
+            margin-top: -1px;
+        }
+
+        .signUpForm-line {
+            border: none;
+            height: 1px;
+            margin-top: 50px;
+            background-color: var(--color-faqLine);
+        }
+
+        .signUpLogos-Wrapper {
+            height: 218px;
+            width: 100%;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+
+            .signUpForm-signUpLogos {
+                height: 100%;
+                width: 209px;
+                display: flex;
+                margin-top: -20px;
+                align-content: center;
+                justify-content: space-between;
+
+                .logo1-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+
+                .logo2-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+
+                .logo3-wrapper {
+                    height: 60px;
+                    width: 60px;
+                    display: grid;
+                    align-content: center;
+                    justify-content: center;
+                    border: 1px solid;
+                    border-radius: 50px;
+                    border-color: var(--color-PlaceHolderTxt);
+                }
+            }
+        }
+
+        .signUpForm-lineTextWrapper {
+            display: flex;
+            margin-top: -30px;
+            align-items: center;
+            justify-content: center;
+
+            .line1 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+
+            .signUpLine-text {
+                width: 184px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .line2 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .additional-information {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .signUpForm-group.password {
+            margin-top: 8px;
+        }
+
+        .signUpForm-group {
+            gap: 15px;
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+
+            .singUp-form-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+
+            .signUpFormLable-wrapper {
+                width: 734px;
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                .forgotPassword-link {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--color-accent);
+                    font-family: "Poppins", sans-serif;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: var(--color-charcoal);
+                    }
+                }
+            }
+
+            .signUp-form-input {
+                height: 58px;
+                width: 734px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 20px;
+                border-radius: 10px;
+                font-family: "DM Sans", sans-serif;
+                color: var(--color-PlaceHolderTxt);
+                background-color: var(--color-lightBg);
+            }
+        }
+
+        .signUpFormBtn-wrapper {
+            display: flex;
+            margin-top: 37px;
+            align-content: center;
+            justify-content: center;
+
+            .signUpForm-btn {
+                height: 50px;
+                width: 556px;
+                border: none;
+                display: flex;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: space-between;
+                color: var(--color-charcoal);
+                font-family: "DM Sans", sans-serif;
+                background-color: var(--color-accent);
+
+                &:hover {
+                    border: 2px solid;
+                    color: var(--color-charcoal);
+                }
+
+                .SignUpForm-submitBtnTxt {
+                }
+
+                .SignUpForm-btnIcon {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .signUpForm-verificationCode {
+            display: flex;
+            margin-top: 12px;
+            align-content: center;
+            justify-content: center;
+
+            .verificationCode {
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 10px;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+        }
+    }
+}
+
+.setPassword-section {
+    height: 1695px;
+    width: 100%;
+    display: grid;
+    margin-top: 266px;
+    justify-content: center;
+
+    .setPasswordForm-group-wrapper {
+        height: 650px;
+        width: 860px;
+        padding: 68px 90px;
+        border-radius: 20px;
+        background-color: var(--color-white);
+
+        .setPasswordForm-h1 {
+            margin-top: -20px;
+            font-size: 56px;
+            font-weight: 500;
+            color: var(--color-black);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .setPasswordForm-p {
+            margin-top: -1px;
+        }
+
+        .setPasswordForm-line {
+            border: none;
+            height: 1px;
+            margin-top: 50px;
+            background-color: var(--color-faqLine);
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .additional-information {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .setPasswordForm-group.password {
+            margin-top: 8px;
+        }
+
+        .setPasswordForm-group.confirmPassword {
+            margin-top: 8px;
+        }
+
+        .setPasswordForm-group {
+            gap: 15px;
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+
+            .setPasswordForm-group-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+
+            .setPasswordForm-group-input {
+                height: 58px;
+                width: 734px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 20px;
+                border-radius: 10px;
+                font-family: "DM Sans", sans-serif;
+                color: var(--color-PlaceHolderTxt);
+                background-color: var(--color-lightBg);
+            }
+        }
+
+        .setPasswordFormBtn-wrapper {
+            display: flex;
+            margin-top: 37px;
+            align-content: center;
+            justify-content: center;
+
+            .setPasswordForm-btn {
+                height: 50px;
+                width: 556px;
+                border: none;
+                display: flex;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: space-between;
+                color: var(--color-charcoal);
+                font-family: "DM Sans", sans-serif;
+                background-color: var(--color-accent);
+
+                &:hover {
+                    border: 2px solid;
+                    color: var(--color-charcoal);
+                }
+
+                .setPasswordForm-submitBtnTxt {
+                }
+
+                .setPasswordForm-btnIcon {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .setPasswordForm-group-checkbox {
+            display: flex;
+            margin-top: 12px;
+            align-content: center;
+            justify-content: center;
+
+            .setPasswordForm-input[type="checkbox"] {
+                transform: scale(1.8);
+            }
+
+            .TermsAndConditions {
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 10px;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+        }
+    }
+}
 

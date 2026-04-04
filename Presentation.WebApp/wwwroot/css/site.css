@@ -14,6 +14,7 @@
     --color-PlaceHolderTxt: #A7A7A7;
     --color-black: #000000;
     --color-red: #E50004;
+    --color-green: #28a745;
     --color-charcoal: #27252F;
     --color-cardBlack: #080517;
     --color-faqLine: #E6E6E6;
@@ -3094,8 +3095,485 @@ html, body {
 
 
 
-/*  ------ FOOTER - START ------  */
+/*  ------ MY ACCOUNT PAGE - START ------  */
 
+.myAccount-page {
+    height: 100%;
+    width: 100%;
+    margin-top: 24px;
+
+    .myAccount-section1 {
+        margin-top: 35px;
+        text-align: center;
+
+        .myAccount-sectionTitle1 {
+        }
+    }
+
+    .myAccount-section2 {
+        gap: 56px;
+        display: flex;
+        margin-top: 63px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        @media (width >= 1440px) {
+            gap: 56px;
+            display: flex;
+            margin-top: 63px;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+        }
+
+
+        .myAccount-ls {
+            height: 943px;
+            width: 320px;
+            margin-left: 0px;
+
+            @media (width >= 768px) {
+                width: 404px;
+                margin-left: 170px;
+            }
+
+            @media (width >= 1024px) {
+                margin-left: 300px;
+            }
+
+            @media (width >= 1440px) {
+                margin-left: 0px;
+            }
+
+            .myAccount-sidebar {
+                width: 100%;
+                gap: 56px;
+                display: flex;
+                flex-direction: column;
+
+                .profileImage-wrapper {
+                    height: 440px;
+                    width: 289px;
+                    overflow: hidden;
+                    border-radius: 20px;
+                    background-color: var(--color-faqLine);
+
+                    @media (width >= 375px) {
+                        width: 340px;
+                    }
+
+                    @media (width >= 425px) {
+                        width: 404px;
+                    }
+                }
+
+                .myAccount-sidebar-menu {
+                    height: 358px;
+                    width: 289px;
+                    border-radius: 20px;
+
+                    @media (width >= 375px) {
+                        width: 340px;
+                    }
+
+                    @media (width >= 425px) {
+                        width: 404px;
+                    }
+
+                    .sidebarMenue-row1 {
+                        height: 68px;
+                        width: 100%;
+                        display: flex;
+                        padding: 5px 30px;
+                        align-content: center;
+                        border-radius: 20px 20px 0 0;
+                        background-color: var(--color-accent);
+
+                        .sidebarMenue-row1-txt {
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: var(--color-charcoal);
+                            font-family: "Poppins", sans-serif;
+                        }
+                    }
+
+                    .sidebarMenue-row2 {
+                        height: 280px;
+                        width: 100%;
+                        display: flex;
+                        padding: 5px 30px;
+                        align-content: center;
+                        flex-direction: column;
+                        border-radius: 0 0 20px 20px;
+                        background-color: var(--color-white);
+
+                        .myAccount-sidebar-link {
+                            height: 70px;
+                            width: 100%;
+                            font-size: 16px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            font-weight: 600;
+                            padding: 20px 0;
+                            border-bottom: 1px solid;
+                            border-color: var(--color-faqLine);
+                            color: var(--color-charcoal);
+                            font-family: "Poppins", sans-serif;
+
+                            &:hover {
+                                color: var(--color-accent);
+                                text-decoration: underline;
+                                text-decoration-color: var(--color-charcoal)
+                            }
+                        }
+
+                        .myAccount-sidebar-signOutBtn {
+                            height: 70px;
+                            width: 100%;
+                            font-size: 16px;
+                            font-weight: 600;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-top: 2px;
+                            background: none;
+                            text-align: start;
+                            cursor: pointer;
+                            border: none;
+                            color: var(--color-charcoal);
+                            font-family: "Poppins", sans-serif;
+
+                            &:hover {
+                                color: var(--color-accent);
+                                text-decoration: underline;
+                                text-decoration-color: var(--color-charcoal)
+                            }
+                        }
+
+                        .myAccount-sidebar-link:hover .myAccount-linkIcon {
+                            color: var(--color-accent);
+                        }
+
+                        .myAccount-btnIcon {
+                            margin-right: -8px;
+                        }
+
+                            .myAccount-btnIcon:hover .myAccount-btnIcon {
+                                color: var(--color-accent);
+                            }
+                    }
+                }
+
+                .myAccount-sideBar-cancellationTxt {
+                    text-align: center;
+                    margin-top: -58px;
+
+                    .cancellation-txt {
+                        font-size: 10px;
+                        font-weight: 400;
+                        color: var(--color-charcoal);
+                        font-family: "Poppins", sans-serif;
+                    }
+                }
+
+                .myAccount-deleteUser {
+                    height: 20px;
+                    width: 100%;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    margin-top: -62px;
+
+                    .deleteUser-btn {
+                        border: none;
+                        display: flex;
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: 600;
+                        align-items: center;
+                        justify-content: center;
+                        color: var(--color-red);
+                        font-family: "Poppins", sans-serif;
+                        background-color: var(--color-lightBg);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .myAccount-rs {
+
+        @media (width >= 1024px) {
+            margin-left: 70px;
+        }
+
+        @media (width >= 1440px) {
+            margin-left: 0px;
+        }
+
+        .aboutMeForm-wrapper {
+            height: 1000px;
+            width: 300px;
+            padding: 50px 60px;
+            border-radius: 20px;
+            background-color: var(--color-white);
+
+            @media (width >= 375px) {
+                width: 340px;
+            }
+
+            @media (width >= 425px) {
+                width: 404px;
+            }
+
+            @media (width >= 768px) {
+                height: 943px;
+                width: 740px;
+            }
+
+            @media (width >= 1024px) {
+                height: 943px;
+                width: 860px;
+                padding: 50px 60px;
+                border-radius: 20px;
+                background-color: var(--color-white);
+            }
+
+            @media (width >= 1440px) {
+                height: 943px;
+                width: 860px;
+                padding: 50px 60px;
+                border-radius: 20px;
+                background-color: var(--color-white);
+            }
+
+            .aboutMe-form {
+
+                .aboutMe-formGroup {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 18px;
+                }
+
+                    .aboutMe-formGroup.two {
+                        margin-top: -20px;
+                    }
+
+                    .aboutMe-formGroup.three {
+                        margin-top: -25px;
+                    }
+
+                    .aboutMe-formGroup.four {
+                        margin-top: 2px;
+                    }
+
+                    .aboutMe-formGroup.five {
+                        margin-top: 25px;
+                    }
+
+                .aboutMe-form-h3 {
+                    font-size: 52px;
+                    font-weight: 500;
+                    margin-bottom: 25px;
+                    color: var(--color-black);
+                }
+
+                .aboutMe-form-line1 {
+                    height: 1px;
+                    border: none;
+                    margin-bottom: 34px;
+                    background-color: var(--color-faqLine);
+                }
+
+                .aboutMe-form-line2 {
+                    height: 1px;
+                    border: none;
+                    margin-bottom: 34px;
+                    background-color: var(--color-faqLine);
+                }
+
+                .error-message {
+                    color: var(--color-red);
+                }
+
+                .success-message {
+                    color: var(--color-green);
+                }
+
+                .aboutMeForm-label {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--color-charcoal);
+                    font-family: "Poppins", sans-serif;
+                }
+
+                .aboutMeForm-input {
+                    height: 58px;
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    font-weight: 400;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                    font-family: "DM Sans", sans-serif;
+                    color: var(--color-PlaceHolderTxt);
+                    background-color: var(--color-lightBg);
+                }
+
+                .aboutMeForm-validation-error {
+                    color: var(--color-red);
+                }
+
+                .aboutMeFormBtn-wrapper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: end;
+
+                    .aboutMeForm-btn {
+                        height: 50px;
+                        width: 110px;
+                        padding: 14px 8px;
+                        display: flex;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 16px;
+                        border-radius: 50px;
+                        font-weight: 600;
+                        color: var(--color-charcoal);
+                        font-family: "DM Sans", sans-serif;
+                        background-color: var(--color-accent);
+                        align-content: center;
+                        justify-content: space-around;
+
+                        .aboutMeForm-submitBtnTxt {
+                            margin-left: 5px;
+                        }
+
+                        .aboutMeForm-btnIcon {
+                            margin-right: -5px;
+                        }
+
+                        &:hover {
+                            border: 2px solid;
+                            color: var(--color-charcoal);
+                        }
+                    }
+                }
+            }
+        }
+
+        .myStatisticsForm-wrapper {
+            margin-top: -10px;
+
+            .aboutMe-form-h4 {
+                font-size: 48px;
+                font-weight: 500;
+                margin-top: 66px;
+                margin-bottom: 25px;
+                color: var(--color-black);
+            }
+
+            .myStatisticsForm {
+                height: 315px;
+                width: 300px;
+                margin-bottom: 36px;
+                padding: 8px 60px;
+                border-radius: 20px;
+                background-color: var(--color-white);
+
+                @media (width >= 375px) {
+                    width: 340px;
+                }
+
+                @media (width >= 425px) {
+                    width: 404px;
+                }
+
+                @media (width >= 768px) {
+                    width: 740px;
+                }
+
+                @media (width >= 1024px) {
+                    width: 860px;
+                }
+
+                .myStatistics-label-wrapper {
+                    display: flex;
+                    margin-top: 26px;
+                    margin-bottom: 23px;
+                    align-content: center;
+                    justify-content: space-between;
+
+                    .myStatistics-label {
+                        font-size: 20px;
+                        font-weight: 500;
+                        color: var(--color-charcoal);
+                        font-family: "Poppins", sans-serif;
+                    }
+
+                    .myStatistics-label-number {
+                        font-size: 20px;
+                        font-weight: 500;
+                        color: var(--color-charcoal);
+                        font-family: "Poppins", sans-serif;
+                    }
+                }
+
+                .myStatistics-bar1 {
+                    height: 10px;
+                    width: 100%;
+                    border-radius: 50px;
+                    background-color: var(--color-lightBg);
+
+                    .myStatistics-progressBar1 {
+                        height: 100%;
+                        width: 95%;
+                        border-radius: 50px;
+                        background-color: var(--color-accent);
+                    }
+                }
+
+                .myStatistics-bar2 {
+                    height: 10px;
+                    width: 100%;
+                    border-radius: 50px;
+                    background-color: var(--color-lightBg);
+
+                    .myStatistics-progressBar2 {
+                        height: 100%;
+                        width: 50%;
+                        border-radius: 50px;
+                        background-color: var(--color-accent);
+                    }
+                }
+
+                .myStatistics-bar3 {
+                    height: 10px;
+                    width: 100%;
+                    border-radius: 50px;
+                    background-color: var(--color-lightBg);
+
+                    .myStatistics-progressBar3 {
+                        height: 100%;
+                        width: 65%;
+                        border-radius: 50px;
+                        background-color: var(--color-accent);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*  ------ MY ACCOUNT PAGE - END ------  */
+/*  ------ FOOTER - START ------  */
 .footer-section {
     height: 140px;
     width: 100%;
@@ -3334,29 +3812,53 @@ html, body {
         }
     }
 }
-
 /*  ------ FOOTER - END ------  */
 
 .signIn-section {
     height: 1695px;
     width: 100%;
     display: grid;
-    margin-top: 266px;
+    margin-top: 70px;
     justify-content: center;
+
+    @media (width >= 768px) {
+        margin-top: 266px;
+    }
 
     .signInForm-wrapper {
         height: 950px;
-        width: 860px;
-        padding: 68px 90px;
+        width: 289px;
         border-radius: 20px;
         background-color: var(--color-white);
 
+        @media (width >= 375px) {
+            width: 340px;
+        }
+
+        @media (width >= 425px) {
+            width: 404px;
+        }
+
+        @media (width >= 768px) {
+            width: 740px;
+            padding: 38px 45px;
+        }
+
+        @media (width >= 1024px) {
+            width: 860px;
+            padding: 68px 90px;
+        }
+
         .signInForm-h1 {
             margin-top: -20px;
-            font-size: 56px;
+            font-size: 34px;
             font-weight: 500;
             color: var(--color-black);
             font-family: "Poppins", sans-serif;
+
+            @media (width >= 768px) {
+                font-size: 56px;
+            }
         }
 
         .signInForm-p {
@@ -3472,7 +3974,7 @@ html, body {
             }
 
             .signInFormLable-wrapper {
-                width: 734px;
+                width: 100%;
                 display: flex;
                 align-content: center;
                 justify-content: space-between;
@@ -3492,7 +3994,7 @@ html, body {
 
             .signIn-form-input {
                 height: 58px;
-                width: 734px;
+                width: 100%;
                 border: none;
                 outline: none;
                 font-size: 16px;
@@ -3571,22 +4073,47 @@ html, body {
     height: 1695px;
     width: 100%;
     display: grid;
-    margin-top: 266px;
+    margin-top: 70px;
     justify-content: center;
+
+    @media (width >= 768px) {
+        margin-top: 266px;
+    }
 
     .signUpForm-wrapper {
         height: 850px;
-        width: 860px;
-        padding: 68px 90px;
+        width: 289px;
         border-radius: 20px;
         background-color: var(--color-white);
 
+        @media (width >= 375px) {
+            width: 340px;
+        }
+
+        @media (width >= 425px) {
+            width: 404px;
+        }
+
+        @media (width >= 768px) {
+            width: 740px;
+            padding: 38px 45px;
+        }
+
+        @media (width >= 1024px) {
+            width: 860px;
+            padding: 68px 90px;
+        }
+
         .signUpForm-h1 {
             margin-top: -20px;
-            font-size: 56px;
+            font-size: 34px;
             font-weight: 500;
             color: var(--color-black);
             font-family: "Poppins", sans-serif;
+
+            @media (width >= 768px) {
+                font-size: 56px;
+            }
         }
 
         .signUpForm-p {
@@ -3722,7 +4249,7 @@ html, body {
 
             .signUp-form-input {
                 height: 58px;
-                width: 734px;
+                width: 100%;
                 border: none;
                 outline: none;
                 font-size: 16px;
@@ -3791,22 +4318,47 @@ html, body {
     height: 1695px;
     width: 100%;
     display: grid;
-    margin-top: 266px;
+    margin-top: 70px;
     justify-content: center;
+
+    @media (width >= 768px) {
+        margin-top: 266px;
+    }
 
     .setPasswordForm-group-wrapper {
         height: 650px;
-        width: 860px;
-        padding: 68px 90px;
+        width: 289px;
         border-radius: 20px;
         background-color: var(--color-white);
 
+        @media (width >= 375px) {
+            width: 340px;
+        }
+
+        @media (width >= 425px) {
+            width: 404px;
+        }
+
+        @media (width >= 768px) {
+            width: 740px;
+            padding: 38px 45px;
+        }
+
+        @media (width >= 1024px) {
+            width: 860px;
+            padding: 68px 90px;
+        }
+
         .setPasswordForm-h1 {
             margin-top: -20px;
-            font-size: 56px;
+            font-size: 34px;
             font-weight: 500;
             color: var(--color-black);
             font-family: "Poppins", sans-serif;
+
+            @media (width >= 768px) {
+                font-size: 56px;
+            }
         }
 
         .setPasswordForm-p {
@@ -3852,7 +4404,7 @@ html, body {
 
             .setPasswordForm-group-input {
                 height: 58px;
-                width: 734px;
+                width: 100%;
                 border: none;
                 outline: none;
                 font-size: 16px;

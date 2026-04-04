@@ -1,6 +1,11 @@
-﻿using Application.Abstraction;
+﻿
+// I got support with the DeleteUser controller from chatGpt, i got help with explanation about session cookies and how to get user information from ApplicationUser.
+
+
+using Application.Abstraction;
 using Application.Abstraction.MembersInterface;
 using Application.Members.Inputs;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AuthenticationModels;
 
@@ -49,6 +54,8 @@ public class AuthenticationController(IIdentityService identityService, IRegiste
     public new async Task<IActionResult> SignOut()
     {
         await identityService.SignOutAsync();
+        HttpContext.Session.Clear();
+
         return RedirectToAction("Index", "Home");
     }
 
@@ -118,6 +125,27 @@ public class AuthenticationController(IIdentityService identityService, IRegiste
         return RedirectToAction("My", "Account");
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteUser(CancellationToken ct = default)
+    { 
+        var email = User.Identity?.Name; // Get "UserName" from ApplicationUser. UserName is Email.
+
+        if (string.IsNullOrWhiteSpace(email))
+            return BadRequest("Could not find the user's email address, please try again.");
+
+        var deleteUser = await identityService.DeleteUserAsync(email, ct); // Deletes user through the method in IdentityService.
+
+        if (!deleteUser.Success)
+        { 
+            return BadRequest("Something went wrong! The user could not be deleted, please try again.");
+        }
+
+        HttpContext.Session.Clear(); // Removes session cookies.
+        await HttpContext.SignOutAsync(); // Removes all login information including persistent data like "Remember Me".
+
+        return RedirectToAction("Index", "Home");
+    }
 
     /*
       

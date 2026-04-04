@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AccountModels;
+using Presentation.WebApp.ViewModels;
 
 namespace Presentation.WebApp.Controllers;
 
@@ -23,8 +24,9 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
         if (profile is null)
             return NotFound();
 
-        var model = new MyAccountViewModel
+        var viewModel = new MyAccountViewModel
         {
+            Email = user.Email ?? string.Empty,
             AboutMeForm = new MyProfileForm
             {
                 FirstName = profile.Value?.FirstName ?? string.Empty,
@@ -34,7 +36,7 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
             }
         };
 
-        return View();
+        return View(viewModel);
     }
 
     [HttpPost("my")]
@@ -48,6 +50,8 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
         if (user is null)
             return Challenge();
 
+        viewModel.Email = user.Email ?? string.Empty;
+
         var input = new UpdateMemberProfileInput
             (
                 user.Id,
@@ -60,11 +64,11 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
         var result = await updateMemberProfileService.ExecuteAsync(input, ct);
         if (!result.Success)
         {
-            ViewData["Message"] = result.ErrorMessage;
-            ViewData["MessageType"] = "success";
+            ViewData["ErrorMessage"] = result.ErrorMessage;
             return View(viewModel);
         }
 
-        return View();
+        ViewData["SuccessMessage"] = "Profilen uppdaterades!";
+        return View(viewModel);
     }
 }

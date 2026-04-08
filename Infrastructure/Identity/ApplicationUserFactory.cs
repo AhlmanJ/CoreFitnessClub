@@ -1,7 +1,5 @@
 ﻿// NOTE! ChatGPT helped med with this. ( It was the first entity i created so i needed help with an explanation of how to work with the code. )
 
-
-
 using Domain.Entities.Members;
 using Infrastructure.Factories;
 

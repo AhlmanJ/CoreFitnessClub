@@ -8,7 +8,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://0.0.0.0:7028"
+      "applicationUrl": "https://localhost:7028"
     },
     "https-prod": {
       "commandName": "Project",

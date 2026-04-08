@@ -68,7 +68,7 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
             return View(viewModel);
         }
 
-        ViewData["SuccessMessage"] = "Profilen uppdaterades!";
+        ViewData["SuccessMessage"] = "The profile was updated!";
         return View(viewModel);
     }
 }

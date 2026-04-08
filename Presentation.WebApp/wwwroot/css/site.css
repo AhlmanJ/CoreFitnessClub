@@ -4666,3 +4666,62 @@ html, body {
     }
 }
 
+.notFound-page {
+    height: 950px;
+    width: 100%;
+    display: grid;
+    text-align: center;
+    place-items: center;
+
+    .notFound-page-wrapper {
+        height: 623px;
+        max-width: 838px;
+        display: grid;
+        margin-top: 20px;
+        text-align: center;
+        place-items: center;
+    }
+
+    .notFound-page-img {
+        width: 100%;
+    }
+
+    .notFound-page-h1 {
+        margin-top: -8px;
+        color: var(--color-charcoal);
+    }
+
+    .notFound-page-p {
+        margin-top: -10px;
+        color: var(--color-darkGray);
+    }
+
+    .notFound-page-btn {
+        height: 50px;
+        width: 211px;
+        display: flex;
+        padding: 11px 0;
+        margin-top: 30px;
+        align-content: center;
+        justify-content: center;
+        border-radius: 50px;
+        border: 2px solid transparent;
+        background-color: var(--color-accent);
+
+        &:hover {
+            border: 2px solid;
+            color: var(--color-charcoal);
+            text-decoration: underline;
+        }
+
+        .notFound-page-btnTxt {
+            display: flex;
+            color: var(--color-charcoal);
+        }
+
+        .notFound-page-btnIcon {
+            padding: 1px 0;
+        }
+    }
+}
+

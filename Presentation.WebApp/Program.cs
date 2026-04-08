@@ -27,6 +27,9 @@ var app = builder.Build();
 await PersistenceDatabaseInitializer.InitializeAsync(app.Services, app.Environment);
 
 app.UseHsts();
+
+app.UseStatusCodePagesWithReExecute("/Error/{0}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

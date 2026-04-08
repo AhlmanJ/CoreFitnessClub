@@ -1,6 +1,7 @@
 using Application.Extensions;
 using Infrastructure.Extensions;
 using Infrastructure.Persistence;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +12,15 @@ builder.Services.AddRouting(options =>
 });
 builder.Services.AddSession();
 
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId configuration is missing");
+        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret configuration is missing");
+    });
+
 builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
 builder.Services.AddApplication(builder.Configuration, builder.Environment);
-
 
 var app = builder.Build();
 

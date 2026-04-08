@@ -1,4 +1,4 @@
-﻿@model SignInForm
+﻿@model SignInViewModel
 
 @{
     Layout = "Layouts/_AuthLayout";
@@ -7,35 +7,50 @@
 <section class="signIn-section">
 
     <div class="signInForm-wrapper">
+
+        @if (TempData["Error"] is string error)
+        {
+             <p class="additional-information">@error</p>
+        }
+
+        <h1 class="signInForm-h1">Welcome Back!</h1>
+
+        <p class="signInForm-p">
+            Log in to continue your fitness journey with full access to your customized program, training
+            history, and progress tracking. Stay consistent, monitor your development, and keep moving
+            forward with the structure and support built into your account.
+        </p>
+        <hr class="signInForm-line" />
+
+        <div class="signInLogos-Wrapper">
+            <div class="signInForm-signInLogos">
+           
+                @if (Model.ExternalProviders.Any())
+                {
+                    <form asp-controller="Authentication" asp-action="ExternalLogin" method="post">
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
+
+                        @foreach (var provider in Model.ExternalProviders)
+                            {
+                                <partial name="ExternalProviders/_@(provider)Button"/>
+                            }
+
+                    </form>
+                }
+
+            </div>
+        </div>
+
+        <div class="signInForm-lineTextWrapper">
+            <div class="line1"></div>
+            <p class="signInLine-text">OR CONTINUE WITH</p>
+            <div class="line2"></div>
+        </div>
+
         <form asp-action="SignIn" asp-controller="Authentication" method="post" novalidate>
             <!-- Anti-forgery token sent with the form. Verified by [ValidateAntiForgeryToken] in the controller on submit. -->
-            @Html.AntiForgeryToken() 
-
-            <h1 class="signInForm-h1">Welcome Back!</h1>
-
-            <p class="signInForm-p">
-               Log in to continue your fitness journey with full access to your customized program, training
-               history, and progress tracking. Stay consistent, monitor your development, and keep moving
-               forward with the structure and support built into your account.
-           </p>
-            <hr class="signInForm-line" />
-
-            <div class="signInLogos-Wrapper">
-               <dív class="signInForm-signInLogos">
-           
-                   <div class="logo1-wrapper">logo1</div>
-                   <div class="logo2-wrapper">logo2</div>
-                   <div class="logo3-wrapper">logo3</div>
-
-               </dív>
-            </div>
-
-            <div class="signInForm-lineTextWrapper">
-                <div class="line1"></div>
-                <p class="signInLine-text">OR CONTINUE WITH</p>
-                <div class="line2"></div>
-            </div>
-
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
             <div asp-validation-summary="ModelOnly"></div>
 
             @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
@@ -46,24 +61,24 @@
                 }
 
             <div class="signInForm-group">
-                <label class="singIn-form-label" asp-for="Email"></label>
-                <input class="signIn-form-input" asp-for="Email" />
-                <span asp-validation-for="Email"></span>
+                <label class="singIn-form-label" asp-for="Form.Email"></label>
+                <input class="signIn-form-input" asp-for="Form.Email" />
+                <span asp-validation-for="Form.Email"></span>
             </div>
 
             <div class="signInForm-group password">
 
                 <div class="signInFormLable-wrapper">
-                <label class="singIn-form-label" asp-for="Password"></label>
+                    <label class="singIn-form-label" asp-for="Form.Password"></label>
                     <a asp-controller="" asp-action="" class="forgotPassword-link">Forgot your password?</a>
                 </div>
-                <input class="signIn-form-input" asp-for="Password" />
-                <span asp-validation-for="Password"></span>
+                <input class="signIn-form-input" asp-for="Form.Password" />
+                <span asp-validation-for="Form.Password"></span>
             </div>
 
             <div class="signInForm-group-rememberMe">
-                <input type="checkbox" class="signIn-form-input" asp-for="RememberMe" />
-                <label asp-for="RememberMe" />
+                <input type="checkbox" class="signIn-form-input" asp-for="Form.RememberMe" />
+                <label asp-for="Form.RememberMe" />
 
                 <p class="TermsAndConditions">Remember Me</p>
             </div>
@@ -81,9 +96,9 @@
             </div>
 
             <div class="signInForm-group-checkbox">
-                <input type="checkbox" class="signIn-form-input" asp-for="AcceptTerms" />
-                <label asp-for="AcceptTerms" />
-                <span asp-validation-for="AcceptTerms"></span>
+                <input type="checkbox" class="signIn-form-input" asp-for="Form.AcceptTerms" />
+                <label asp-for="Form.AcceptTerms" />
+                <span asp-validation-for="Form.AcceptTerms"></span>
                 <p class="TermsAndConditions">Accept user terms and conditions</p>
             </div>
         </form>

@@ -1,0 +1,47 @@
+﻿@model VerifyExternalLoginViewModel
+
+<section class="verifyExternalLogin-section">
+
+    <div class="verifyLogin-wrapper">
+
+        <h1 class="verifyLogin-h1"> Verify your email </h1>
+
+        <p class="verifyLogin-p">
+            A verification code has been sent to <strong>@Model.Email</strong>.
+            Enter the code below to continue.
+        </p>
+        <p class="verifyLogin-p">Demo Code: <strong>123456</strong></p>
+
+        <hr class="verifyLogin-line" />
+
+        <form asp-controller="Authentication" asp-action="VerifyExternalLogin" method="post" class="verifyLogin-form">
+            <input asp-for="Email" type="hidden" />
+            <input asp-for="ReturnUrl" type="hidden" />
+            
+            <div class="verifyLogin-formGroup">
+                <label class="verifyLogin-form-label" asp-for="VerificationCode">Verification code:</label>
+                <input class="verifyLogin-form-input" asp-for="VerificationCode" />
+                <span asp-validation-for="VerificationCode"></span>
+            </div>
+
+            <div class="verifyLogin-section2">
+                <p class="verifyLogin-p">
+                    By verifying, you agree to our:
+                    <a href="" class="verifyLogin-terms">terms of service</a> and
+                    <a href="" class="verifyLogin-terms">privacy policy</a>
+                </p>
+            </div>
+
+            <button class="verifyLogin-button" type="submit">
+                <h2 class="getStarted-btnTxt">Verify Email</h2>
+                <div class="getStarted-btnIcon">
+                <i class="fa-solid fa-angle-right" style="color: #27252f;"></i>
+                </div>
+            </button>
+
+        </form>
+
+    </div>
+
+
+</section>

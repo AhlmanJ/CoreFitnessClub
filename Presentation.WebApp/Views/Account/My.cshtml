@@ -31,7 +31,7 @@
 
                             <form asp-action="SignOut" asp-controller="Authentication" method="post">
                                 <button type="submit" class="myAccount-sidebar-signOutBtn">
-                                    Sign Out <div class="myAccount-btnIcon"></><i class="fa-solid fa-angle-right"></i></div>
+                                    Sign Out <div class="myAccount-btnIcon"><i class="fa-solid fa-angle-right"></i></div>
                                 </button>
                             </form>
                         </div>
@@ -99,8 +99,8 @@
 
                         <div class="aboutMe-formGroup five">
                             <label class="aboutMeForm-label" asp-for="AboutMeForm.ProfileImageUrl"></label>
-                            <input class="aboutMeForm-input" type="file" asp-for="AboutMeForm.ProfileImageUrl"/>
-                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.ProfileImageUrl"></span>
+                            <input class="aboutMeForm-input" type="file" asp-for="AboutMeForm.File"/>
+                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.File"></span>
                         </div>
 
                         <div class="aboutMeFormBtn-wrapper">

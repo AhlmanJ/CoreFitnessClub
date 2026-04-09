@@ -11,7 +11,7 @@ namespace Presentation.WebApp.Controllers;
 
 [Authorize]
 [Route("Account")]
-public class AccountController ( UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService ) : Controller
+public class AccountController ( UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IWebHostEnvironment _env ) : Controller
 {
     [HttpGet("my")]
     public async Task<IActionResult> My(CancellationToken ct = default)
@@ -51,6 +51,26 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
             return Challenge();
 
         viewModel.Email = user.Email ?? string.Empty;
+
+        string? profileImageUrl = viewModel.AboutMeForm.ProfileImageUrl; // Check if there is already a saved profile picture.
+
+        if (viewModel.AboutMeForm.File != null && viewModel.AboutMeForm.File.Length > 0) // If a new profile picture has been uploaded.
+        {
+            var uploadFolder = Path.Combine(_env.WebRootPath, "profilePictures"); // Create a folder named "profilePictures" in wwwroot.
+            Directory.CreateDirectory(uploadFolder);                              // Ensure the folder exists.
+
+            var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(viewModel.AboutMeForm.File.FileName)}"; // Combine the file name with a Guid number to make it unique within the folder and database.
+            var filePath = Path.Combine(uploadFolder, fileName); // Create the "full" path where the image should be saved by combining the folder name and the filename.
+
+            using (var stream = new FileStream(filePath, FileMode.Create)) // Text from chatGPT: FileStream is an object that represents a file and allows you to write to (or read from) it.
+            {
+                await viewModel.AboutMeForm.File.CopyToAsync(stream, ct);  // Copy the uploaded file's content to the server.
+            }
+
+            profileImageUrl = $"/profilePictures/{fileName}"; // Save the new file name to the property to save it to the database.
+        }
+
+        viewModel.AboutMeForm.ProfileImageUrl = profileImageUrl;
 
         var input = new UpdateMemberProfileInput
             (

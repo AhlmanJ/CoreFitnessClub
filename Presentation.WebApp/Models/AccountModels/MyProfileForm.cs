@@ -16,7 +16,9 @@ public class MyProfileForm
     [Display(Name = "Phone Number", Prompt = "Enter Phone Number")]
     public string? PhoneNumber { get; set; }
 
-    [Url]
     [Display(Name = "Profile Image", Prompt = "Upload Profile Image")]
     public string? ProfileImageUrl { get; set; }
+
+    [Display(Name = "Upload Profile Image")]
+    public IFormFile? File { get; set; }
 }

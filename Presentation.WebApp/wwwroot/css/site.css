@@ -1,3 +1,6 @@
+
+/* NOTE! I got help from chatGPT on how to change the input field for uploading a profile picture on "My Account". */
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -14,6 +17,7 @@
     --color-PlaceHolderTxt: #A7A7A7;
     --color-black: #000000;
     --color-red: #E50004;
+    --color-fileSelectorBtn: #D9D9D9;
     --color-green: #28a745;
     --color-charcoal: #27252F;
     --color-cardBlack: #080517;
@@ -3168,6 +3172,15 @@ html, body {
                     }
                 }
 
+                /* Help by chatGPT on how to get the profile picture to "center" and fit into the div */
+                .profileImage-wrapper img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    display: block;
+                }
+
                 .myAccount-sidebar-menu {
                     height: 358px;
                     width: 289px;
@@ -3358,7 +3371,7 @@ html, body {
                 .aboutMe-formGroup {
                     display: flex;
                     flex-direction: column;
-                    gap: 18px;
+                    gap: 5px;
                 }
 
                     .aboutMe-formGroup.two {
@@ -3409,6 +3422,7 @@ html, body {
                 .aboutMeForm-label {
                     font-size: 14px;
                     font-weight: 600;
+                    margin-top: 20px;
                     color: var(--color-charcoal);
                     font-family: "Poppins", sans-serif;
                 }
@@ -3571,6 +3585,31 @@ html, body {
         }
     }
 }
+
+/* I got help from chatGPT on how to change the input field and button for file. I didn't know how to select [type="file"] */
+
+.aboutMeForm-input[type="file"] {
+    line-height: 58px;
+    padding-left: 10px;
+}
+
+.aboutMeForm-input[type="file"]::file-selector-button {
+    height: 44px;
+    width: 118px;
+    border: none;
+    float: right;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 7px;
+    font-weight: 600;
+    margin-right: 10px;
+    border-radius: 10px;
+    color: var(--color-charcoal);
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--color-fileSelectorBtn);
+}
+
+/* ------------------ Help from chatGPT , END -------------------------------*/
 
 /*  ------ MY ACCOUNT PAGE - END ------  */
 /*  ------ FOOTER - START ------  */

@@ -17,6 +17,12 @@ builder.Services.AddAuthentication()
     {
         options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? throw new InvalidOperationException("Google ClientId configuration is missing");
         options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? throw new InvalidOperationException("Google ClientSecret configuration is missing");
+    })
+    .AddGitHub(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:GitHub:ClientId"] ?? throw new InvalidOperationException("GitHub ClientId configuration is missing");
+        options.ClientSecret = builder.Configuration["Authentication:GitHub:ClientSecret"] ?? throw new InvalidOperationException("GitHub ClientSecret configuration is missing");
+        options.Scope.Add("user:email"); // To get the email address from GitHub, you need to add this option. GitHub does not send the email address by default.
     });
 
 builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);

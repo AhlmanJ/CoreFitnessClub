@@ -381,6 +381,238 @@ html, body {
     margin-left: -9px;
 }
 
+.signIn-section {
+    height: 1695px;
+    width: 100%;
+    display: grid;
+    margin-top: 70px;
+    justify-content: center;
+
+    @media (width >= 768px) {
+        margin-top: 266px;
+    }
+
+    .signInForm-wrapper {
+        height: 950px;
+        width: 289px;
+        border-radius: 20px;
+        background-color: var(--color-white);
+
+        @media (width >= 375px) {
+            width: 340px;
+        }
+
+        @media (width >= 425px) {
+            width: 404px;
+        }
+
+        @media (width >= 768px) {
+            width: 740px;
+            padding: 38px 45px;
+        }
+
+        @media (width >= 1024px) {
+            width: 860px;
+            padding: 68px 90px;
+        }
+
+        .signInForm-h1 {
+            font-size: 30px;
+            font-weight: 500;
+            color: var(--color-black);
+            font-family: "Poppins", sans-serif;
+
+            @media (width >= 375px) {
+                font-size: 34px;
+            }
+
+            @media (width >= 768px) {
+                font-size: 56px;
+                margin-top: -20px;
+            }
+        }
+
+        .signInForm-p {
+            margin-top: -1px;
+        }
+
+        .signInForm-line {
+            border: none;
+            height: 1px;
+            margin-top: 50px;
+            background-color: var(--color-faqLine);
+        }
+
+        .signInLogos-Wrapper {
+            height: 218px;
+            width: 100%;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+
+            .signInForm-signInLogos form {
+                gap: 10px;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                margin-top: -20px;
+                flex-direction: column;
+                align-content: center;
+                justify-content: space-between;
+
+                @media (width >= 768px) {
+                    flex-direction: row;
+                }
+            }
+        }
+
+        .signInForm-lineTextWrapper {
+            display: flex;
+            margin-top: -30px;
+            align-items: center;
+            justify-content: center;
+
+            .line1 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+
+            .signInLine-text {
+                width: 184px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .line2 {
+                height: 1px;
+                width: 250px;
+                background-color: var(--color-faqLine);
+            }
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .additional-information {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .signInForm-group.password {
+            margin-top: 8px;
+        }
+
+        .signInForm-group {
+            gap: 15px;
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+
+            .singIn-form-label {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+
+            .signInFormLable-wrapper {
+                width: 100%;
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+
+                .forgotPassword-link {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--color-accent);
+                    font-family: "Poppins", sans-serif;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: var(--color-charcoal);
+                    }
+                }
+            }
+
+            .signIn-form-input {
+                height: 58px;
+                width: 100%;
+                border: none;
+                outline: none;
+                font-size: 16px;
+                font-weight: 400;
+                padding: 0 20px;
+                border-radius: 10px;
+                font-family: "DM Sans", sans-serif;
+                color: var(--color-PlaceHolderTxt);
+                background-color: var(--color-lightBg);
+            }
+        }
+
+        .signInFormBtn-wrapper {
+            display: flex;
+            margin-top: 37px;
+            align-content: center;
+            justify-content: center;
+
+            .signInForm-btn {
+                height: 50px;
+                width: 556px;
+                border: none;
+                display: flex;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                border-radius: 20px;
+                align-items: center;
+                justify-content: space-between;
+                color: var(--color-charcoal);
+                font-family: "DM Sans", sans-serif;
+                background-color: var(--color-accent);
+
+                &:hover {
+                    border: 2px solid;
+                    color: var(--color-charcoal);
+                }
+
+                .SignInForm-submitBtnTxt {
+                }
+
+                .SignInForm-btnIcon {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        .signInForm-group-rememberMe {
+            display: flex;
+            align-content: center;
+            justify-content: start;
+        }
+
+        .signInForm-group-checkbox {
+            display: flex;
+            margin-top: 12px;
+            align-content: center;
+            justify-content: center;
+
+            .signIn-form-input[type="checkbox"] {
+                transform: scale(1.8);
+            }
+
+            .TermsAndConditions {
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 10px;
+                color: var(--color-charcoal);
+                font-family: "Poppins", sans-serif;
+            }
+        }
+    }
+}
+
 .account-btn {
     height: 50px;
     width: 156px;
@@ -3181,6 +3413,7 @@ html, body {
                     display: block;
                 }
 
+
                 .myAccount-sidebar-menu {
                     height: 358px;
                     width: 289px;
@@ -3853,235 +4086,9 @@ html, body {
 }
 /*  ------ FOOTER - END ------  */
 
-.signIn-section {
-    height: 1695px;
-    width: 100%;
-    display: grid;
-    margin-top: 70px;
-    justify-content: center;
-
-    @media (width >= 768px) {
-        margin-top: 266px;
-    }
-
-    .signInForm-wrapper {
-        height: 950px;
-        width: 289px;
-        border-radius: 20px;
-        background-color: var(--color-white);
-
-        @media (width >= 375px) {
-            width: 340px;
-        }
-
-        @media (width >= 425px) {
-            width: 404px;
-        }
-
-        @media (width >= 768px) {
-            width: 740px;
-            padding: 38px 45px;
-        }
-
-        @media (width >= 1024px) {
-            width: 860px;
-            padding: 68px 90px;
-        }
-
-        .signInForm-h1 {
-            font-size: 30px;
-            font-weight: 500;
-            color: var(--color-black);
-            font-family: "Poppins", sans-serif;
-
-            @media (width >= 375px) {
-                font-size: 34px;
-            }
-
-            @media (width >= 768px) {
-                font-size: 56px;
-                margin-top: -20px;
-            }
-        }
-
-        .signInForm-p {
-            margin-top: -1px;
-        }
-
-        .signInForm-line {
-            border: none;
-            height: 1px;
-            margin-top: 50px;
-            background-color: var(--color-faqLine);
-        }
-
-        .signInLogos-Wrapper {
-            height: 218px;
-            width: 100%;
-            display: grid;
-            align-content: center;
-            justify-content: center;
-
-            .signInForm-signInLogos {
-                height: 100%;
-                width: 209px;
-                display: flex;
-                margin-top: -20px;
-                align-content: center;
-                justify-content: space-between;
-            }
-        }
-
-        .signInForm-lineTextWrapper {
-            display: flex;
-            margin-top: -30px;
-            align-items: center;
-            justify-content: center;
-
-            .line1 {
-                height: 1px;
-                width: 250px;
-                background-color: var(--color-faqLine);
-            }
-
-            .signInLine-text {
-                width: 184px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .line2 {
-                height: 1px;
-                width: 250px;
-                background-color: var(--color-faqLine);
-            }
-        }
-
-        .field-validation-error {
-            color: red;
-        }
-
-        .additional-information {
-            color: red;
-            margin-bottom: 10px;
-        }
-
-        .signInForm-group.password {
-            margin-top: 8px;
-        }
-
-        .signInForm-group {
-            gap: 15px;
-            display: flex;
-            margin-top: 10px;
-            flex-direction: column;
-
-            .singIn-form-label {
-                font-size: 14px;
-                font-weight: 600;
-                color: var(--color-charcoal);
-                font-family: "Poppins", sans-serif;
-            }
-
-            .signInFormLable-wrapper {
-                width: 100%;
-                display: flex;
-                align-content: center;
-                justify-content: space-between;
-
-                .forgotPassword-link {
-                    font-size: 12px;
-                    font-weight: 600;
-                    color: var(--color-accent);
-                    font-family: "Poppins", sans-serif;
-
-                    &:hover {
-                        text-decoration: underline;
-                        color: var(--color-charcoal);
-                    }
-                }
-            }
-
-            .signIn-form-input {
-                height: 58px;
-                width: 100%;
-                border: none;
-                outline: none;
-                font-size: 16px;
-                font-weight: 400;
-                padding: 0 20px;
-                border-radius: 10px;
-                font-family: "DM Sans", sans-serif;
-                color: var(--color-PlaceHolderTxt);
-                background-color: var(--color-lightBg);
-            }
-        }
-
-        .signInFormBtn-wrapper {
-            display: flex;
-            margin-top: 37px;
-            align-content: center;
-            justify-content: center;
-
-            .signInForm-btn {
-                height: 50px;
-                width: 556px;
-                border: none;
-                display: flex;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: 600;
-                border-radius: 20px;
-                align-items: center;
-                justify-content: space-between;
-                color: var(--color-charcoal);
-                font-family: "DM Sans", sans-serif;
-                background-color: var(--color-accent);
-
-                &:hover {
-                    border: 2px solid;
-                    color: var(--color-charcoal);
-                }
-
-                .SignInForm-submitBtnTxt {
-                }
-
-                .SignInForm-btnIcon {
-                    font-size: 22px;
-                }
-            }
-        }
-
-        .signInForm-group-rememberMe {
-            display: flex;
-            align-content: center;
-            justify-content: start;
-        }
-
-        .signInForm-group-checkbox {
-            display: flex;
-            margin-top: 12px;
-            align-content: center;
-            justify-content: center;
-
-            .signIn-form-input[type="checkbox"] {
-                transform: scale(1.8);
-            }
-
-            .TermsAndConditions {
-                font-size: 14px;
-                font-weight: 400;
-                margin-left: 10px;
-                color: var(--color-charcoal);
-                font-family: "Poppins", sans-serif;
-            }
-        }
-    }
-}
-
 /*  ------ EXTERNAL PROVIDER ------  */
 
-.gsi-material-button {
+.ext-material-button {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -4113,14 +4120,14 @@ html, body {
     min-width: min-content;
 }
 
-    .gsi-material-button .gsi-material-button-icon {
+    .ext-material-button .ext-material-button-icon {
         height: 20px;
         margin-right: 10px;
         min-width: 20px;
         width: 20px;
     }
 
-    .gsi-material-button .gsi-material-button-content-wrapper {
+    .ext-material-button .ext-material-button-content-wrapper {
         -webkit-align-items: center;
         align-items: center;
         display: flex;
@@ -4134,7 +4141,7 @@ html, body {
         width: 100%;
     }
 
-    .gsi-material-button .gsi-material-button-contents {
+    .ext-material-button .ext-material-button-contents {
         -webkit-flex-grow: 1;
         flex-grow: 1;
         font-family: 'Roboto', arial, sans-serif;
@@ -4144,7 +4151,7 @@ html, body {
         vertical-align: top;
     }
 
-    .gsi-material-button .gsi-material-button-state {
+    .ext-material-button .ext-material-button-state {
         -webkit-transition: opacity .218s;
         transition: opacity .218s;
         bottom: 0;
@@ -4155,32 +4162,32 @@ html, body {
         top: 0;
     }
 
-    .gsi-material-button:disabled {
+    .ext-material-button:disabled {
         cursor: default;
         background-color: #ffffff61;
         border-color: #1f1f1f1f;
     }
 
-        .gsi-material-button:disabled .gsi-material-button-contents {
+        .ext-material-button:disabled .ext-material-button-contents {
             opacity: 38%;
         }
 
-        .gsi-material-button:disabled .gsi-material-button-icon {
+        .ext-material-button:disabled .ext-material-button-icon {
             opacity: 38%;
         }
 
-    .gsi-material-button:not(:disabled):active .gsi-material-button-state,
-    .gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+    .ext-material-button:not(:disabled):active .ext-material-button-state,
+    .ext-material-button:not(:disabled):focus .ext-material-button-state {
         background-color: #303030;
         opacity: 12%;
     }
 
-    .gsi-material-button:not(:disabled):hover {
+    .ext-material-button:not(:disabled):hover {
         -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
         box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
     }
 
-        .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+        .ext-material-button:not(:disabled):hover .ext-material-button-state {
             background-color: #303030;
             opacity: 8%;
         }
@@ -4257,14 +4264,19 @@ html, body {
             align-content: center;
             justify-content: center;
 
-            .signUpForm-signUpLogos {
+            .signUpForm-signUpLogos form {
+                gap: 10px;
                 height: 100%;
-                width: 209px;
+                width: 100%;
                 display: flex;
+                flex-direction: column;
                 margin-top: -20px;
                 align-content: center;
                 justify-content: space-between;
 
+                @media (width >= 768px) {
+                    flex-direction: row;
+                }
             }
         }
 

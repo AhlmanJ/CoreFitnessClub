@@ -1,4 +1,7 @@
-﻿using Domain.Abstractions.Repositories.Members;
+﻿
+// Help from chatGPT - see row 37.
+
+using Domain.Abstractions.Repositories.Members;
 using Domain.Aggregates.Members;
 using Domain.Entities.Members;
 using Infrastructure.Persistence.Contexts;
@@ -31,15 +34,15 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, Guid
         return model.UserId;
     }
 
-    // Uses the methods in the Member aggregate to "protect" the domain entity from being changed from outside the aggregate.
-    protected override void ApplyPropertyUpdates(MemberEntity entity, Member model)
+    // I got help from chatGPT on how to update the Entity while keeping the properites in the entity as "Private Set" to "protect" the entity.
+    protected override void UpdateEntity(MemberEntity entity, Member model)
     {
-        entity.UpdateProfile
+        entity.UpdateInformation
             (
-                 model.FirstName,
-                 model.LastName,
-                 model.PhoneNumber,
-                 model.ProfileImageUrl
+                model.FirstName,
+                model.LastName,
+                model.PhoneNumber,
+                model.ProfileImageUrl
             );
     }
 

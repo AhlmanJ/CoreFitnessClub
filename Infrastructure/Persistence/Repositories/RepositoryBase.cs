@@ -10,7 +10,8 @@ public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TD
     protected abstract Guid GetId(TDomainModel model);
     protected abstract TEntity ToEntity(TDomainModel model);
     protected abstract TDomainModel ToDomainModel(TEntity entity);
-    protected abstract void ApplyPropertyUpdates(TEntity entity, TDomainModel model);
+
+    protected abstract void UpdateEntity(TEntity entity, TDomainModel model);
 
 
     public virtual async Task AddAsync(TDomainModel model, CancellationToken ct = default)
@@ -43,7 +44,7 @@ public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TD
             if (entity is null)
                 return false;
 
-            ApplyPropertyUpdates(entity, model);
+            UpdateEntity(entity,model);
             await _context.SaveChangesAsync(ct);
             return true;
         }

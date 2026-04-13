@@ -10,6 +10,8 @@
 // Private set to ensure that properties cannot be changed/modified after an object is created.
 
 using Domain.Aggregates.Members;
+using Domain.Entities.Booking;
+using Domain.Entities.Membership;
 
 namespace Domain.Entities.Members;
 
@@ -30,6 +32,8 @@ public class MemberEntity
     public DateTimeOffset CreatedAt { get; private set; }
     public DateTimeOffset? ModifiedAt { get; private set; }
 
+    public ICollection<BookingEntity> Bookings { get; private set; } = new List<BookingEntity>();
+    public ICollection<MembershipEntity> Memberships { get; private set; } = new List<MembershipEntity>();
 
     private MemberEntity() { }
 
@@ -42,7 +46,7 @@ public class MemberEntity
         LastName = lastname;
         PhoneNumber = phoneNumber;
         ProfileImageUrl = profileImageUrl;
-        CreatedAt = DateTimeOffset.UtcNow;
+        CreatedAt = CreatedAt;
         ModifiedAt = null!; // No ModifiedAt the first time a Member is created.
     }
 
@@ -59,13 +63,18 @@ public class MemberEntity
         ModifiedAt = modifiedAt;
     }
 
-    // Method to update the MemberEntity
-    public void UpdateProfile(string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl)
+    public void UpdateInformation(string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl)
     {
-        FirstName = firstName ?? FirstName; // If the new "firstName" is not null = Update FirstName with the new value. If "firstName" is null = keep the "old" value.
-        LastName = lastName ?? LastName;
-        PhoneNumber = phoneNumber ?? PhoneNumber;
-        ProfileImageUrl = profileImageUrl ?? ProfileImageUrl;
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentException("First name is required");
+
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentException("Last name is required");
+
+        FirstName = firstName.Trim();
+        LastName = lastName.Trim();
+        PhoneNumber = string.IsNullOrWhiteSpace(phoneNumber) ? null : phoneNumber;
+        ProfileImageUrl = string.IsNullOrWhiteSpace(profileImageUrl) ? null : profileImageUrl;
         ModifiedAt = DateTimeOffset.UtcNow;
     }
 }

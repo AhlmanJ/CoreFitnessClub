@@ -4,6 +4,7 @@ using Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260413211557_Migration_2")]
+    partial class Migration_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,7 +107,7 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("MembershipPlanId")
+                    b.Property<Guid>("MembershipPlansId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("StartDate")
@@ -117,14 +120,12 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("Id");
 
-                    b.HasIndex("MemberId");
-
-                    b.HasIndex("MembershipPlanId");
+                    b.HasIndex("MembershipPlansId");
 
                     b.ToTable("Memberships", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Membership.MembershipPlan.MembershipPlanEntity", b =>
+            modelBuilder.Entity("Domain.Entities.Membership.MembershipPlans.MembershipPlansEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,12 +161,7 @@ namespace Infrastructure.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<Guid>("TrainerMemberId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TrainerMemberId");
 
                     b.ToTable("TrainingSession", (string)null);
                 });
@@ -398,32 +394,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Membership.MembershipEntity", b =>
                 {
-                    b.HasOne("Domain.Entities.Members.MemberEntity", "Member")
+                    b.HasOne("Domain.Entities.Membership.MembershipPlans.MembershipPlansEntity", "MembershipPlans")
                         .WithMany("Memberships")
-                        .HasForeignKey("MemberId")
+                        .HasForeignKey("MembershipPlansId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Membership.MembershipPlan.MembershipPlanEntity", "MembershipPlan")
-                        .WithMany("Memberships")
-                        .HasForeignKey("MembershipPlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Member");
-
-                    b.Navigation("MembershipPlan");
-                });
-
-            modelBuilder.Entity("Domain.Entities.TrainingSession.TrainingSessionEntity", b =>
-                {
-                    b.HasOne("Domain.Entities.Members.MemberEntity", "TrainerMember")
-                        .WithMany()
-                        .HasForeignKey("TrainerMemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TrainerMember");
+                    b.Navigation("MembershipPlans");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -480,11 +457,9 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Members.MemberEntity", b =>
                 {
                     b.Navigation("Bookings");
-
-                    b.Navigation("Memberships");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Membership.MembershipPlan.MembershipPlanEntity", b =>
+            modelBuilder.Entity("Domain.Entities.Membership.MembershipPlans.MembershipPlansEntity", b =>
                 {
                     b.Navigation("Memberships");
                 });

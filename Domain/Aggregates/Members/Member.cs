@@ -60,7 +60,7 @@ public class Member
         return member;
     }
 
-    public void UpdateInformation(string firstName, string lastName, string? phoneNumber, string? profileImageUrl)
+    public void UpdateInformation(string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl)
     {
         if (string.IsNullOrWhiteSpace(firstName))
             throw new ArgumentException("First name is required");
@@ -72,5 +72,6 @@ public class Member
         LastName = lastName.Trim();
         PhoneNumber = string.IsNullOrWhiteSpace(phoneNumber) ? null : phoneNumber;
         ProfileImageUrl = string.IsNullOrWhiteSpace(profileImageUrl) ? null : profileImageUrl;
+        ModifiedAt = DateTimeOffset.UtcNow;
     }
 }

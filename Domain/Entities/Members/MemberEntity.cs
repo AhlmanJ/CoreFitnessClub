@@ -15,7 +15,7 @@ namespace Domain.Entities.Members;
 
 public class MemberEntity
 {
-    public string Id { get; private set; } = null!;
+    public Guid Id { get; private set; }
 
     public string UserId { get; private set; } = null!; // FK to ApplicationUser
 
@@ -36,7 +36,7 @@ public class MemberEntity
     // Constructor to create a MemberEntity.
     public MemberEntity(string userId, string? firstname, string? lastname, string? phoneNumber, string? profileImageUrl)
     {
-        Id = Guid.NewGuid().ToString();
+        Id = Guid.NewGuid();
         UserId = userId;
         FirstName = firstname;
         LastName = lastname;
@@ -47,7 +47,7 @@ public class MemberEntity
     }
 
     // Constructor to update an already existing MemberEntity or create a MemberEntity with all properies. ( To update an existing Member )
-    public MemberEntity(string id, string userId, string? firstname, string? lastname, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
+    public MemberEntity(Guid id, string userId, string? firstname, string? lastname, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
     {
         Id = id;
         UserId = userId;

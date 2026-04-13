@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Repositories;
 
-public abstract class RepositoryBase<TDomainModel, TId, TEntity, TDbContext>(TDbContext context) : IRepositoryBase<TDomainModel, TId> where TEntity : class where TDbContext : DbContext
+public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TDbContext context) : IRepositoryBase<TDomainModel, Guid> where TEntity : class where TDbContext : DbContext
 {
     protected readonly TDbContext _context = context;
     protected DbSet<TEntity> Set => _context.Set<TEntity>();
-    protected abstract TId GetId(TDomainModel model);
+    protected abstract Guid GetId(TDomainModel model);
     protected abstract TEntity ToEntity(TDomainModel model);
     protected abstract TDomainModel ToDomainModel(TEntity entity);
     protected abstract void ApplyPropertyUpdates(TEntity entity, TDomainModel model);
@@ -39,7 +39,7 @@ public abstract class RepositoryBase<TDomainModel, TId, TEntity, TDbContext>(TDb
 
             var id = GetId(model);
 
-            var entity = await Set.FindAsync([id], ct);
+            var entity = await Set.FindAsync(id, ct);
             if (entity is null)
                 return false;
 
@@ -62,7 +62,7 @@ public abstract class RepositoryBase<TDomainModel, TId, TEntity, TDbContext>(TDb
 
             var id = GetId(model);
 
-            var entity = await Set.FindAsync([id], ct);
+            var entity = await Set.FindAsync(id, ct);
             if (entity is null)
                 return false;
 
@@ -76,11 +76,11 @@ public abstract class RepositoryBase<TDomainModel, TId, TEntity, TDbContext>(TDb
         }
     }
 
-    public virtual async Task<TDomainModel?> GetByIdAsync(TId id, CancellationToken ct = default)
+    public virtual async Task<TDomainModel?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
         try
         {
-            var entity = await Set.FindAsync([id], ct);
+            var entity = await Set.FindAsync(id, ct);
             return entity is null ? default : ToDomainModel(entity);
         }
         catch

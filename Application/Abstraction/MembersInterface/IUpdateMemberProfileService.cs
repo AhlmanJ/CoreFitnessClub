@@ -1,10 +1,10 @@
 ﻿using Application.Common.Results;
 using Application.Members.Inputs;
-using Domain.Aggregates.Members;
+using Application.Members.Outputs;
 
 namespace Application.Abstraction.MembersInterface;
 
 public interface IUpdateMemberProfileService
 {
-    Task<Result<Member>> ExecuteAsync(UpdateMemberProfileInput input, CancellationToken ct = default);
+    Task<Result<MemberProfileOutput>> ExecuteAsync(UpdateMemberProfileInput input, CancellationToken ct = default);
 }

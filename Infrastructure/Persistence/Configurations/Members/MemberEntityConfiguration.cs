@@ -40,6 +40,7 @@ internal class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity
             .HasOne<ApplicationUser>()
             .WithOne()
             .HasForeignKey<MemberEntity>(x => x.UserId)
+            .HasPrincipalKey<ApplicationUser>(x => x.Id)
             .IsRequired() // A profile must have a account.
             .OnDelete(DeleteBehavior.Cascade); // If the user account is deleted, the profile information will also be deleted. (The account and profile are separate).
     }

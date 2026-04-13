@@ -2,7 +2,7 @@
 
 public class Member
 {
-    public string Id { get; private set; } = null!;
+    public Guid Id { get; private set; }
 
     public string UserId { get; private set; } = null!; // FK to ApplicationUser
 
@@ -23,7 +23,7 @@ public class Member
 
     }
 
-    private Member(string  id, string userId, DateTimeOffset createdAt)
+    private Member(Guid id, string userId, DateTimeOffset createdAt)
     {
         Id = id;
         UserId = userId;
@@ -36,7 +36,7 @@ public class Member
             throw new ArgumentException("Application User id is required");
 
         var member = new Member(
-            Guid.NewGuid().ToString(),
+            Guid.NewGuid(),
             userId,
             DateTimeOffset.UtcNow
         );
@@ -44,7 +44,9 @@ public class Member
         return member;
     }
 
-    public static Member Create(string id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
+
+    // Rehydrate
+    public static Member Create(Guid id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
     {
         var member = new Member(id, userId, createdAt)
         { 

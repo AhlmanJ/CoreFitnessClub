@@ -397,15 +397,4 @@ public class AuthenticationController
 
         return RedirectToAction("Index", "Home");
     }
-
-    /*
-      
-         
-        ----> To register the profile, I don't know if I'll use this yet. <------
-     
-        public IActionResult RegisterProfile()
-        {
-            return View();
-        }
-    */
 }

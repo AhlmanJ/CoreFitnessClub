@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Repositories.MembersRepo;
 
-public class MemberRepository(DataContext context) : RepositoryBase<Member, string, MemberEntity, DataContext>(context), IMemberRepository
+public class MemberRepository(DataContext context) : RepositoryBase<Member, Guid, MemberEntity, DataContext>(context), IMemberRepository
 {
     public async Task<Member?> GetMemberByUserIdAsync(string userId, CancellationToken ct = default)
     {
@@ -21,7 +21,7 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, stri
         }
     }
 
-    protected override string GetId(Member model)
+    protected override Guid GetId(Member model)
     {
         return model.Id;
     }

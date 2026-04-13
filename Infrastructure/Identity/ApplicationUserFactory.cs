@@ -1,15 +1,11 @@
 ﻿// NOTE! ChatGPT helped med with this. ( It was the first entity i created so i needed help with an explanation of how to work with the code. )
 
 using Domain.Entities.Members;
-using Infrastructure.Factories;
 
 namespace Infrastructure.Identity;
 
-public class ApplicationUserFactory(MemberEntityFactory memberEntityFactory)
+public class ApplicationUserFactory()
 {
-
-    private readonly MemberEntityFactory _memberEntityFactory = memberEntityFactory;
-
     public ApplicationUser Create(string email, bool confirmedEmail = true)
     {
 

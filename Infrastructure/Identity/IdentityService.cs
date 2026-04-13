@@ -4,20 +4,17 @@
 
 using Application.Abstraction;
 using Application.Common.Results;
-using Infrastructure.Factories;
 using Microsoft.AspNetCore.Identity;
-using System.Reflection.Metadata.Ecma335;
 
 namespace Infrastructure.Identity;
 
-public class IdentityService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationUserFactory applicationUserFactory, MemberEntityFactory memberEntityFactory) : IIdentityService
+public class IdentityService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationUserFactory applicationUserFactory) : IIdentityService
 {
     private readonly UserManager<ApplicationUser> _userManager = userManager;
     private readonly SignInManager<ApplicationUser> _signInManager = signInManager;
     private readonly ApplicationUserFactory _applicationUserFactory = applicationUserFactory;
-    private readonly MemberEntityFactory _memberEntityFactory = memberEntityFactory;
 
-    // I got help from chatGPT on how to create and use a MemberEntityFactory and a ApplicationUserFactory. ( The teacher mentioned in the lecture that it might be good to create factories for these and so I asked chatGPT to show how to do this. )
+    // I got help from chatGPT on how to create and use a ApplicationUserFactory. ( The teacher mentioned in the lecture that it might be good to create factory for this, so i asked chatGPT to show how to do this. )
     public async Task<Result<string?>> CreateUserAsync(string email, string password, CancellationToken ct = default, bool confirmedEmail = true, string? firstName = null, string? lastName = null, string? phoneNumber = null, string? profileImageUrl = null)
     {
         var existingUser = await _userManager.FindByEmailAsync(email); // Uses one of the Identity package's own methods.
@@ -29,13 +26,6 @@ public class IdentityService(UserManager<ApplicationUser> userManager, SignInMan
         var result = await _userManager.CreateAsync(user, password);
         if (!result.Succeeded)
             return Result<string?>.BadRequest("User creation failed.");
-
-        if (firstName != null || lastName != null || phoneNumber != null ||profileImageUrl != null )
-        {
-            var memberEntity = _memberEntityFactory.Create(user.Id, firstName, lastName, phoneNumber, profileImageUrl); // Create a Member (Profile).
-            user.Member = memberEntity;
-            await _userManager.UpdateAsync(user);
-        }
 
         return !result.Succeeded ? Result<string?>.BadRequest("User creation failed") : Result<string?>.Ok(user.Id);
     }

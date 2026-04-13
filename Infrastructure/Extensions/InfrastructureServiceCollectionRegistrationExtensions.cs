@@ -2,7 +2,6 @@
 // Service-registration for the Infrastructure-layer.
 
 using Infrastructure.Extensions.Identity;
-using Infrastructure.Factories;
 using Infrastructure.Identity;
 using Infrastructure.Persistence.Extensions;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +17,6 @@ public static class InfrastructureServiceCollectionRegistrationExtensions
         services.AddPersistence(configuration, env);
         services.AddIdentityServices();
 
-        services.AddTransient<MemberEntityFactory>(); // Add transient because we only need it when it is "called".
         services.AddTransient<ApplicationUserFactory>();
 
         return services;

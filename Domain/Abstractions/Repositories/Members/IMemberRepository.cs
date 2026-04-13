@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 
 namespace Domain.Abstractions.Repositories.Members;
 
-public interface IMemberRepository : IRepositoryBase<Member, string>
+public interface IMemberRepository : IRepositoryBase<Member, Guid>
 {
     Task<Member?> GetMemberByUserIdAsync(string userId, CancellationToken ct = default);
     string GetUserId(Member model);

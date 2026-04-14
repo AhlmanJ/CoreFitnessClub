@@ -23,11 +23,16 @@
                             <p class="sidebarMenue-row1-txt">Menu Options</p>
                         </div>
                         <div class="sidebarMenue-row2">
-                            <a asp-controller="" asp-action="" class="myAccount-sidebar-link">About Me <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            <a asp-action="My" asp-route-section="about" class="myAccount-sidebar-link">About Me <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-controller="" asp-action="" class="myAccount-sidebar-link">My Membership <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            <a asp-action="My" asp-route-section="membership" class="myAccount-sidebar-link">My Membership <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-controller="" asp-action="" class="myAccount-sidebar-link">My Bookings <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            <a asp-action="My" asp-route-section="booking" class="myAccount-sidebar-link">My Bookings <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="My" asp-route-section="admin" class="myAccount-sidebar-link">Admin Panel <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            }
 
                             <form asp-action="SignOut" asp-controller="Authentication" method="post">
                                 <button type="submit" class="myAccount-sidebar-signOutBtn">
@@ -52,71 +57,28 @@
 
             <div class="myAccount-rs">
 
-                <div class="aboutMeForm-wrapper">
-                    <form class="aboutMe-form" asp-action="My" asp-controller="Account" method="post" enctype="multipart/form-data" novalidate>
+                @{
+                    var section = ViewBag.Section as string;
+                }
 
-                        <h3 class="aboutMe-form-h3">About Me</h3>
+                @if (section == "about")
+                {
+                    @await Html.PartialAsync("_AboutMePartial")
+                }
+                else if (section == "membership")
+                {
+                    @await Html.PartialAsync("_MembershipPartial")
+                }
+                else if (section == "booking")
+                {
+                    @await Html.PartialAsync("_BookingPartial")
+                }
+                else if (section == "admin" && User.IsInRole("Admin"))
+                {
+                    @await Html.PartialAsync("_AdminPanelPartial")
+                }
+                
 
-                        <hr class="aboutMe-form-line1" />
-
-                        @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
-                        {
-                            <p class="error-message">
-                                @ViewData["ErrorMessage"]
-                            </p>
-                        }
-                        else if (!string.IsNullOrWhiteSpace(ViewData["SuccessMessage"]?.ToString()))
-                        {
-                            <p class="success-message">
-                                @ViewData["SuccessMessage"]
-                            </p>
-                        }
-
-                        <div class="aboutMe-formGroup ">
-                            <label class="aboutMeForm-label" asp-for="AboutMeForm.FirstName"></label>
-                            <input class="aboutMeForm-input" asp-for="AboutMeForm.FirstName" />
-                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.FirstName"></span>
-                        </div>
-
-                        <div class="aboutMe-formGroup two">
-                            <label class="aboutMeForm-label" asp-for="AboutMeForm.LastName"></label>
-                            <input class="aboutMeForm-input" asp-for="AboutMeForm.LastName" />
-                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.LastName"></span>
-                        </div>
-
-                        <div class="aboutMe-formGroup three">
-                            <label class="aboutMeForm-label" asp-for="Email"></label>
-                            <input class="aboutMeForm-input" asp-for="Email" disabled/>
-                        </div>
-
-                        <div class="aboutMe-formGroup four">
-                            <label class="aboutMeForm-label" asp-for="AboutMeForm.PhoneNumber"></label>
-                            <input class="aboutMeForm-input" asp-for="AboutMeForm.PhoneNumber" />
-                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
-                        </div>
-
-                        <hr class="aboutMe-form-line2" />
-
-                        <div class="aboutMe-formGroup five">
-                            <label class="aboutMeForm-label" asp-for="AboutMeForm.ProfileImageUrl"></label>
-                            <input class="aboutMeForm-input" type="file" asp-for="AboutMeForm.File"/>
-                            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.File"></span>
-                        </div>
-
-                        <div class="aboutMeFormBtn-wrapper">
-                            <button class="aboutMeForm-btn" type="submit">
-
-                                <div class="aboutMeForm-submitBtnTxt">Save</div>
-
-                                <div class="aboutMeForm-btnIcon">
-                                    <i class="fa-solid fa-angle-right" style="color: #27252f;"></i>
-                                </div>
-
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
 
                 <div class="myStatisticsForm-wrapper">
 

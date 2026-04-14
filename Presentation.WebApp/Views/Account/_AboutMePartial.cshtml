@@ -1,0 +1,71 @@
+﻿@model MyAccountViewModel
+
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<div class="aboutMeForm-wrapper">
+    <form class="aboutMe-form" asp-action="My" asp-controller="Account" method="post" enctype="multipart/form-data" novalidate>
+
+        <h3 class="aboutMe-form-h3">About Me</h3>
+
+        <hr class="aboutMe-form-line1" />
+
+        @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
+        {
+            <p class="error-message">
+                @ViewData["ErrorMessage"]
+            </p>
+        }
+        else if (!string.IsNullOrWhiteSpace(ViewData["SuccessMessage"]?.ToString()))
+        {
+            <p class="success-message">
+                @ViewData["SuccessMessage"]
+            </p>
+        }
+
+        <div class="aboutMe-formGroup ">
+            <label class="aboutMeForm-label" asp-for="AboutMeForm.FirstName"></label>
+            <input class="aboutMeForm-input" asp-for="AboutMeForm.FirstName" />
+            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.FirstName"></span>
+        </div>
+
+        <div class="aboutMe-formGroup two">
+            <label class="aboutMeForm-label" asp-for="AboutMeForm.LastName"></label>
+            <input class="aboutMeForm-input" asp-for="AboutMeForm.LastName" />
+            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.LastName"></span>
+        </div>
+
+        <div class="aboutMe-formGroup three">
+            <label class="aboutMeForm-label" asp-for="Email"></label>
+            <input class="aboutMeForm-input" asp-for="Email" disabled />
+        </div>
+
+        <div class="aboutMe-formGroup four">
+            <label class="aboutMeForm-label" asp-for="AboutMeForm.PhoneNumber"></label>
+            <input class="aboutMeForm-input" asp-for="AboutMeForm.PhoneNumber" />
+            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
+        </div>
+
+        <hr class="aboutMe-form-line2" />
+
+        <div class="aboutMe-formGroup five">
+            <label class="aboutMeForm-label" asp-for="AboutMeForm.ProfileImageUrl"></label>
+            <input class="aboutMeForm-input" type="file" asp-for="AboutMeForm.File" />
+            <span class="aboutMeForm-validation-error" asp-validation-for="AboutMeForm.File"></span>
+        </div>
+
+        <div class="aboutMeFormBtn-wrapper">
+            <button class="aboutMeForm-btn" type="submit">
+
+                <div class="aboutMeForm-submitBtnTxt">Save</div>
+
+                <div class="aboutMeForm-btnIcon">
+                    <i class="fa-solid fa-angle-right" style="color: #27252f;"></i>
+                </div>
+
+            </button>
+        </div>
+
+    </form>
+</div>

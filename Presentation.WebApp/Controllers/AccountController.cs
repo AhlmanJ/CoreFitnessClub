@@ -1,4 +1,11 @@
-﻿using Application.Abstraction.MembersInterface;
+﻿
+/*
+    On this page I got help from chatGPT on how I could render different partials depending on which link in the side menu I choose.
+    It was difficult to find any information online about what I could do in this particular situation.
+    I also asked about the difference between ViewBag and TempData.
+ */
+
+using Application.Abstraction.MembersInterface;
 using Application.Members.Inputs;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -11,10 +18,10 @@ namespace Presentation.WebApp.Controllers;
 
 [Authorize]
 [Route("Account")]
-public class AccountController ( UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IWebHostEnvironment _env ) : Controller
+public class AccountController (UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IWebHostEnvironment _env) : Controller
 {
     [HttpGet("my")]
-    public async Task<IActionResult> My(CancellationToken ct = default)
+    public async Task<IActionResult> My(string section = "about", CancellationToken ct = default)
     {
         var user = await userManager.GetUserAsync(User);
         if (user is null)
@@ -35,6 +42,8 @@ public class AccountController ( UserManager<ApplicationUser> userManager, IGetM
                 ProfileImageUrl = profile.Value?.ProfileImageUrl ?? string.Empty
             }
         };
+
+        ViewBag.Section = section;
 
         return View(viewModel);
     }

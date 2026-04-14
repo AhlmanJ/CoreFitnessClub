@@ -9,17 +9,18 @@ public static class PersistenceDatabaseInitializer
 {
     public static async Task InitializeAsync(IServiceProvider sp, IHostEnvironment env, CancellationToken ct = default)
     {
+        using var scope = sp.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+
         if (env.IsDevelopment())
         {
-            using var scope = sp.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<DataContext>();
             await context.Database.EnsureCreatedAsync(ct);
         }
         else
         {
-            using var scope = sp.CreateScope();
-            var context = scope.ServiceProvider.GetRequiredService<DataContext>();
             await context.Database.MigrateAsync(ct);
         }
+
+        await IdentitySeeder.SeedAsync(scope.ServiceProvider);
     }
 }

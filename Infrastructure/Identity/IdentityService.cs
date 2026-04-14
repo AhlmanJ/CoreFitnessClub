@@ -4,6 +4,7 @@
 
 using Application.Abstraction;
 using Application.Common.Results;
+using Application.Common.Roles;
 using Microsoft.AspNetCore.Identity;
 
 namespace Infrastructure.Identity;
@@ -27,7 +28,11 @@ public class IdentityService(UserManager<ApplicationUser> userManager, SignInMan
         if (!result.Succeeded)
             return Result<string?>.BadRequest("User creation failed.");
 
-        return !result.Succeeded ? Result<string?>.BadRequest("User creation failed") : Result<string?>.Ok(user.Id);
+        var roleResult = await _userManager.AddToRoleAsync(user, ApplicationRoles.User); // All new users are given the "User" role by default when they register an account.
+        if (!roleResult.Succeeded)
+            return Result<string?>.BadRequest("User created, but failed to assign role.");
+
+        return Result<string?>.Ok(user.Id);
     }
 
     public async Task<Result<string?>> PasswordSignInAsync(string email, string password, bool rememberMe, CancellationToken ct = default)

@@ -28,12 +28,17 @@
                             <a asp-action="My" asp-route-section="membership" class="myAccount-sidebar-link">My Membership <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
                             <a asp-action="My" asp-route-section="booking" class="myAccount-sidebar-link">My Bookings <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
-
-                            @if (User.IsInRole("Admin"))
+                            
+                            @if(User.IsInRole("Admin"))
                             {
-                                <a asp-action="My" asp-route-section="admin" class="myAccount-sidebar-link">Admin Panel <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                                <a asp-controller="Admin" asp-action="Index" class="myAccount-sidebar-link">Admin <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             }
-
+                            else
+                            {
+                                <span class="myAccount-sidebar-link notAdmin" data-toggle="tooltip" title="Only administartors have access to this page.">
+                                    Admin
+                                </span>    
+                            }
                             <form asp-action="SignOut" asp-controller="Authentication" method="post">
                                 <button type="submit" class="myAccount-sidebar-signOutBtn">
                                     Sign Out <div class="myAccount-btnIcon"><i class="fa-solid fa-angle-right"></i></div>
@@ -73,13 +78,7 @@
                 {
                     @await Html.PartialAsync("_BookingPartial")
                 }
-                else if (section == "admin" && User.IsInRole("Admin"))
-                {
-                    @await Html.PartialAsync("_AdminPanelPartial")
-                }
                 
-
-
                 <div class="myStatisticsForm-wrapper">
 
                     <h4 class="aboutMe-form-h4">My Statistics</h4>

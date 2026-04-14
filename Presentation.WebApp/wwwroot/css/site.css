@@ -3403,15 +3403,14 @@ html, body {
                         width: 404px;
                     }
                 }
-
-                /* Help by chatGPT on how to get the profile picture to "center" and fit into the div */
-                .profileImage-wrapper img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                    display: block;
-                }
+                    /* Help by chatGPT on how to get the profile picture to "center" and fit into the div */
+                    .profileImage-wrapper img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                        display: block;
+                    }
 
 
                 .myAccount-sidebar-menu {
@@ -3445,7 +3444,7 @@ html, body {
                     }
 
                     .sidebarMenue-row2 {
-                        height: 280px;
+                        height: 340px;
                         width: 100%;
                         display: flex;
                         padding: 5px 30px;
@@ -3472,6 +3471,10 @@ html, body {
                                 color: var(--color-accent);
                                 text-decoration: underline;
                                 text-decoration-color: var(--color-charcoal)
+                            }
+
+                            .notAdmin {
+                                pointer-events: none;
                             }
                         }
 
@@ -3514,7 +3517,6 @@ html, body {
 
                 .myAccount-sideBar-cancellationTxt {
                     text-align: center;
-                    margin-top: -58px;
 
                     .cancellation-txt {
                         font-size: 10px;
@@ -3554,6 +3556,7 @@ html, body {
     }
 
     .myAccount-rs {
+        height: 1000px;
 
         @media (width >= 1024px) {
             margin-left: 70px;

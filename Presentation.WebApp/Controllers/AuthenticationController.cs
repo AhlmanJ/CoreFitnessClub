@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AuthenticationModels;
-using Presentation.WebApp.ViewModels;
+using Presentation.WebApp.ViewModels.Authentication;
 using System.Security.Claims;
 
 namespace Presentation.WebApp.Controllers;

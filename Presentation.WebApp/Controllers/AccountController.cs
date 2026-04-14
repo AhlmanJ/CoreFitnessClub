@@ -6,14 +6,13 @@
  */
 
 using Application.Abstraction.MembersInterface;
-using Application.Common.Roles;
 using Application.Members.Inputs;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AccountModels;
-using Presentation.WebApp.ViewModels;
+using Presentation.WebApp.ViewModels.Account;
 
 namespace Presentation.WebApp.Controllers;
 

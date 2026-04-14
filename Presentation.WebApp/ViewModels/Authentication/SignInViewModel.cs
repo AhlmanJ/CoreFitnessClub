@@ -1,6 +1,6 @@
 ﻿using Presentation.WebApp.Models.AuthenticationModels;
 
-namespace Presentation.WebApp.ViewModels;
+namespace Presentation.WebApp.ViewModels.Authentication;
 
 public class SignInViewModel
 {

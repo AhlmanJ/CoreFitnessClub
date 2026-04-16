@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Presentation.WebApp.ViewModels.CustomerService;
+namespace Presentation.WebApp.ViewModels;
 
 public class ContactFormViewModel
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Presentation.WebApp.ViewModels.Authentication;
+namespace Presentation.WebApp.ViewModels;
 
 public class VerifyExternalLoginViewModel
 {

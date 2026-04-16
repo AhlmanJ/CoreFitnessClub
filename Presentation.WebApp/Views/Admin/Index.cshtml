@@ -1,9 +1,11 @@
-﻿@{
+﻿@model AdminViewModel;
+
+@{
     ViewData["Title"] = "Admin Page";
 }
 
 <div class="container">
-    <div class="adminPage-page">
+    <div class="adminPage">
         <section class="adminPage-section1">
             <h3 class="adminPage-sectionTitle1">Admin Page</h3>
         </section>
@@ -13,43 +15,17 @@
                 <aside class="adminPage-sidebar">
                     <div class="adminPage-sidebar-menu">
                         <div class="sidebarMenue-row1">
-                            <p class="sidebarMenue-row1-txt">Menu Options</p>
+                            <p class="sidebarMenue-row1-txt">Admin Menu Options</p>
                         </div>
                         <div class="sidebarMenue-row2">
-                            <a asp-action="" asp-route-section="" class="adminPage-sidebar-link">Manage Members and Roles <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            <a asp-controller="" asp-action="" class="adminPage-sidebar-link">Manage Members and Roles <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-action="" asp-route-section="" class="adminPage-sidebar-link">Manage Memberships and Plans <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            <a asp-controller="MembershipPlan" asp-action="Index" class="adminPage-sidebar-link">Manage Membership Plans <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-action="" asp-route-section="" class="adminPage-sidebar-link">Manage Classes/Trainingsessions <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
-
-                            <form asp-action="SignOut" asp-controller="Authentication" method="post">
-                                <button type="submit" class="adminPage-sidebar-signOutBtn">
-                                    Sign Out <div class="adminPage-btnIcon"><i class="fa-solid fa-angle-right"></i></div>
-                                </button>
-                            </form>
+                            <a asp-controller="" asp-action="" class="adminPage-sidebar-link">Manage Classes/Trainingsessions <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                         </div>
                     </div>
-
-                    <div class="adminPage-sideBar-cancellationTxt">
-                        <p class="cancellation-txt">If you like to cancel your account click below</p>
-                    </div>
-
-                    <section class="adminPage-deleteUser">
-                        <form asp-action="DeleteUser" asp-controller="Authentication" method="Post">
-                            <button class="deleteUser-btn">Remove Account</button>
-                        </form>
-                    </section>
-
                 </aside>
-            </div>
-
-            <div class="adminPage-rs">
-                
-                <div class="myStatisticsForm-wrapper">
-
-                    
-
-                </div>
             </div>
         </section>
     </div>

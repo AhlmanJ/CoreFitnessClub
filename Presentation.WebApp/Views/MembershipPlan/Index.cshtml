@@ -1,0 +1,91 @@
+﻿@model MembershipPlanViewModel
+
+@{
+    ViewData["Title"] = "Create Membership Plan";
+}
+
+<div class="container"> 
+    <div class="createMembershipPlan-page">
+        <div class="createMembershipPlan-wrapper">
+            <h3 class="createMembershipPlan-h3">Manage Membership Plans</h3>
+
+            @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <p class="error-message">
+                    @ViewData["ErrorMessage"]
+                </p>
+            }
+            else if (!string.IsNullOrWhiteSpace(ViewData["SuccessMessage"]?.ToString()))
+            {
+                <p class="success-message">
+                    @ViewData["SuccessMessage"]
+                </p>
+            }
+
+            <div class="createMembershipPlan-listWrapper">
+                <h4 class="createMembershipPlan-h4">Active Plans</h4>
+
+                <div class="createMembershipPlan-list">
+                    @foreach(var plan in Model.MembershipPlans)
+                    {
+                        <div class="createMembershipPlan-listObject">
+                            <h5>@plan.Name</h5>
+                            <p><strong>Description: </strong>@plan.Description</p>
+                            <p><strong>Price: </strong>@plan.Price</p>
+                            <p><strong>Valid Days: </strong>@plan.ValidDays</p>
+
+                            <div class="createMembershipPlan-buttons">
+                                <div class="createMembership-editBtn">
+                                    <a asp-controller="MembershipPlan" asp-action="Update" asp-route-id="@plan.Id" class="createMembership-editBtnTxt">Update</a>
+                                </div>
+                                <form asp-controller="MembershipPlan" asp-action="Delete" asp-route-id="@plan.Id" method="post">
+                                    <button type="submit" class="createMembership-deleteBtn">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+            <div class="createMembershipPlan-formWrapper">
+                <h4 class="createMembershipPlan-h4">@((Model.Id == Guid.Empty) ? "Create" : "Update") Membership Plan</h4>
+                
+                <form asp-controller="MembershipPlan" asp-action="@(Model.Id == Guid.Empty ? "Create" : "Update")" method="post" novalidate>
+                    @Html.AntiForgeryToken()
+
+                    <div class="createMembershipPlan-formGroup ">
+                        <label class="createMembershipPlan-label" asp-for="Form.Name"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.Name" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.Name"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup two">
+                        <label class="createMembershipPlan-label" asp-for="Form.Description"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.Description" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.Description"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup three">
+                        <label class="createMembershipPlan-label" asp-for="Form.Price"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.Price" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.Price"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup four">
+                        <label class="createMembershipPlan-label" asp-for="Form.ValidDays"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.ValidDays" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.ValidDays"></span>
+                    </div>
+
+                    <button type="submit"  class="createMembership-deleteBtn">@((Model.Id == Guid.Empty) ? "Create" : "Update")</button>
+                </form>
+            </div>
+
+            <div class="createMembership-returnBtn">
+                <a asp-controller="Admin" asp-action="Index" class="createMembership-returnBtnTxt">Return</a>
+            </div>
+
+        </div>
+    </div>
+</div>

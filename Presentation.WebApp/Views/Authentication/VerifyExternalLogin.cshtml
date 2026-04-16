@@ -15,6 +15,7 @@
         <hr class="verifyLogin-line" />
 
         <form asp-controller="Authentication" asp-action="VerifyExternalLogin" method="post" class="verifyLogin-form">
+            @Html.AntiForgeryToken()
             <input asp-for="Email" type="hidden" />
             <input asp-for="ReturnUrl" type="hidden" />
             

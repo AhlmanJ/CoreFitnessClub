@@ -1,73 +1,73 @@
-﻿<div class="membershipCard-container">
+﻿@model Presentation.WebApp.Models.MembershipPlanModels.MembershipPlan
 
-    <div class="card-section1">
-        <div class="cardImage-container">
-            <img src="~/images/membership-page/membership-options/icon-dumbbell.svg" alt="A picture of a dumbbell" class="card-image" />
+<div class="membershipCard-container">
+
+        <div class="card-section1">
+            <div class="cardImage-container">
+                <img src="~/images/membership-page/membership-options/icon-dumbbell.svg" alt="A picture of a dumbbell" class="card-image" />
+            </div>
         </div>
-    </div>
 
-    <div class="card-section2">
-        <h3 class="card-h3">Standard Membership</h3>
-    </div>
+        <div class="card-section2">
+            <h3 class="card-h3">@Model.Name</h3>
+        </div>
 
-    <div class="card-section3">
-        <div class="card-section3-content"></div>
-    </div>
+        <div class="card-section3">
+            <div class="card-section3-content"></div>
+        </div>
 
-    <div class="card-section4">
-        <p>
-            With the Standard Membership, get access
-            <span class="rb"></span>
-            to our full range of gym facilities.
-        </p>
-    </div>
+        <div class="card-section4">
+            <p>
+                @Model.Description
+            </p>
+        </div>
 
-    <div class="card-section5">
+        <div class="card-section5">
         
-        <div class="card-section5-checkboxes">
-            <div class="check-container">
-                <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+            <div class="card-section5-checkboxes">
+                <div class="check-container">
+                    <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                </div>
+                <p>Standard Locker</p>
             </div>
-            <p>Standard Locker</p>
-        </div>
 
-        <div class="card-section5-checkboxes">
-            <div class="check-container">
-                <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+            <div class="card-section5-checkboxes">
+                <div class="check-container">
+                    <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                </div>
+                <p>High-energy group fitness classes</p>
             </div>
-            <p>High-energy group fitness classes</p>
-        </div>
 
-        <div class="card-section5-checkboxes">
-            <div class="check-container">
-                <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+            <div class="card-section5-checkboxes">
+                <div class="check-container">
+                    <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                </div>
+                <p>Motivating & supportive environment</p>
             </div>
-            <p>Motivating & supportive environment</p>
+
         </div>
 
-    </div>
-
-    <div class="price-card">
-        <div class="price-card-section1">
-            <div class="price-card-ls">
-                <p class="card-price">495.00
-                <span class="priceTxt-monthly">/monthly</span>
-                </p>
-                <p class="priceTxt-classes">* Monthly 20 Classes</p>
+        <div class="price-card">
+            <div class="price-card-section1">
+                <div class="price-card-ls">
+                    <p class="card-price">@Model.Price
+                    <span class="priceTxt-monthly">/monthly</span>
+                    </p>
+                    <p class="priceTxt-classes">* Monthly 20 Classes</p>
+                </div>
+                <div class="price-card-rs">
+                    @await Html.PartialAsync("Partials/_JoinNowButton")
+                </div>
             </div>
-            <div class="price-card-rs">
-                @await Html.PartialAsync("Partials/_JoinNowButton")
+
+            <div class="price-card-section2">
+                <div class="priceCard-line"></div>
             </div>
-        </div>
 
-        <div class="price-card-section2">
-            <div class="priceCard-line"></div>
-        </div>
-
-        <div class="price-card-section3">
-            <div class="priceCard-bottomTxt">Try Any Membership Free for 1 Week</div>
-        </div>
+            <div class="price-card-section3">
+                <div class="priceCard-bottomTxt">Try Any Membership Free for 1 Week</div>
+            </div>
         
-    </div>
+        </div>
 
 </div>

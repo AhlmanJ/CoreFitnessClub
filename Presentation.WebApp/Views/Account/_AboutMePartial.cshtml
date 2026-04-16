@@ -2,7 +2,7 @@
 
 <div class="aboutMeForm-wrapper">
     <form class="aboutMe-form" asp-action="My" asp-controller="Account" method="post" enctype="multipart/form-data" novalidate>
-
+        @Html.AntiForgeryToken()
         <h3 class="aboutMe-form-h3">About Me</h3>
 
         <hr class="aboutMe-form-line1" />

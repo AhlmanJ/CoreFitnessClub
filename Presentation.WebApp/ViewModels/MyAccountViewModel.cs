@@ -1,7 +1,7 @@
 ﻿using Presentation.WebApp.Models.AccountModels;
 using System.ComponentModel.DataAnnotations;
 
-namespace Presentation.WebApp.ViewModels.Account;
+namespace Presentation.WebApp.ViewModels;
 
 public class MyAccountViewModel 
 {

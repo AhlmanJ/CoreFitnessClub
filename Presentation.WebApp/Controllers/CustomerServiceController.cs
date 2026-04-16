@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Presentation.WebApp.ViewModels.CustomerService;
+using Presentation.WebApp.ViewModels;
 
 namespace Presentation.WebApp.Controllers
 {

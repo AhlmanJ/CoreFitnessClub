@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AccountModels;
-using Presentation.WebApp.ViewModels.Account;
+using Presentation.WebApp.ViewModels;
 
 namespace Presentation.WebApp.Controllers;
 

@@ -65,14 +65,8 @@ public class MemberEntity
 
     public void UpdateInformation(string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl)
     {
-        if (string.IsNullOrWhiteSpace(firstName))
-            throw new ArgumentException("First name is required");
-
-        if (string.IsNullOrWhiteSpace(lastName))
-            throw new ArgumentException("Last name is required");
-
-        FirstName = firstName.Trim();
-        LastName = lastName.Trim();
+        FirstName = firstName?.Trim();
+        LastName = lastName?.Trim();
         PhoneNumber = string.IsNullOrWhiteSpace(phoneNumber) ? null : phoneNumber;
         ProfileImageUrl = string.IsNullOrWhiteSpace(profileImageUrl) ? null : profileImageUrl;
         ModifiedAt = DateTimeOffset.UtcNow;

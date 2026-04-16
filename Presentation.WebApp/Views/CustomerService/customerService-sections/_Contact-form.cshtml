@@ -45,7 +45,7 @@
 
             <div class="contactForm-rs-section3">
                 <form asp-action="Contact" method="post" novalidate>
-                
+                @Html.AntiForgeryToken()
                     <div class="contactForm-section1">
                         <div class="placeholder-wrapper">
                             <label class="label" asp-for="FirstName">First Name *</label>

@@ -1,4 +1,5 @@
-﻿using Application.Abstraction.MembershipPlansInterface;
+﻿using Application.Abstraction;
+using Application.Abstraction.MembershipPlansInterface;
 using Application.Common.Results;
 using Application.MembershipPlans.Inputs;
 using Application.MembershipPlans.Outputs;
@@ -7,7 +8,7 @@ using Domain.Aggregates.MembershipPlan;
 
 namespace Application.MembershipPlans.Services;
 
-public class CreateMembershipPlanService(IMembershipPlanRepository membershipPlanRepository) : ICreateMembershipPlanService
+public class CreateMembershipPlanService(IMembershipPlanRepository membershipPlanRepository, IUnitOfWork _unitOfWork) : ICreateMembershipPlanService
 {
     public async Task<Result<MembershipPlanOutput>> ExecuteAsync(CreateMembershipPlanInput input, CancellationToken ct = default)
     {
@@ -16,15 +17,12 @@ public class CreateMembershipPlanService(IMembershipPlanRepository membershipPla
             if (input is null)
                 return Result<MembershipPlanOutput>.BadRequest("The input field was empty.");
 
-            var membershipPlans = await membershipPlanRepository.GetAllAsync(ct);
-            if (membershipPlans.Count() >= 2)
+            var existingPlans = await membershipPlanRepository.GetAllAsync(ct);
+            if (existingPlans.Count() >= 2)
                 return Result<MembershipPlanOutput>.BadRequest("You can only have two membership plans at the same time.");
 
-            var newGuid = Guid.NewGuid();
-
-            var membershipPlan = MembershipPlan.Create
+            var membershipPlan = Domain.Aggregates.MembershipPlan.MembershipPlan.Create
                 (
-                    newGuid,
                     input.Name,
                     input.Description,
                     input.Price,
@@ -32,6 +30,7 @@ public class CreateMembershipPlanService(IMembershipPlanRepository membershipPla
                 );
 
             await membershipPlanRepository.AddAsync(membershipPlan, ct);
+            await _unitOfWork.CommitAsync(ct);
 
             var result = new MembershipPlanOutput
                 (

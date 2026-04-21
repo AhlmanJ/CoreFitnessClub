@@ -3,15 +3,8 @@ using Infrastructure.Persistence.Contexts;
 
 namespace Infrastructure.Persistence.UnitOfWork;
 
-public sealed class UnitOfWork : IUnitOfWork
+public sealed class UnitOfWork(DataContext context) : IUnitOfWork
 {
-    private readonly DataContext _context;
-
-    public UnitOfWork(DataContext context)
-    {
-        _context = context;
-    }
-
     public Task CommitAsync(CancellationToken ct = default)
-        => _context.SaveChangesAsync(ct);
+        => context.SaveChangesAsync(ct);
 }

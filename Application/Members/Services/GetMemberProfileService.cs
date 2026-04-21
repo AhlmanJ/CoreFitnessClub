@@ -12,7 +12,7 @@ public class GetMemberProfileService(IMemberRepository memberRepository) : IGetM
         try
         {
             if (string.IsNullOrWhiteSpace(userId))
-                throw new ArgumentException("UserId must be provided.");
+                return Result<Member>.BadRequest("UserId must be provided.");
 
             var member = await memberRepository.GetMemberByUserIdAsync(userId, ct);
             return member is null ? Result<Member>.NotFound($"Member with User Id {userId} was not found") : Result<Member>.Ok(member);

@@ -26,19 +26,19 @@ public class MembershipPlanController(ICreateMembershipPlanService createMembers
         if (!result.Success || result.Value == null)
         {
             ViewData["ErrorMessage"] = result.ErrorMessage;
-            return View( new MembershipPlanViewModel { MembershipPlans = new List<MembershipPlan>()});
+            return View( new MembershipPlanViewModel { Plans = new List<MembershipPlanListViewModel>()});
         }
 
         var viewModel = new MembershipPlanViewModel
         {
-            MembershipPlans = result.Value.Select(plan => new MembershipPlan
+            Plans = result.Value.Select(plan => new MembershipPlanListViewModel
             {
                 Id = plan.Id,
                 Name = plan.Name,
                 Description = plan.Description,
                 Price = plan.Price,
                 ValidDays = plan.ValidDays
-            }).ToList() ?? new List<MembershipPlan>()
+            }).ToList()
         };
 
         return View(viewModel);

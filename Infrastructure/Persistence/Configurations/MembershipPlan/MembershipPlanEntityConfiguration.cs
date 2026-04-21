@@ -1,8 +1,8 @@
-﻿using Domain.Entities.Membership.MembershipPlan;
+﻿using Infrastructure.Entities.MembershipPlan;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistence.Configurations.Membership.MembershipPlans;
+namespace Infrastructure.Persistence.Configurations.MembershipPlan;
 
 internal class MembershipPlanEntityConfiguration : IEntityTypeConfiguration<MembershipPlanEntity>
 {

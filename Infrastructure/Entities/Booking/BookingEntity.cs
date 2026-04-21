@@ -1,7 +1,7 @@
-﻿using Domain.Entities.Members;
-using Domain.Entities.TrainingSession;
+﻿using Infrastructure.Entities.Members;
+using Infrastructure.Entities.TrainingSession;
 
-namespace Domain.Entities.Booking;
+namespace Infrastructure.Entities.Booking;
 
 public enum BookingStatus
 {

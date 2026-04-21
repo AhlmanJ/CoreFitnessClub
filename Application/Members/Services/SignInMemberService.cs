@@ -2,6 +2,7 @@
 using Application.Abstraction.MembersInterface;
 using Application.Common.Results;
 using Application.Members.Inputs;
+using Application.Members.Outputs;
 
 namespace Application.Members.Services;
 
@@ -12,7 +13,7 @@ public class SignInMemberService(IIdentityService identityService) : ISignInMemb
         try
         {
             if (input is null)
-                throw new ArgumentException("The input field was empty.");
+                return Result<string?>.BadRequest("The input field was empty.");
 
 
             var result = await identityService.PasswordSignInAsync(input.Email, input.Password, input.RememberMe, ct);

@@ -1,5 +1,5 @@
 ﻿using Infrastructure.Identity;
-using Domain.Entities.Members;
+using Infrastructure.Entities.Members;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

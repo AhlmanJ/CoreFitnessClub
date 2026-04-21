@@ -9,6 +9,8 @@
         <div class="createMembershipPlan-wrapper">
             <h3 class="createMembershipPlan-h3">Manage Membership Plans</h3>
 
+            <div class="createMembershipPlan-line"></div>
+
             @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
             {
                 <p class="error-message">
@@ -22,23 +24,26 @@
                 </p>
             }
 
+            <div class="createMembershipPlan-line"></div>
+
             <div class="createMembershipPlan-listWrapper">
                 <h4 class="createMembershipPlan-h4">Active Plans</h4>
 
                 <div class="createMembershipPlan-list">
-                    @foreach(var plan in Model.MembershipPlans)
+                    @foreach(var plans in Model.Plans)
                     {
                         <div class="createMembershipPlan-listObject">
-                            <h5>@plan.Name</h5>
-                            <p><strong>Description: </strong>@plan.Description</p>
-                            <p><strong>Price: </strong>@plan.Price</p>
-                            <p><strong>Valid Days: </strong>@plan.ValidDays</p>
+                            <h5>@plans.Name</h5>
+                            <p><strong>Description: </strong>@plans.Description</p>
+                            <p><strong>Price: </strong>@plans.Price</p>
+                            <p><strong>Valid Days: </strong>@plans.ValidDays</p>
 
                             <div class="createMembershipPlan-buttons">
                                 <div class="createMembership-editBtn">
-                                    <a asp-controller="MembershipPlan" asp-action="Update" asp-route-id="@plan.Id" class="createMembership-editBtnTxt">Update</a>
+                                    <a asp-controller="MembershipPlan" asp-action="Update" asp-route-id="@plans.Id" class="createMembership-editBtnTxt">Update</a>
                                 </div>
-                                <form asp-controller="MembershipPlan" asp-action="Delete" asp-route-id="@plan.Id" method="post">
+                                <form asp-controller="MembershipPlan" asp-action="Delete" asp-route-id="@plans.Id" method="post">
+                                    @Html.AntiForgeryToken()
                                     <button type="submit" class="createMembership-deleteBtn">Delete</button>
                                 </form>
                             </div>
@@ -47,6 +52,7 @@
                 </div>
             </div>
 
+            <div class="createMembershipPlan-line"></div>
 
             <div class="createMembershipPlan-formWrapper">
                 <h4 class="createMembershipPlan-h4">@((Model.Id == Guid.Empty) ? "Create" : "Update") Membership Plan</h4>

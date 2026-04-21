@@ -1,11 +1,11 @@
 ﻿using Infrastructure.Identity;
-using Domain.Entities.Members;
+using Infrastructure.Entities.Members;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Domain.Entities.Booking;
-using Domain.Entities.Membership;
-using Domain.Entities.Membership.MembershipPlan;
-using Domain.Entities.TrainingSession;
+using Infrastructure.Entities.Booking;
+using Infrastructure.Entities.Membership;
+using Infrastructure.Entities.TrainingSession;
+using Infrastructure.Entities.MembershipPlan;
 
 namespace Infrastructure.Persistence.Contexts;
 

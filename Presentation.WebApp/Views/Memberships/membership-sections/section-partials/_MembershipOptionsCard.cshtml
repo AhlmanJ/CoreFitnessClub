@@ -1,7 +1,88 @@
-﻿@model Presentation.WebApp.Models.MembershipPlanModels.MembershipPlan
-
+﻿@model Presentation.WebApp.ViewModels.MembershipPlanListViewModel
 <div class="membershipCard-container">
+    @if(User.Identity!.IsAuthenticated)
+       {
+        <form asp-controller="Memberships" asp-action="Enroll" asp-route-id="@Model.Id" method="post">
+            @Html.AntiForgeryToken()
+                <div class="card-section1">
+                    <div class="cardImage-container">
+                        <img src="~/images/membership-page/membership-options/icon-dumbbell.svg" alt="A picture of a dumbbell" class="card-image" />
+                    </div>    
+                </div>
 
+                @if (!string.IsNullOrWhiteSpace(TempData["ErrorMessage"]?.ToString()))
+                {
+                    <p class="memberCard-error-message">
+                        @TempData["ErrorMessage"]
+                    </p>
+                }
+
+                <div class="card-section2">
+                    <h3 class="card-h3">@Model.Name</h3>
+                </div>
+
+                <div class="card-section3">
+                    <div class="card-section3-content"></div>
+                </div>
+
+                <div class="card-section4">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+
+                <div class="card-section5">
+        
+                    <div class="card-section5-checkboxes">
+                        <div class="check-container">
+                            <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                        </div>
+                        <p>Standard Locker</p>
+                    </div>
+
+                    <div class="card-section5-checkboxes">
+                        <div class="check-container">
+                            <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                        </div>
+                        <p>High-energy group fitness classes</p>
+                    </div>
+
+                    <div class="card-section5-checkboxes">
+                        <div class="check-container">
+                            <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
+                        </div>
+                        <p>Motivating & supportive environment</p>
+                    </div>
+
+                </div>
+
+                <div class="price-card">
+                    <div class="price-card-section1">
+                        <div class="price-card-ls">
+                            <p class="card-price">@Model.Price
+                            <span class="priceTxt-monthly">/monthly</span>
+                            </p>
+                            <p class="priceTxt-classes">* Monthly 20 Classes</p>
+                        </div>
+                        <div class="price-card-rs">
+                            
+                        <button type="submit" class="joinNow-btn"><h2 class="joinNow-btnTxt">Join Now</h2></button>
+
+                    </div>
+                    </div>
+
+                    <div class="price-card-section2">
+                        <div class="priceCard-line"></div>
+                    </div>
+
+                    <div class="price-card-section3">
+                        <div class="priceCard-bottomTxt">Try Any Membership Free for 1 Week</div>
+                    </div>
+                </div>
+            </form>
+        }
+        else
+        {
         <div class="card-section1">
             <div class="cardImage-container">
                 <img src="~/images/membership-page/membership-options/icon-dumbbell.svg" alt="A picture of a dumbbell" class="card-image" />
@@ -50,8 +131,9 @@
         <div class="price-card">
             <div class="price-card-section1">
                 <div class="price-card-ls">
-                    <p class="card-price">@Model.Price
-                    <span class="priceTxt-monthly">/monthly</span>
+                    <p class="card-price">
+                        @Model.Price
+                        <span class="priceTxt-monthly">/monthly</span>
                     </p>
                     <p class="priceTxt-classes">* Monthly 20 Classes</p>
                 </div>
@@ -69,5 +151,5 @@
             </div>
         
         </div>
-
+        }
 </div>

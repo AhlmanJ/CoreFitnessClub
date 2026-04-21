@@ -1,10 +1,14 @@
 ﻿
 // Service where you add Repositories.
 
+using Application.Abstraction.MembershipReadInterface;
 using Domain.Abstractions.Repositories.Members;
 using Domain.Abstractions.Repositories.MembershipPlans;
+using Domain.Abstractions.Repositories.Memberships;
 using Infrastructure.Persistence.Repositories.MembershipPlanRepo;
+using Infrastructure.Persistence.Repositories.MembershipRepos;
 using Infrastructure.Persistence.Repositories.MembersRepo;
+using Infrastructure.QueryServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +21,9 @@ public static class RepositoryRegistrationExtension
     {
         services.AddScoped<IMemberRepository, MemberRepository>();
         services.AddScoped<IMembershipPlanRepository, MembershipPlanRepository>();
+        services.AddScoped<IMembershipRepository, MembershipRepository>();
+
+        services.AddScoped<IMembershipQueryService, MembershipQueryService>();
 
         return services;
     }

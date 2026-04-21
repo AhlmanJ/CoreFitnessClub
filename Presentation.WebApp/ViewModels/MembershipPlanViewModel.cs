@@ -1,11 +1,10 @@
 ﻿using Presentation.WebApp.Models.MembershipPlanModels;
 
-namespace Presentation.WebApp.ViewModels
+namespace Presentation.WebApp.ViewModels;
+
+public class MembershipPlanViewModel
 {
-    public class MembershipPlanViewModel
-    {
-        public Guid Id { get; set; }
-        public MembershipPlanForm Form { get; set; } = new();
-        public List<MembershipPlan> MembershipPlans { get; set; } = new List<MembershipPlan>();
-    }
+    public Guid Id { get; set; }
+    public MembershipPlanForm Form { get; set; } = new();
+    public List<MembershipPlanListViewModel> Plans { get; set; } = new();
 }

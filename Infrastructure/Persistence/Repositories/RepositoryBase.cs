@@ -23,7 +23,7 @@ public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TD
 
             var entity = ToEntity(model);
             await Set.AddAsync(entity, ct);
-            await _context.SaveChangesAsync(ct);
+            
         }
         catch
         {
@@ -45,7 +45,7 @@ public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TD
                 return false;
 
             UpdateEntity(entity,model);
-            await _context.SaveChangesAsync(ct);
+            
             return true;
         }
         catch
@@ -68,7 +68,7 @@ public abstract class RepositoryBase<TDomainModel, Guid, TEntity, TDbContext>(TD
                 return false;
 
             Set.Remove(entity);
-            await _context.SaveChangesAsync(ct);
+            
             return true;
         }
         catch

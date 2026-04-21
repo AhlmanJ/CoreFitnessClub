@@ -1,4 +1,7 @@
-﻿@model MyAccountViewModel
+﻿
+<!-- ChatGPT helped me explain how i could render different views. Here i use "section" to send information on what should be rendered on the page. -->
+
+@model MyAccountViewModel
 
 @{
     ViewData["Title"] = "My Account";
@@ -68,11 +71,22 @@
 
                 @if (section == "about")
                 {
-                    @await Html.PartialAsync("_AboutMePartial")
+                    @await Html.PartialAsync("_AboutMePartial", Model)
                 }
                 else if (section == "membership")
                 {
-                    @await Html.PartialAsync("_MembershipPartial")
+                    @if(Model.Membership == null)
+                    {
+                        <div class="myAccount-noMembershipTxt-wrapper">
+                            <h3 class="noActive-membership-txt">No active membership</h3>
+                            <hr class="myAccount-line" />
+                        </div>
+
+                    }
+                    else
+                    {
+                        @await Html.PartialAsync("_MembershipPartial", Model.Membership)
+                    }
                 }
                 else if (section == "booking")
                 {

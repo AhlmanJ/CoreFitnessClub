@@ -1,7 +1,9 @@
-﻿using Application.Common.Roles;
+﻿
+// I wasn't shure how to design this page, but i decided that the best way was to design it with different controllers and separate pages.
+
+using Application.Common.Roles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.WebApp.ViewModels;
 
 
 namespace Presentation.WebApp.Controllers
@@ -10,13 +12,8 @@ namespace Presentation.WebApp.Controllers
     [Route("admin-page")]
     public class AdminController : Controller
     {
-        public IActionResult Index(string section)
+        public IActionResult Index()
         {
-            var viewModel = new AdminViewModel
-            {
-                Section = section
-            };
-
             return View();
         }
     }

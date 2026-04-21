@@ -10,6 +10,7 @@
  * I had to compromise to simplify the mapping in the repository and change the "setters" from private to internal.
  * The difference is that the value of the parameters can be changed from methods throughout the Infrastructure layer and are therefore not completely "protected".
  * However, i choose this approach to simplyfy the mapping.
+ * 
  */
 
 using Infrastructure.Entities.Booking;

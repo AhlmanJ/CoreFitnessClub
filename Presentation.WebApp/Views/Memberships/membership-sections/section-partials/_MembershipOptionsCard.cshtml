@@ -1,4 +1,5 @@
 ﻿@model Presentation.WebApp.ViewModels.MembershipPlanListViewModel
+
 <div class="membershipCard-container">
     @if(User.Identity!.IsAuthenticated)
        {
@@ -37,21 +38,21 @@
                         <div class="check-container">
                             <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                         </div>
-                        <p>Standard Locker</p>
+                        <p>@Model.ListItem1</p>
                     </div>
 
                     <div class="card-section5-checkboxes">
                         <div class="check-container">
                             <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                         </div>
-                        <p>High-energy group fitness classes</p>
+                        <p>@Model.ListItem2</p>
                     </div>
 
                     <div class="card-section5-checkboxes">
                         <div class="check-container">
                             <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                         </div>
-                        <p>Motivating & supportive environment</p>
+                        <p>@Model.ListItem3</p>
                     </div>
 
                 </div>
@@ -109,21 +110,21 @@
                 <div class="check-container">
                     <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                 </div>
-                <p>Standard Locker</p>
+                <p>@Model.ListItem1</p>
             </div>
 
             <div class="card-section5-checkboxes">
                 <div class="check-container">
                     <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                 </div>
-                <p>High-energy group fitness classes</p>
+                <p>@Model.ListItem2</p>
             </div>
 
             <div class="card-section5-checkboxes">
                 <div class="check-container">
                     <i class="fa-regular fa-circle-check" style="color: #ffffff;"></i>
                 </div>
-                <p>Motivating & supportive environment</p>
+                <p>@Model.ListItem3</p>
             </div>
 
         </div>

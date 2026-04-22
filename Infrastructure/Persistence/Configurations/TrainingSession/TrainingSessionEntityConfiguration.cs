@@ -18,6 +18,11 @@ internal class TrainingSessionEntityConfiguration : IEntityTypeConfiguration<Tra
         builder.Property(x => x.CreatedAt)
                 .IsRequired();
 
+        builder.Property(x => x.RowVersion)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .IsRequired();
+
         builder.HasMany(x => x.Bookings)
             .WithOne(x => x.TrainingSession)
             .HasForeignKey(x => x.TrainingSessionId)

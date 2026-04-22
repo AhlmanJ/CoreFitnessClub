@@ -15,15 +15,34 @@ internal class MembershipPlanEntityConfiguration : IEntityTypeConfiguration<Memb
         builder.HasIndex(x => x.Id);
 
         builder.Property(x => x.Name)
+                .HasMaxLength(30)
                 .IsRequired();
 
         builder.Property(x => x.Description)
+                .HasMaxLength(200)
+                .IsRequired();
+
+        builder.Property(x => x.ListItem1)
+                .HasMaxLength(50)
+                .IsRequired();
+
+        builder.Property(x => x.ListItem2)
+                .HasMaxLength(50)
+                .IsRequired();
+
+        builder.Property(x => x.ListItem3)
+                .HasMaxLength(50)
                 .IsRequired();
 
         builder.Property(x => x.Price)
                 .IsRequired();
 
         builder.Property(x => x.ValidDays)
+                .IsRequired();
+
+        builder.Property(x => x.RowVersion)
+                .IsRowVersion()
+                .IsConcurrencyToken()
                 .IsRequired();
     }
 }

@@ -20,7 +20,7 @@ public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPla
             if (membershipPlan == null)
                 return Result<MembershipPlanOutput>.NotFound($"The plan with the Id {input.Id} was not found");
 
-            membershipPlan.UpdateMembershipPlan(input.Name, input.Description, input.Price, input.ValidDays);
+            membershipPlan.UpdateMembershipPlan(input.Name, input.Description, input.ListItem1, input.ListItem2, input.ListItem3, input.Price, input.ValidDays);
 
             var result = await membershipPlanRepository.UpdateAsync(membershipPlan, ct);
             await _unitOfWork.CommitAsync(ct);
@@ -31,6 +31,9 @@ public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPla
                     membershipPlan.Id,
                     membershipPlan.Name,
                     membershipPlan.Description,
+                    membershipPlan.ListItem1,
+                    membershipPlan.ListItem2,
+                    membershipPlan.ListItem3,
                     membershipPlan.Price,
                     membershipPlan.ValidDays
                 ));

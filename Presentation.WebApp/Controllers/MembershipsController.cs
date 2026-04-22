@@ -47,6 +47,9 @@ public class MembershipsController(IGetAllMembershipPlansService getAllMembershi
                 Id = plan.Id,
                 Name = plan.Name,
                 Description = plan.Description,
+                ListItem1 = plan.ListItem1,
+                ListItem2 = plan.ListItem2,
+                ListItem3 = plan.ListItem3,
                 Price = plan.Price,
                 ValidDays = plan.ValidDays
 

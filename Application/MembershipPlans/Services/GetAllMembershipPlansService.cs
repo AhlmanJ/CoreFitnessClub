@@ -25,6 +25,9 @@ public class GetAllMembershipPlansService(IMembershipPlanRepository membershipPl
                 plan.Id,
                 plan.Name,
                 plan.Description,
+                plan.ListItem1,
+                plan.ListItem2,
+                plan.ListItem3,
                 plan.Price,
                 plan.ValidDays
             )).ToList();

@@ -36,6 +36,9 @@ public class MembershipPlanController(ICreateMembershipPlanService createMembers
                 Id = plan.Id,
                 Name = plan.Name,
                 Description = plan.Description,
+                ListItem1 = plan.ListItem1,
+                ListItem2 = plan.ListItem2,
+                ListItem3 = plan.ListItem3,
                 Price = plan.Price,
                 ValidDays = plan.ValidDays
             }).ToList()
@@ -61,6 +64,9 @@ public class MembershipPlanController(ICreateMembershipPlanService createMembers
             (
                 viewModel.Form.Name,
                 viewModel.Form.Description,
+                viewModel.Form.ListItem1,
+                viewModel.Form.ListItem2,
+                viewModel.Form.ListItem3,
                 viewModel.Form.Price,
                 viewModel.Form.ValidDays
             );
@@ -100,6 +106,9 @@ public class MembershipPlanController(ICreateMembershipPlanService createMembers
             {
                 Name = plan.Name,
                 Description = plan.Description,
+                ListItem1 = plan.ListItem1,
+                ListItem2 = plan.ListItem2,
+                ListItem3 = plan.ListItem3,
                 Price = plan.Price,
                 ValidDays = plan.ValidDays
             }
@@ -120,6 +129,9 @@ public class MembershipPlanController(ICreateMembershipPlanService createMembers
                 viewModel.Id,
                 viewModel.Form.Name,
                 viewModel.Form.Description,
+                viewModel.Form.ListItem1,
+                viewModel.Form.ListItem2,
+                viewModel.Form.ListItem3,
                 viewModel.Form.Price,
                 viewModel.Form.ValidDays
             );

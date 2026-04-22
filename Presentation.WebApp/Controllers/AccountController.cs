@@ -7,9 +7,7 @@
 
 using Application.Abstraction.MembershipInterface;
 using Application.Abstraction.MembersInterface;
-using Application.Common.Results;
 using Application.Members.Inputs;
-using Application.Memberships.Services;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -69,8 +67,9 @@ public class AccountController (UserManager<ApplicationUser> userManager, IGetMe
     }
 
     [HttpPost("my")]
-    public async Task<IActionResult> My(MyAccountViewModel viewModel, CancellationToken ct = default)
+    public async Task<IActionResult> My(MyAccountViewModel viewModel, string section = "about", CancellationToken ct = default)
     {
+        ViewBag.Section = section; // I was having problems with form validation. I learned that if i don't specify "ViewBag.Section" then the controller won't know which partial (section) to render after Post.
 
         if (!ModelState.IsValid)
             return View(viewModel);
@@ -113,11 +112,11 @@ public class AccountController (UserManager<ApplicationUser> userManager, IGetMe
         var result = await updateMemberProfileService.ExecuteAsync(input, ct);
         if (!result.Success)
         {
-            ViewData["ErrorMessage"] = result.ErrorMessage;
-            return View(viewModel);
+            TempData["ErrorMessage"] = result.ErrorMessage;
+            return RedirectToAction("my",viewModel);
         }
 
-        ViewData["SuccessMessage"] = "The profile was updated!";
-        return View(viewModel);
+        TempData["SuccessMessage"] = "The profile was updated!";
+        return RedirectToAction("my",viewModel);
     }
 }

@@ -17,6 +17,9 @@ public class MembershipPlanRepository(DataContext context) : RepositoryBase<Memb
 
         entity.Name = model.Name;
         entity.Description = model.Description;
+        entity.ListItem1 = model.ListItem1;
+        entity.ListItem2 = model.ListItem2;
+        entity.ListItem3 = model.ListItem3;
         entity.Price = model.Price;
         entity.ValidDays = model.ValidDays;
     }
@@ -28,6 +31,9 @@ public class MembershipPlanRepository(DataContext context) : RepositoryBase<Memb
                 entity.Id,
                 entity.Name,
                 entity.Description,
+                entity.ListItem1,
+                entity.ListItem2,
+                entity.ListItem3,
                 entity.Price,
                 entity.ValidDays
             );
@@ -42,6 +48,9 @@ public class MembershipPlanRepository(DataContext context) : RepositoryBase<Memb
                 model.Id,
                 model.Name,
                 model.Description,
+                model.ListItem1,
+                model.ListItem2,
+                model.ListItem3,
                 model.Price,
                 model.ValidDays
             );

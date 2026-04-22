@@ -31,6 +31,11 @@ internal class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity
         builder.Property(x => x.ProfileImageUrl)
             .HasMaxLength(500);
 
+        builder.Property(x => x.RowVersion)
+            .IsRowVersion()
+            .IsConcurrencyToken()
+            .IsRequired();
+
         builder.Property(x => x.CreatedAt)
             .IsRequired();
 

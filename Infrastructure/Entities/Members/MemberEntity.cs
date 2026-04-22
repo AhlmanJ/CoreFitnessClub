@@ -32,6 +32,8 @@ public class MemberEntity
 
     public string? ProfileImageUrl { get; internal set; }
 
+    public byte[] RowVersion { get; private set; } = null!;
+
     public DateTimeOffset CreatedAt { get; internal set; }
     public DateTimeOffset? ModifiedAt { get; internal set; }
 

@@ -7,16 +7,16 @@
 
         <hr class="aboutMe-form-line1" />
 
-        @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
+        @if (!string.IsNullOrWhiteSpace(TempData["ErrorMessage"]?.ToString()))
         {
             <p class="error-message">
-                @ViewData["ErrorMessage"]
+                @TempData["ErrorMessage"]
             </p>
         }
-        else if (!string.IsNullOrWhiteSpace(ViewData["SuccessMessage"]?.ToString()))
+        else if (!string.IsNullOrWhiteSpace(TempData["SuccessMessage"]?.ToString()))
         {
             <p class="success-message">
-                @ViewData["SuccessMessage"]
+                @TempData["SuccessMessage"]
             </p>
         }
 

@@ -25,6 +25,7 @@ public class BookingEntity
     public BookingStatus Status { get; private set; }
     public DateTimeOffset CreatedAt { get; private set; }
 
+    public byte[] RowVersion {  get; private set; } = null!;
 
     private BookingEntity() { }
 

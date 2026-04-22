@@ -25,6 +25,9 @@ public class CreateMembershipPlanService(IMembershipPlanRepository membershipPla
                 (
                     input.Name,
                     input.Description,
+                    input.ListItem1,
+                    input.ListItem2,
+                    input.ListItem3,
                     input.Price,
                     input.ValidDays
                 );
@@ -37,6 +40,9 @@ public class CreateMembershipPlanService(IMembershipPlanRepository membershipPla
                     membershipPlan.Id,
                     membershipPlan.Name,
                     membershipPlan.Description,
+                    membershipPlan.ListItem1,
+                    membershipPlan.ListItem2,
+                    membershipPlan.ListItem3,
                     membershipPlan.Price,
                     membershipPlan.ValidDays
                 );

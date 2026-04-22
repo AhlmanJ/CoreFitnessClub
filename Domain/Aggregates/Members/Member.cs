@@ -1,4 +1,6 @@
-﻿namespace Domain.Aggregates.Members;
+﻿using System.Text.RegularExpressions;
+
+namespace Domain.Aggregates.Members;
 
 public class Member
 {
@@ -76,5 +78,17 @@ public class Member
         {
             ProfileImageUrl = profileImageUrl;
         }
+    }
+
+    public void ValidatePhoneNumber(string phoneNumber)
+    {
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            throw new ArgumentException("Phone number is required");
+
+        var phoneNumberRegEx = @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$";
+
+        if (!Regex.IsMatch(phoneNumber, phoneNumberRegEx))
+            throw new ArgumentException("Invalid phone number, must be a valid phone number with or whitout + at the beginning.");
+
     }
 }

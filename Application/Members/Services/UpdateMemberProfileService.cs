@@ -20,7 +20,12 @@ public class UpdateMemberProfileService(IMemberRepository memberRepository, IUni
             if (member is null)
                 return Result<MemberProfileOutput>.NotFound($"Member with user id {input.UserId} was not found.");
 
-            member.UpdateInformation(input.FirstName, input.LastName, input.PhoneNumber, input.ProfileImageUrl);
+            var phoneNumber = input.PhoneNumber;
+
+            if (phoneNumber != null && phoneNumber != member.PhoneNumber)
+                member.ValidatePhoneNumber(phoneNumber);
+
+            member.UpdateInformation(input.FirstName, input.LastName, phoneNumber, input.ProfileImageUrl);
             var result = await memberRepository.UpdateAsync(member, ct);
             await _unitOfWork.CommitAsync(ct);
 

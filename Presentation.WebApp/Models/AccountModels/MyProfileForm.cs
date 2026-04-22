@@ -13,6 +13,7 @@ public class MyProfileForm
     public string LastName { get; set; } = null!;
 
     [Phone]
+    [RegularExpression(@"^\+?[0-9\s\-().]{7,20}$", ErrorMessage ="Invalid Phone number")]
     [Display(Name = "Phone Number", Prompt = "Enter Phone Number")]
     public string? PhoneNumber { get; set; }
 

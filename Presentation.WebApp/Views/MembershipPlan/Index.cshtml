@@ -35,6 +35,9 @@
                         <div class="createMembershipPlan-listObject">
                             <h5>@plans.Name</h5>
                             <p><strong>Description: </strong>@plans.Description</p>
+                            <p><strong>ListItem1 </strong>@plans.ListItem1</p>
+                            <p><strong>ListItem2 </strong>@plans.ListItem2</p>
+                            <p><strong>ListItem3 </strong>@plans.ListItem3</p>
                             <p><strong>Price: </strong>@plans.Price</p>
                             <p><strong>Valid Days: </strong>@plans.ValidDays</p>
 
@@ -70,6 +73,24 @@
                         <label class="createMembershipPlan-label" asp-for="Form.Description"></label>
                         <input class="createMembershipPlan-input" asp-for="Form.Description" />
                         <span class="createMembershipPlan-validation-error" asp-validation-for="Form.Description"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup two">
+                        <label class="createMembershipPlan-label" asp-for="Form.ListItem1"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.ListItem1" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.ListItem1"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup two">
+                        <label class="createMembershipPlan-label" asp-for="Form.ListItem2"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.ListItem2" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.ListItem2"></span>
+                    </div>
+
+                    <div class="createMembershipPlan-formGroup two">
+                        <label class="createMembershipPlan-label" asp-for="Form.ListItem3"></label>
+                        <input class="createMembershipPlan-input" asp-for="Form.ListItem3" />
+                        <span class="createMembershipPlan-validation-error" asp-validation-for="Form.ListItem3"></span>
                     </div>
 
                     <div class="createMembershipPlan-formGroup three">

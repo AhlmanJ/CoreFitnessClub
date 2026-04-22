@@ -18,6 +18,8 @@ public class MembershipEntity
     public DateTimeOffset? UpdatedAt { get; internal set; }
     public DateTimeOffset? CancelledAt { get; internal set; }
 
+    public byte[] RowVersion { get; private set; } = null!;
+
     private MembershipEntity() 
     {
     

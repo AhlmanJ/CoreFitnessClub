@@ -22,6 +22,17 @@ internal class BookingEntityConfiguration : IEntityTypeConfiguration<BookingEnti
 
         builder.HasIndex(x => x.TrainingSessionId);
 
+        builder.Property(x => x.Status)
+                .IsRequired();
+
+        builder.Property(x => x.CreatedAt)
+                .IsRequired();
+
+        builder.Property(x => x.RowVersion)
+                .IsRowVersion()
+                .IsConcurrencyToken()
+                .IsRequired();
+
         builder.HasOne(x => x.Member)
                 .WithMany(x => x.Bookings)
                 .HasForeignKey(x => x.MemberId)

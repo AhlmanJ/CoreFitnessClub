@@ -1,10 +1,10 @@
 ﻿
 // Here i got help from chatGPT on how to create a relationship so that a Member can be a trainer.
 
-using Domain.Entities.Booking;
-using Domain.Entities.Members;
+using Infrastructure.Entities.Booking;
+using Infrastructure.Entities.Members;
 
-namespace Domain.Entities.TrainingSession;
+namespace Infrastructure.Entities.TrainingSession;
 
 public class TrainingSessionEntity
 {

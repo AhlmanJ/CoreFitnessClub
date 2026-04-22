@@ -5,8 +5,9 @@ public class MembershipPlan
     public Guid Id { get; private set; }
     public string Name { get; private set; } = null!;
     public string Description { get; private set; } = null!;
+
     public decimal Price { get; private set; }
-    public int ValidDays { get; private set; }
+    public int ValidDays { get; private set; } = 0;
 
     private MembershipPlan() 
     { 
@@ -22,7 +23,7 @@ public class MembershipPlan
         ValidDays = validDays;
     }
 
-    public static MembershipPlan Create(Guid id, string name, string description, decimal price, int validDays)
+    public static MembershipPlan Create(string name, string description, decimal price, int validDays)
     {
         if(string.IsNullOrWhiteSpace(name)) 
             throw new ArgumentException("Name is required");
@@ -36,12 +37,24 @@ public class MembershipPlan
 
         return new MembershipPlan
         (
-            id,
+            Guid.NewGuid(),
             name,
             description,
             price,
             validDays
         );
+    }
+
+    public static MembershipPlan Rehydrate(Guid id, string name, string description, decimal price, int validDays)
+    {
+        return new MembershipPlan
+            (
+                id,
+                name,
+                description,
+                price,
+                validDays
+            );
     }
 
     public void UpdateMembershipPlan(string name, string description, decimal price, int validDays)

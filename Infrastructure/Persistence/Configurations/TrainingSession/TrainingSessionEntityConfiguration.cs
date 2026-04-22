@@ -1,7 +1,7 @@
 ﻿
 // Here i got help from chatGPT on how to create a relationship so that a Member can be a trainer.
 
-using Domain.Entities.TrainingSession;
+using Infrastructure.Entities.TrainingSession;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

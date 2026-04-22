@@ -11,18 +11,20 @@
         </section>
 
         <section class="adminPage-section2">
-            <div class="adminPage-ls">
-                <aside class="adminPage-sidebar">
-                    <div class="adminPage-sidebar-menu">
-                        <div class="sidebarMenue-row1">
-                            <p class="sidebarMenue-row1-txt">Admin Menu Options</p>
+            <div class="adminPage-menue">
+                <aside class="adminPage-menuebar">
+                    <div class="adminPage-menuebar-menu">
+                        <div class="adminPage-sidebarMenue-row1">
+                            <p class="adminPage-sidebarMenue-row1-txt">Admin Menu Options</p>
                         </div>
-                        <div class="sidebarMenue-row2">
-                            <a asp-controller="" asp-action="" class="adminPage-sidebar-link">Manage Members and Roles <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                        <div class="adminPage-sidebarMenue-row2">
                             
                             <a asp-controller="MembershipPlan" asp-action="Index" class="adminPage-sidebar-link">Manage Membership Plans <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
+                            <a asp-controller="ManageMemberships" asp-action="Index" class="adminPage-sidebar-link">Manage Members Membership<div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+
                             <a asp-controller="" asp-action="" class="adminPage-sidebar-link">Manage Classes/Trainingsessions <div class="adminPage-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+
                         </div>
                     </div>
                 </aside>

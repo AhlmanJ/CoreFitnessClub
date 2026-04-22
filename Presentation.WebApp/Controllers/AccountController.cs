@@ -5,8 +5,11 @@
     I also asked about the difference between ViewBag and TempData.
  */
 
+using Application.Abstraction.MembershipInterface;
 using Application.Abstraction.MembersInterface;
+using Application.Common.Results;
 using Application.Members.Inputs;
+using Application.Memberships.Services;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,7 +21,7 @@ namespace Presentation.WebApp.Controllers;
 
 [Authorize]
 [Route("Account")]
-public class AccountController (UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IWebHostEnvironment _env) : Controller
+public class AccountController (UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IGetMembershipByUserIdService getMembershipByUserIdService , IWebHostEnvironment _env) : Controller
 {
     [HttpGet("my")]
     public async Task<IActionResult> My(string section = "about", CancellationToken ct = default)
@@ -31,6 +34,10 @@ public class AccountController (UserManager<ApplicationUser> userManager, IGetMe
         if (profile is null)
             return NotFound();
 
+        var membershipResult = await getMembershipByUserIdService.ExecuteAsync(user.Id, ct);
+
+        var membership = membershipResult?.Value;
+
         var viewModel = new MyAccountViewModel
         {
             Email = user.Email ?? string.Empty,
@@ -40,6 +47,19 @@ public class AccountController (UserManager<ApplicationUser> userManager, IGetMe
                 LastName = profile.Value?.LastName ?? string.Empty,
                 PhoneNumber = profile.Value?.PhoneNumber ?? string.Empty,
                 ProfileImageUrl = profile.Value?.ProfileImageUrl ?? string.Empty
+            },
+
+            Membership = membership is null
+            ? null
+            : new MembershipViewModel
+            {
+                MemberId = membership.memberId,
+                FirstName = membership.FirstName,
+                LastName = membership.LastName,
+                Name = membership.Name,
+                Price = membership.Price,
+                StartDate = membership.StartDate,
+                EndDate = membership.EndDate
             }
         };
 

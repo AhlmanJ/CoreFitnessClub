@@ -1,4 +1,4 @@
-﻿using Domain.Entities.Membership;
+﻿using Infrastructure.Entities.Membership;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -37,7 +37,7 @@ internal class MembershipEntityConfiguration : IEntityTypeConfiguration<Membersh
                 .HasForeignKey(x => x.MembershipPlanId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne(x => x.Member)
+        builder.HasOne(x => x.Members)
                 .WithMany(x => x.Memberships)
                 .HasForeignKey(x => x.MemberId)
                 .OnDelete(DeleteBehavior.Cascade);       

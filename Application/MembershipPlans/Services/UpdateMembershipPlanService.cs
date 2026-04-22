@@ -1,4 +1,5 @@
-﻿using Application.Abstraction.MembershipPlansInterface;
+﻿using Application.Abstraction;
+using Application.Abstraction.MembershipPlansInterface;
 using Application.Common.Results;
 using Application.MembershipPlans.Inputs;
 using Application.MembershipPlans.Outputs;
@@ -6,7 +7,7 @@ using Domain.Abstractions.Repositories.MembershipPlans;
 
 namespace Application.MembershipPlans.Services;
 
-public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPlanRepository) : IUpdateMembershipPlanService
+public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPlanRepository, IUnitOfWork _unitOfWork) : IUpdateMembershipPlanService
 {
     public async Task<Result<MembershipPlanOutput>> ExecuteAsync(UpdateMembershipPlanInput input, CancellationToken ct = default)
     {
@@ -22,8 +23,9 @@ public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPla
             membershipPlan.UpdateMembershipPlan(input.Name, input.Description, input.Price, input.ValidDays);
 
             var result = await membershipPlanRepository.UpdateAsync(membershipPlan, ct);
+            await _unitOfWork.CommitAsync(ct);
 
-           return !result
+            return !result
                 ? Result<MembershipPlanOutput>.InternalServerError($"Membership plan with Id {input.Id} was not updated.") : Result<MembershipPlanOutput>.Ok
                 ( new MembershipPlanOutput(
                     membershipPlan.Id,

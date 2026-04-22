@@ -1,0 +1,68 @@
+﻿@model MembershipViewModel
+
+@{
+    ViewData["Title"] = "Manage Members Memberships";
+}
+
+<div class="container">
+    <div class="manageMemberships-page">
+        <div class="manageMemberships-wrapper">
+
+            <h3 class="manageMemberships-h3"> Manage Members Memberships </h3>
+
+            @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <p class="error-message">
+                    @ViewData["ErrorMessage"]
+                </p>
+            }
+            else if (!string.IsNullOrWhiteSpace(ViewData["SuccessMessage"]?.ToString()))
+            {
+                <p class="success-message">
+                    @ViewData["SuccessMessage"]
+                </p>
+            }
+
+            <hr class="manageMemberships-line" />
+
+            @if (!@Model.Memberships.Any())
+            {
+                <div class="manageMemberships-noMembershipTxt-wrapper">
+                    <h3 class="manageMemberships-h3">No active memberships</h3>
+                </div>
+
+                <hr class="manageMemberships-line" />
+            }
+            else
+            {
+                <div class="manageMemberships-list-wrapper">
+                    @foreach (var Membership in Model.Memberships )
+                    {
+                        <div class="manageMemberships-list">
+
+                            <div><strong>First Name: </strong> @Membership.FirstName </div>
+                            <div><strong>Last Name: </strong> @Membership.LastName </div>
+                            <div><strong>Membership type: </strong> @Membership.Name </div>
+                            <div><strong>Price: </strong> @Membership.Price </div>
+                            <div><strong>Start date: </strong> @Membership.StartDate </div>
+                            <div><strong>Expiration date: </strong> @Membership.EndDate </div>
+                            <div><strong>Member ID: </strong> @Membership.MemberId </div>
+
+                            <form asp-controller="ManageMemberships" asp-action="DeleteMembership" asp-route-id="@Membership.MemberId" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="manageMembership-deleteBtn">Delete</button>
+                            </form>
+
+                            <hr class="manageMemberships-line" />
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="manageMemberships-returnBtn">
+                <a asp-controller="Admin" asp-action="Index" class="manageMemberships-returnBtnTxt">Return</a>
+            </div>
+
+        </div>
+    </div>
+</div>

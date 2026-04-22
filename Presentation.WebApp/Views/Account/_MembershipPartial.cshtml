@@ -1,3 +1,47 @@
-﻿<div class="aboutMeForm-wrapper">
-<p>Membership-partial</p>
+﻿@model MembershipViewModel
+
+<div class="myMembership-wrapper">
+
+    <h3 class="myMembership-h3">My Membership</h3>
+
+    <hr class="myMembership-line1" />
+
+    <div class="Membership-display"> 
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">First Name:</p></div>
+            <div class="Membership-display-output"><p>@Model.FirstName </p></div>
+        </div>
+
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">Last Name:</p></div>
+            <div class="Membership-display-output"><p>@Model.LastName </p></div>
+        </div>
+
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">Membership:</p></div>
+            <div class="Membership-display-output"><p>@Model.Name </p></div>
+        </div>
+
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">Price:</p></div>
+            <div class="Membership-display-output"><p>@Model.Price </p></div>
+        </div>
+
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">Start date:</p></div>
+            <div class="Membership-display-output"><p>@Model.StartDate </p></div>
+        </div>
+
+        <div>
+            <div class="Membership-display-label"><p class="Membership-display-label-txt">Expiration date:</p></div>
+            <div class="Membership-display-output"><p>@Model.EndDate </p></div>
+        </div>
+
+        <form asp-controller="Membership" asp-action="DeleteMembership" asp-route-id="@Model.MemberId" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="myMembership-deleteBtn"><div class="myMembership-deleteBtn-txt">Delete</div></button>
+        </form>
+
+    </div>
+
 </div>

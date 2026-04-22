@@ -46,7 +46,7 @@ public class Member
 
 
     // Rehydrate
-    public static Member Create(Guid id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
+    public static Member Rehydrate(Guid id, string userId, string? firstName, string? lastName, string? phoneNumber, string? profileImageUrl, DateTimeOffset createdAt, DateTimeOffset? modifiedAt)
     {
         var member = new Member(id, userId, createdAt)
         { 
@@ -71,7 +71,10 @@ public class Member
         FirstName = firstName.Trim();
         LastName = lastName.Trim();
         PhoneNumber = string.IsNullOrWhiteSpace(phoneNumber) ? null : phoneNumber;
-        ProfileImageUrl = string.IsNullOrWhiteSpace(profileImageUrl) ? null : profileImageUrl;
         ModifiedAt = DateTimeOffset.UtcNow;
+        if (!string.IsNullOrWhiteSpace(profileImageUrl))
+        {
+            ProfileImageUrl = profileImageUrl;
+        }
     }
 }

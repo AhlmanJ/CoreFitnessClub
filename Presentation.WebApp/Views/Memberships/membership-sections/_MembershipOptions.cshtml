@@ -9,7 +9,7 @@
         </div>
 
         <div class="membershipOptions-section2">
-            @foreach (var plan in Model.MembershipPlans)
+            @foreach (var plan in Model.Plans)
             {
                 @await Html.PartialAsync("membership-sections/section-partials/_MembershipOptionsCard", plan)
             }

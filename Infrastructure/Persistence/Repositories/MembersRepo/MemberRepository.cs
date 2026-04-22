@@ -3,7 +3,7 @@
 
 using Domain.Abstractions.Repositories.Members;
 using Domain.Aggregates.Members;
-using Domain.Entities.Members;
+using Infrastructure.Entities.Members;
 using Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,18 +37,17 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, Guid
     // I got help from chatGPT on how to update the Entity while keeping the properites in the entity as "Private Set" to "protect" the entity.
     protected override void UpdateEntity(MemberEntity entity, Member model)
     {
-        entity.UpdateInformation
-            (
-                model.FirstName,
-                model.LastName,
-                model.PhoneNumber,
-                model.ProfileImageUrl
-            );
+
+        entity.FirstName = model.FirstName;
+        entity.LastName = model.LastName;
+        entity.PhoneNumber = model.PhoneNumber;
+        entity.ProfileImageUrl = model.ProfileImageUrl;
+        entity.ModifiedAt = model.ModifiedAt;
     }
 
     protected override Member ToDomainModel(MemberEntity entity)
     {
-        var model = Member.Create(
+        var model = Member.Rehydrate(
             entity.Id,
             entity.UserId,
             entity.FirstName,
@@ -79,4 +78,3 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, Guid
         return entity;
     }
 }
-

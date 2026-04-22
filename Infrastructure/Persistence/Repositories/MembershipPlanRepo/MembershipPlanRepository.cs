@@ -1,6 +1,6 @@
 ﻿using Domain.Abstractions.Repositories.MembershipPlans;
 using Domain.Aggregates.MembershipPlan;
-using Domain.Entities.Membership.MembershipPlan;
+using Infrastructure.Entities.MembershipPlan;
 using Infrastructure.Persistence.Contexts;
 
 namespace Infrastructure.Persistence.Repositories.MembershipPlanRepo;
@@ -14,18 +14,16 @@ public class MembershipPlanRepository(DataContext context) : RepositoryBase<Memb
 
     protected override void UpdateEntity(MembershipPlanEntity entity, MembershipPlan model)
     {
-        entity.UpdateInformation
-            (
-                model.Name,
-                model.Description,
-                model.Price,
-                model.ValidDays
-            );
+
+        entity.Name = model.Name;
+        entity.Description = model.Description;
+        entity.Price = model.Price;
+        entity.ValidDays = model.ValidDays;
     }
 
     protected override MembershipPlan ToDomainModel(MembershipPlanEntity entity)
     {
-        var model = MembershipPlan.Create
+        var model = MembershipPlan.Rehydrate
             (
                 entity.Id,
                 entity.Name,

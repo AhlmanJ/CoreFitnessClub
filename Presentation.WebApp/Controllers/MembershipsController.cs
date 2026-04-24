@@ -1,6 +1,6 @@
 ﻿
 /*
- * I have had a very hard time inderstanding when to use return View() and when to use ReturnToAction(),
+ * I have had a very hard time understanding when to use return View() and when to use ReturnToAction(),
  * also Routing and how to combine different ViewModels when i want to send to other controllers and partials,
  * and to create HttpGet("Index"), HttpPost("Enroll/{id}"), i have recived ALOT of support from chatGPT and tested alot of code in different ways. 
  */

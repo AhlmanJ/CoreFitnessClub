@@ -4,7 +4,7 @@ using Application.Common.Results;
 using Application.MembershipPlans.Inputs;
 using Application.MembershipPlans.Outputs;
 using Domain.Abstractions.Repositories.MembershipPlans;
-using Domain.Aggregates.MembershipPlan;
+
 
 namespace Application.MembershipPlans.Services;
 
@@ -15,7 +15,7 @@ public class CreateMembershipPlanService(IMembershipPlanRepository membershipPla
         try
         {
             if (input is null)
-                return Result<MembershipPlanOutput>.BadRequest("The input field was empty.");
+                return Result<MembershipPlanOutput>.BadRequest("The input was empty.");
 
             var existingPlans = await membershipPlanRepository.GetAllAsync(ct);
             if (existingPlans.Count() >= 2)

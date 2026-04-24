@@ -15,8 +15,24 @@ internal class TrainingSessionEntityConfiguration : IEntityTypeConfiguration<Tra
 
         builder.HasKey(x => x.Id);
 
+        builder.Property(x => x.TrainerMemberId)
+                .IsRequired();
+
         builder.Property(x => x.CreatedAt)
                 .IsRequired();
+
+        builder.Property(x => x.StartDate)
+                .IsRequired();
+
+        builder.Property(x => x.EndDate)
+                .IsRequired();
+
+        builder.Property(x => x.Capacity)
+                .IsRequired();
+
+        builder.Property(x => x.Location)
+                .IsRequired()
+                .HasMaxLength(200);
 
         builder.Property(x => x.RowVersion)
                 .IsRowVersion()
@@ -30,6 +46,7 @@ internal class TrainingSessionEntityConfiguration : IEntityTypeConfiguration<Tra
 
         builder.HasOne(x => x.TrainerMember)
                 .WithMany()
-                .HasForeignKey(x => x.TrainerMemberId);
+                .HasForeignKey(x => x.TrainerMemberId)
+                .IsRequired();
     }
 }

@@ -29,15 +29,6 @@ public class BookingEntity
 
     private BookingEntity() { }
 
-    public BookingEntity(Guid memberId, Guid trainingSessionId, BookingStatus status, DateTimeOffset createdAt)
-    {
-        Id = Guid.NewGuid();
-        MemberId = memberId;
-        TrainingSessionId = trainingSessionId;
-        Status = BookingStatus.Booked;
-        CreatedAt = createdAt;
-    }
-
     public BookingEntity(Guid id, Guid memberId, Guid trainingSessionId, BookingStatus status, DateTimeOffset createdAt)
     {  
         Id = id;
@@ -45,10 +36,5 @@ public class BookingEntity
         TrainingSessionId = trainingSessionId;
         Status = status; 
         CreatedAt = createdAt;
-    }
-
-    public void UpdateBooking(BookingStatus status)
-    {
-        Status = status;
     }
 }

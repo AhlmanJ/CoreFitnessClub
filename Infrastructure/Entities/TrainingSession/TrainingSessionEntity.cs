@@ -8,13 +8,33 @@ namespace Infrastructure.Entities.TrainingSession;
 
 public class TrainingSessionEntity
 {
-    public Guid Id { get; private set; }
+    public Guid Id { get; internal set; }
+    public Guid TrainerMemberId { get; internal set; }
+    public MemberEntity TrainerMember { get; internal set; } = null!;
 
-    public Guid TrainerMemberId { get; private set; }
-    public MemberEntity TrainerMember { get; private set; } = null!;
+    public DateTimeOffset CreatedAt { get; internal set; } = DateTimeOffset.Now;
+    public byte[] RowVersion { get; internal set; } = null!;
+    public DateTimeOffset StartDate { get; internal set; }
+    public DateTimeOffset EndDate { get; internal set; }
+    public int Capacity { get; internal set; } = 0;
+    public string Location { get; internal set; } = null!;
 
-    public DateTimeOffset CreatedAt { get; private set; } = DateTimeOffset.Now;
-    public byte[] RowVersion { get; private set; } = null!;
 
     public ICollection<BookingEntity> Bookings { get; private set; } = new List<BookingEntity>();
+
+    private TrainingSessionEntity ()
+    { 
+    
+    }
+
+    public TrainingSessionEntity (Guid id, Guid trainerMemberId, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
+    {
+        Id = id;
+        TrainerMemberId = trainerMemberId;
+        CreatedAt = createdAt;
+        StartDate = startDate;
+        EndDate = endDate;
+        Capacity = capacity;
+        Location = location;
+    }
 }

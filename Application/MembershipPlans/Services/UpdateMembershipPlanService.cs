@@ -23,20 +23,23 @@ public class UpdateMembershipPlanService(IMembershipPlanRepository membershipPla
             membershipPlan.UpdateMembershipPlan(input.Name, input.Description, input.ListItem1, input.ListItem2, input.ListItem3, input.Price, input.ValidDays);
 
             var result = await membershipPlanRepository.UpdateAsync(membershipPlan, ct);
+
+            if (!result)
+                return Result<MembershipPlanOutput>.InternalServerError($"Membership plan with Id {input.Id} was not updated.");
+
             await _unitOfWork.CommitAsync(ct);
 
-            return !result
-                ? Result<MembershipPlanOutput>.InternalServerError($"Membership plan with Id {input.Id} was not updated.") : Result<MembershipPlanOutput>.Ok
-                ( new MembershipPlanOutput(
-                    membershipPlan.Id,
-                    membershipPlan.Name,
-                    membershipPlan.Description,
-                    membershipPlan.ListItem1,
-                    membershipPlan.ListItem2,
-                    membershipPlan.ListItem3,
-                    membershipPlan.Price,
-                    membershipPlan.ValidDays
-                ));
+            return Result<MembershipPlanOutput>.Ok
+                            ( new MembershipPlanOutput(
+                                membershipPlan.Id,
+                                membershipPlan.Name,
+                                membershipPlan.Description,
+                                membershipPlan.ListItem1,
+                                membershipPlan.ListItem2,
+                                membershipPlan.ListItem3,
+                                membershipPlan.Price,
+                                membershipPlan.ValidDays
+                            ));
         }
         catch (Exception ex)
         {

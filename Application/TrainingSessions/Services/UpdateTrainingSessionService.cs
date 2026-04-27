@@ -25,10 +25,21 @@ public class UpdateTrainingSessionService(ITrainingSessionRepository trainingSes
             trainingSession.UpdateTrainingSession(input.TrainerMemberId,input.SessionName, input.StartDate, input.EndDate, input.Capacity, input.Location);
 
             var result = await trainingSessionRepository.UpdateAsync(trainingSession, ct);
+
+            if (!result)
+                return Result<TrainingSessionOutput>.InternalServerError($"Training session with Id {input.Id} was not updated.");
+
+            /*
+             * Discovered a bug when i was testing. I checked the result of "result" after unitOfWork.CommitAsync(ct). So even if the result failed,
+             * the data was saved to the database. This has now been fixed and the test succeeds.
+             * 
+             * Tests created by AI / chatGPT.
+             * 
+             */
+
             await unitOfWork.CommitAsync(ct);
 
-            return !result
-                ? Result<TrainingSessionOutput>.InternalServerError($"Training session with Id {input.Id} was not updated.") : Result<TrainingSessionOutput>.Ok
+            return Result<TrainingSessionOutput>.Ok
                 (new TrainingSessionOutput
                     (  
                         trainingSession.Id,

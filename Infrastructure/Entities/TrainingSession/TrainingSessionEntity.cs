@@ -11,7 +11,7 @@ public class TrainingSessionEntity
     public Guid Id { get; internal set; }
     public Guid TrainerMemberId { get; internal set; }
     public MemberEntity TrainerMember { get; internal set; } = null!;
-
+    public string SessionName { get; internal set; } = null!;
     public DateTimeOffset CreatedAt { get; internal set; } = DateTimeOffset.Now;
     public byte[] RowVersion { get; internal set; } = null!;
     public DateTimeOffset StartDate { get; internal set; }
@@ -20,17 +20,18 @@ public class TrainingSessionEntity
     public string Location { get; internal set; } = null!;
 
 
-    public ICollection<BookingEntity> Bookings { get; private set; } = new List<BookingEntity>();
+    public ICollection<BookingsEntity> Bookings { get; private set; } = new List<BookingsEntity>();
 
     private TrainingSessionEntity ()
     { 
     
     }
 
-    public TrainingSessionEntity (Guid id, Guid trainerMemberId, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
+    public TrainingSessionEntity (Guid id, Guid trainerMemberId, string sessionName, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
     {
         Id = id;
         TrainerMemberId = trainerMemberId;
+        SessionName = sessionName;
         CreatedAt = createdAt;
         StartDate = startDate;
         EndDate = endDate;

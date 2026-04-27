@@ -18,6 +18,10 @@ internal class TrainingSessionEntityConfiguration : IEntityTypeConfiguration<Tra
         builder.Property(x => x.TrainerMemberId)
                 .IsRequired();
 
+        builder.Property(x => x.SessionName)
+                .IsRequired()
+                .HasMaxLength(200);
+
         builder.Property(x => x.CreatedAt)
                 .IsRequired();
 

@@ -21,6 +21,7 @@ public class GetAllTrainingSessionsService(ITrainingSessionQueryService training
                     
                     sessions.Id,
                     sessions.TrainerMemberId,
+                    sessions.SessionName,
                     sessions.TrainerFirstName,
                     sessions.TrainerLastName,
                     sessions.CreatedAt,

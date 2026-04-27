@@ -5,6 +5,7 @@ public record TrainingSessionOutput
 (
     Guid Id,
     Guid TrainerMemberId,
+    string SessionName,
     DateTimeOffset CreatedAt,
     DateTimeOffset StartDate,
     DateTimeOffset EndDate,

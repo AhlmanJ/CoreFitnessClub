@@ -11,6 +11,7 @@ public class TrainingSessionRepository(DataContext context) : RepositoryBase<Tra
     protected override void UpdateEntity(TrainingSessionEntity entity, TrainingSession model)
     {
         entity.TrainerMemberId = model.TrainerMemberId;
+        entity.SessionName = model.SessionName;
         entity.StartDate = model.StartDate;
         entity.EndDate = model.EndDate;
         entity.Capacity = model.Capacity;
@@ -29,6 +30,7 @@ public class TrainingSessionRepository(DataContext context) : RepositoryBase<Tra
             (
                 entity.Id,
                 entity.TrainerMemberId,
+                entity.SessionName,
                 entity.CreatedAt,
                 entity.StartDate,
                 entity.EndDate,
@@ -45,6 +47,7 @@ public class TrainingSessionRepository(DataContext context) : RepositoryBase<Tra
             (
                 model.Id,
                 model.TrainerMemberId,
+                model.SessionName,
                 model.CreatedAt,
                 model.StartDate,
                 model.EndDate,

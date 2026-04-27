@@ -1,0 +1,70 @@
+﻿@model TrainingSessionViewModel
+
+@{
+    ViewData["Title"] = "Training Session";
+}
+
+<div class="container">
+    <div class="trainingSessions-page">
+        <div class="trainingSessions-list-wrapper">
+            <h3> Training Sessions </h3>
+
+            @if (!string.IsNullOrWhiteSpace(TempData["ErrorMessage"]?.ToString()))
+            {
+                <p class="error-message">
+                    @TempData["ErrorMessage"]
+                </p>
+            }
+            else if (!string.IsNullOrWhiteSpace(TempData["SuccessMessage"]?.ToString()))
+            {
+                <p class="success-message">
+                    @TempData["SuccessMessage"]
+                </p>
+            }
+
+            <hr class="trainingSessions-line" />
+
+            @if (Model.Sessions == null || !Model.Sessions.Any())
+            {
+                <div class="trainingSessions-noMembershipTxt-wrapper">
+                    <h3 class="trainingSessions-h3">No active Training sessions</h3>
+                </div>
+            }
+            else
+            {
+                <div class="trainingSessions-list-wrapper">
+                    @foreach (var Session in Model.Sessions)
+                    {
+                        <div class="trainingSessions-list">
+
+                            <div class="trainingSession-list-item"><strong>Class Name: </strong> @Session.SessionName </div>
+                            <div class="trainingSession-list-item"><strong>Trainer Name: </strong> @Session.TrainerFirstName @Session.TrainerLastName </div>
+                            <div class="trainingSession-list-item"><strong>Start Date: </strong> @Session.StartDate.ToString("yyyy-MM-dd HH:mm") </div>
+                            <div class="trainingSession-list-item"><strong>End Date: </strong> @Session.EndDate.ToString("yyyy-MM-dd HH:mm") </div>
+                            <div class="trainingSession-list-item"><strong>Capacity: </strong> @Session.Capacity </div>
+                            <div class="trainingSession-list-item"><strong>Location: </strong> @Session.Location </div>
+
+                            <div class="trainingSessions-buttons">
+                                <form asp-controller="TrainingSessions" asp-action="Create" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="id" value="@Session.Id"/>
+                                    <input type="hidden" name="trainerMemberId" value="@Session.TrainerMemberId" />
+
+                                    <button type="submit" class="trainingSessions-editBtn">Join</button>
+                                </form>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            }
+
+            <hr class="trainingSessions-line" />
+
+            <div class="trainingSessions-returnBtn">
+                <a asp-controller="Admin" asp-action="Index" class="trainingSessions-returnBtnTxt">Return</a>
+            </div>
+
+        </div>
+    </div>
+</div>

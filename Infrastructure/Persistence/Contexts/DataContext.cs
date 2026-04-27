@@ -20,7 +20,7 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
 
     // Here I name my Entities that I have in Persistence/Configurations.
     public DbSet<MemberEntity> Members => Set<MemberEntity>();
-    public DbSet<BookingEntity> Bookings => Set<BookingEntity>();
+    public DbSet<BookingsEntity> Bookings => Set<BookingsEntity>();
     public DbSet<MembershipEntity> Memberships => Set<MembershipEntity>();
     public DbSet<MembershipPlanEntity> MemberPlans => Set<MembershipPlanEntity>();
     public DbSet<TrainingSessionEntity> TrainingSessions => Set<TrainingSessionEntity>();

@@ -8,7 +8,7 @@
     <div class="manageMemberships-page">
         <div class="manageMemberships-wrapper">
 
-            <h3 class="manageMemberships-h3"> Manage Members Memberships </h3>
+            <h3 class="manageMemberships-h3"> Manage Members Membership </h3>
 
             @if (!string.IsNullOrWhiteSpace(ViewData["ErrorMessage"]?.ToString()))
             {
@@ -44,8 +44,8 @@
                             <div><strong>Last Name: </strong> @Membership.LastName </div>
                             <div><strong>Membership type: </strong> @Membership.Name </div>
                             <div><strong>Price: </strong> @Membership.Price </div>
-                            <div><strong>Start date: </strong> @Membership.StartDate </div>
-                            <div><strong>Expiration date: </strong> @Membership.EndDate </div>
+                            <div><strong>Start date: </strong> @Membership.StartDate.ToString("yyyy-mm-dd HH:mm") </div>
+                            <div><strong>Expiration date: </strong> @Membership.EndDate.ToString("yyyy-mm-dd HH:mm") </div>
                             <div><strong>Member ID: </strong> @Membership.MemberId </div>
 
                             <form asp-controller="ManageMemberships" asp-action="DeleteMembership" asp-route-id="@Membership.MemberId" method="post">

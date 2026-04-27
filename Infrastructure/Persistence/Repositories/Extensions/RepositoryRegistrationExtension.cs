@@ -1,13 +1,16 @@
 ﻿
 // Service where you add Repositories.
 
+using Application.Abstraction.BookingsQueryInterface;
 using Application.Abstraction.MembershipReadInterface;
 using Application.Abstraction.MembersQueryInterface;
 using Application.Abstraction.TrainingSessionQueryInterface;
+using Domain.Abstractions.Repositories.Booking;
 using Domain.Abstractions.Repositories.Members;
 using Domain.Abstractions.Repositories.MembershipPlans;
 using Domain.Abstractions.Repositories.Memberships;
 using Domain.Abstractions.Repositories.TrainingSessions;
+using Infrastructure.Persistence.Repositories.BookingsRepo;
 using Infrastructure.Persistence.Repositories.MembershipPlanRepo;
 using Infrastructure.Persistence.Repositories.MembershipRepos;
 using Infrastructure.Persistence.Repositories.MembersRepo;
@@ -27,10 +30,12 @@ public static class RepositoryRegistrationExtension
         services.AddScoped<IMembershipPlanRepository, MembershipPlanRepository>();
         services.AddScoped<IMembershipRepository, MembershipRepository>();
         services.AddScoped<ITrainingSessionRepository, TrainingSessionRepository>();
+        services.AddScoped<IBookingRepository, BookingsRepository>();
 
         services.AddScoped<IMembershipQueryService, MembershipQueryService>();
         services.AddScoped<IMemberQueryService, MemberQueryService>();
         services.AddScoped<ITrainingSessionQueryService, TrainingSessionQueryService>();
+        services.AddScoped<IBookingsQueryService, BookingsQueryService>();
 
         return services;
     }

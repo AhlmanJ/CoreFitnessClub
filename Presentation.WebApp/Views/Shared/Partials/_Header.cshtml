@@ -27,7 +27,7 @@
 
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
-                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
+                    <a asp-controller="TrainingSessions" asp-action="Index" class="becomeMember-link">Our Classes</a>
                 }
                 else
                 {
@@ -77,7 +77,7 @@
             @if (User.Identity?.IsAuthenticated ?? false)
             {
                 <div class="becomeMember">
-                    <a asp-controller="" asp-action="" class="becomeMember-link">Our Classes</a>
+                    <a asp-controller="TrainingSessions" asp-action="Index" class="becomeMember-link">Our Classes</a>
                 </div>
 
                 @await Html.PartialAsync("Partials/_MyAccountButton")

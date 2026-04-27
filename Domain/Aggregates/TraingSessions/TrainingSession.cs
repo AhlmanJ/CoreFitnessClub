@@ -6,6 +6,7 @@ public class TrainingSession
 {
     public Guid Id { get; private set; }
     public Guid TrainerMemberId { get; private set; }
+    public string SessionName { get; private set; } = null!;
     public DateTimeOffset CreatedAt { get; private set; }
     public DateTimeOffset StartDate { get; private set; }
     public DateTimeOffset EndDate { get; private set; }
@@ -17,10 +18,11 @@ public class TrainingSession
 
     }
 
-    public TrainingSession(Guid id, Guid trainerMemberId, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location) 
+    public TrainingSession(Guid id, Guid trainerMemberId, string sessionName, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location) 
     {
         Id = id;
         TrainerMemberId = trainerMemberId;
+        SessionName = sessionName;
         CreatedAt = createdAt;
         StartDate = startDate;
         EndDate = endDate;
@@ -28,10 +30,13 @@ public class TrainingSession
         Location = location;
     }
 
-    public static TrainingSession Create(Guid trainerMemberId,DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
+    public static TrainingSession Create(Guid trainerMemberId, string sessionName, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
     {
         if (trainerMemberId == Guid.Empty)
             throw new ArgumentException("TrainerMemberId cannot be empty.");
+
+        if (string.IsNullOrWhiteSpace(sessionName))
+            throw new ArgumentException("Session name cannot be empty.");
 
         if (startDate > endDate)
             throw new ArgumentException("The training session cannot start after it ends.");
@@ -43,6 +48,7 @@ public class TrainingSession
             (
                 Guid.NewGuid(),
                 trainerMemberId,
+                sessionName,
                 DateTimeOffset.UtcNow,
                 startDate,
                 endDate,
@@ -51,9 +57,9 @@ public class TrainingSession
             );
     }
 
-    public static TrainingSession Rehydrate(Guid id, Guid trainerMemberId, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
+    public static TrainingSession Rehydrate(Guid id, Guid trainerMemberId, string sessionName, DateTimeOffset createdAt, DateTimeOffset startDate, DateTimeOffset endDate, int capacity, string location)
     {
-        return new TrainingSession(id, trainerMemberId, createdAt, startDate, endDate, capacity, location)
+        return new TrainingSession(id, trainerMemberId, sessionName, createdAt, startDate, endDate, capacity, location)
         { 
         
         };
@@ -61,10 +67,13 @@ public class TrainingSession
 
     // I was helped by chatGPT in explaining how to create a "partial" update.
 
-    public void UpdateTrainingSession(Guid? trainerMemberId, DateTimeOffset? startDate, DateTimeOffset? endDate, int? capacity, string? location)
+    public void UpdateTrainingSession(Guid? trainerMemberId, string? sessionName, DateTimeOffset? startDate, DateTimeOffset? endDate, int? capacity, string? location)
     {
         if (trainerMemberId.HasValue)
             TrainerMemberId = trainerMemberId.Value;
+
+        if (!string.IsNullOrWhiteSpace(sessionName))
+            SessionName = sessionName;
 
         if(startDate.HasValue)
             StartDate = startDate.Value;
@@ -86,4 +95,18 @@ public class TrainingSession
         if(startDate.HasValue && endDate.HasValue && StartDate > EndDate)
             throw new ArgumentException("The training session cannot start after it ends.");
     }
+
+    public void DecreaseCapacity()
+    {
+        if (Capacity <= 0)
+            throw new ArgumentException("The training session is fully booked.");
+
+        Capacity--;
+    }
+
+    public void IncreaseCapacity()
+    {
+        Capacity++;
+    }
+
 }

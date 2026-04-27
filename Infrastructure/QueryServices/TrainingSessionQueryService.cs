@@ -14,6 +14,7 @@ public class TrainingSessionQueryService(DataContext context) : ITrainingSession
             (
                 x.Id,
                 x.TrainerMemberId,
+                x.SessionName,
                 x.TrainerMember.FirstName ?? "",
                 x.TrainerMember.LastName ?? "",
                 x.CreatedAt,
@@ -33,6 +34,7 @@ public class TrainingSessionQueryService(DataContext context) : ITrainingSession
             (
                 x.Id,
                 x.TrainerMemberId,
+                x.SessionName,
                 x.TrainerMember.FirstName ?? "",
                 x.TrainerMember.LastName ?? "",
                 x.CreatedAt,

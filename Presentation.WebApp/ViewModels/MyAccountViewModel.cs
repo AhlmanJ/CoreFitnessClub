@@ -10,4 +10,7 @@ public class MyAccountViewModel
     
     public MyProfileForm AboutMeForm { get; set; } = new();
     public MembershipViewModel? Membership { get; set; } = null!;
+
+    public List<BookingsViewModel> Bookings { get; set; } = new();
+
 }

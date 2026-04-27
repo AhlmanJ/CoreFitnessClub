@@ -15,6 +15,7 @@ public static class ApplicationServiceCollectionRegistrationExtensions
         services.AddMembershipPlanService();
         services.AddMembershipServices();
         services.AddTrainingSessionServices();
+        services.AddBookingServices();
 
         return services;
     }

@@ -1,16 +1,14 @@
 ﻿
-// ---------> Help by chatGPT --- see row 47.
+// ---------> Help by chatGPT --- see row 45.
 
 using Application.Abstraction;
 using Application.Abstraction.BookingsInterface;
-using Application.Abstraction.TrainingSessionsInterface;
 using Application.Bookings.Inputs;
 using Application.Bookings.Outputs;
 using Application.Common.Results;
 using Domain.Abstractions.Repositories.Booking;
 using Domain.Abstractions.Repositories.Memberships;
 using Domain.Abstractions.Repositories.TrainingSessions;
-using Domain.Aggregates.TraingSessions;
 
 namespace Application.Bookings.Services;
 

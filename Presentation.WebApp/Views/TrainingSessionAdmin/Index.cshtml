@@ -13,7 +13,7 @@
 
         <div class="manageTrainingSession-wrapper">
 
-            <h3 class="manageTrainingSession-h3"> Manage Member Roles And Training Session </h3>
+            <h3 class="manageTrainingSession-h3"> Manage Training Sessions </h3>
 
             @if (!string.IsNullOrWhiteSpace(TempData["ErrorMessage"]?.ToString()))
             {
@@ -45,19 +45,20 @@
                     {
                         <div class="manageTrainingSession-list">
 
+                            <div><strong>Session Name: </strong> @Session.SessionName </div>
                             <div><strong>Trainer First Name: </strong> @Session.TrainerFirstName </div>
                             <div><strong>Trainer Last Name: </strong> @Session.TrainerLastName </div>
-                            <div><strong>Created At: </strong> @Session.CreatedAt </div>
-                            <div><strong>Start Date: </strong> @Session.StartDate </div>
-                            <div><strong>End Date: </strong> @Session.EndDate </div>
+                            <div><strong>Created At: </strong> @Session.CreatedAt.ToString("yyyy-MM-dd HH:mm") </div>
+                            <div><strong>Start Date: </strong> @Session.StartDate.ToString("yyyy-MM-dd HH:mm") </div>
+                            <div><strong>End Date: </strong> @Session.EndDate.ToString("yyyy-MM-dd HH:mm") </div>
                             <div><strong>Capacity: </strong> @Session.Capacity </div>
                             <div><strong>Location: </strong> @Session.Location </div>
 
                             <div class="manageTrainingSession-buttons">
                                 <div class="manageTrainingSession-editBtn">
-                                    <a asp-controller="TrainingSession" asp-action="Update" asp-route-id="@Session.Id" class="manageTrainingSession-editBtnTxt">Update</a>
+                                    <a asp-controller="TrainingSessionAdmin" asp-action="Update" asp-route-id="@Session.Id" class="manageTrainingSession-editBtnTxt">Update</a>
                                 </div>
-                                <form asp-controller="TrainingSession" asp-action="Delete" asp-route-id="@Session.Id" method="post">
+                                <form asp-controller="TrainingSessionAdmin" asp-action="Delete" asp-route-id="@Session.Id" method="post">
                                     @Html.AntiForgeryToken()
                                     <button type="submit" class="manageTrainingSession-deleteBtn">Delete</button>
                                 </form>
@@ -74,7 +75,7 @@
                 <div class="manageTrainingSession-formWrapper">
                     <h3 class="manageTrainingSession-h4">@((Model.Form.TrainerMemberId == Guid.Empty) ? "Create" : "Update") Membership Plan</h3>
                 
-                    <form asp-controller="TrainingSession" asp-action="@(Model.Form.TrainerMemberId == Guid.Empty ? "Create" : "Update")" method="post" novalidate>
+                <form asp-controller="TrainingSessionAdmin" asp-action="@(Model.Form.TrainerMemberId == Guid.Empty ? "Create" : "Update")" method="post" novalidate>
                         @Html.AntiForgeryToken()
 
                         <div class="manageTrainingSession-formGroup ">
@@ -85,29 +86,35 @@
 
                         <select asp-for="Form.TrainerMemberId" class="manageTrainingSession-input">
                                 
-                                <option value="" class="manageTrainingSession-input" >Select Trainer</option>
+                            <option value="" class="manageTrainingSession-input" >Select Trainer</option>
 
-                                @foreach (var member in Model.Members)
-                                    {
-                                        <option value="@member.Id">
-                                            @member.FirstName @member.LastName
-                                        </option>
-                                    }
+                            @foreach (var member in Model.Members)
+                            {
+                                <option value="@member.Id">
+                                    @member.FirstName @member.LastName
+                                </option>
+                            }
 
                             </select>
 
                             <span class="manageTrainingSession-validation-error" asp-validation-for="Form.TrainerMemberId"></span>
                         </div>
 
+                    <div class="manageTrainingSession-formGroup ">
+                        <label class="manageTrainingSession-label" asp-for="Form.SessionName"></label>
+                        <input class="manageTrainingSession-input" asp-for="Form.SessionName" />
+                        <span class="manageTrainingSession-validation-error" asp-validation-for="Form.SessionName"></span>
+                    </div>
+
                         <div class="manageTrainingSession-formGroup ">
                             <label class="manageTrainingSession-label" asp-for="Form.StartDate"></label>
-                        <input class="manageTrainingSession-input" asp-for="Form.StartDate" type="datetime-local" />
+                            <input class="manageTrainingSession-input" asp-for="Form.StartDate" type="datetime-local" />
                             <span class="manageTrainingSession-validation-error" asp-validation-for="Form.StartDate"></span>
                         </div>
 
                         <div class="manageTrainingSession-formGroup two">
                             <label class="manageTrainingSession-label" asp-for="Form.EndDate"></label>
-                        <input class="manageTrainingSession-input" asp-for="Form.EndDate" type="datetime-local" />
+                            <input class="manageTrainingSession-input" asp-for="Form.EndDate" type="datetime-local" />
                             <span class="manageTrainingSession-validation-error" asp-validation-for="Form.EndDate"></span>
                         </div>
 

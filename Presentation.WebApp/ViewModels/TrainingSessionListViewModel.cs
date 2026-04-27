@@ -4,6 +4,7 @@ public class TrainingSessionListViewModel
 {
     public Guid Id { get; set; }
     public Guid TrainerMemberId { get; set; }
+    public string SessionName { get; set; } = null!;
     public string? TrainerFirstName { get; set; }
     public string? TrainerLastName { get; set; }
     public DateTimeOffset CreatedAt { get; set; }

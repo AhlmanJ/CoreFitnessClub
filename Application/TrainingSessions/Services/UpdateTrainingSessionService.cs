@@ -22,7 +22,7 @@ public class UpdateTrainingSessionService(ITrainingSessionRepository trainingSes
             if (trainingSession == null)
                 return Result<TrainingSessionOutput>.NotFound("Could not find the requested training session");
 
-            trainingSession.UpdateTrainingSession(input.TrainerMemberId, input.StartDate, input.EndDate, input.Capacity, input.Location);
+            trainingSession.UpdateTrainingSession(input.TrainerMemberId,input.SessionName, input.StartDate, input.EndDate, input.Capacity, input.Location);
 
             var result = await trainingSessionRepository.UpdateAsync(trainingSession, ct);
             await unitOfWork.CommitAsync(ct);
@@ -33,6 +33,7 @@ public class UpdateTrainingSessionService(ITrainingSessionRepository trainingSes
                     (  
                         trainingSession.Id,
                         trainingSession.TrainerMemberId,
+                        trainingSession.SessionName,
                         trainingSession.CreatedAt,
                         trainingSession.StartDate,
                         trainingSession.EndDate,

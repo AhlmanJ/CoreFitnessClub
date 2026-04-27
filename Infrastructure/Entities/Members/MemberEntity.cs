@@ -37,7 +37,7 @@ public class MemberEntity
     public DateTimeOffset CreatedAt { get; internal set; }
     public DateTimeOffset? ModifiedAt { get; internal set; }
 
-    public ICollection<BookingEntity> Bookings { get; internal set; } = new List<BookingEntity>();
+    public ICollection<BookingsEntity> Bookings { get; internal set; } = new List<BookingsEntity>();
     public ICollection<MembershipEntity> Memberships { get; internal set; } = new List<MembershipEntity>();
 
     private MemberEntity() { }

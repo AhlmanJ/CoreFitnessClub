@@ -1,16 +1,10 @@
-﻿using Infrastructure.Entities.Members;
+﻿using Domain.Aggregates.Bookings;
+using Infrastructure.Entities.Members;
 using Infrastructure.Entities.TrainingSession;
 
 namespace Infrastructure.Entities.Booking;
 
-public enum BookingStatus
-{
-    Booked,
-    Cancelled,
-    Attended
-};
-
-public class BookingEntity
+public class BookingsEntity
 {
     public Guid Id { get; private set; }
 
@@ -27,9 +21,9 @@ public class BookingEntity
 
     public byte[] RowVersion {  get; private set; } = null!;
 
-    private BookingEntity() { }
+    private BookingsEntity() { }
 
-    public BookingEntity(Guid id, Guid memberId, Guid trainingSessionId, BookingStatus status, DateTimeOffset createdAt)
+    public BookingsEntity(Guid id, Guid memberId, Guid trainingSessionId, BookingStatus status, DateTimeOffset createdAt)
     {  
         Id = id;
         MemberId = memberId;

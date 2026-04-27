@@ -1,7 +1,40 @@
-﻿<div class="aboutMeForm-wrapper">
-    <h3 class="aboutMe-form-h3">My Booknigs</h3>
+﻿@model List<BookingsViewModel>
 
-    <hr class="aboutMe-form-line1" />
+<div class="myBookings-wrapper">
+    <h3 class="myBookings-form-h3">My Booknigs</h3>
 
+    <hr class="myBookings-line" />
+
+    <div>
+        @if (!Model.Any())
+        {
+            <div class="myBookings-noMembershipTxt-wrapper">
+                <h3 class="myBookings-h3">No booked training sessions</h3>
+            </div>
+
+            <hr class="myBookings-line" />
+        }
+        else
+        {
+            <div class="myBookings-list-wrapper">
+                @foreach (var booking in Model)
+                {
+                    <div class="myBookings-list">
+
+                        <div><p><strong>@booking.SessionName</strong></p></div>
+                        <div><p><strong>Trainer: </strong>@booking.TrainerFirstName @booking.TrainerLastName</p></div>
+                        <div><p><strong>Training Session Start: </strong>@booking.StartDate.ToString("yyyy-MM-dd HH:mm")</p></div>
+                        <div><p><strong>Training Session End: </strong>@booking.EndDate.ToString("yyyy-MM-dd HH:mm")</p></div>
+
+                        <form asp-controller="Bookings" asp-action="Delete" asp-route-id="@booking.Id" method="post">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="myBookings-deleteBtn">Delete</button>
+                        </form>
+
+                    </div>
+                }
+            </div>
+        }
+    </div>
 
 </div>

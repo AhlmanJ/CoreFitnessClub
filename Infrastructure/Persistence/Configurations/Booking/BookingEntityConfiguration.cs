@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Persistence.Configurations.Booking;
 
-internal class BookingEntityConfiguration : IEntityTypeConfiguration<BookingEntity>
+internal class BookingEntityConfiguration : IEntityTypeConfiguration<BookingsEntity>
 {
-    public void Configure(EntityTypeBuilder<BookingEntity> builder)
+    public void Configure(EntityTypeBuilder<BookingsEntity> builder)
     {
         builder.ToTable("Bookings");
 

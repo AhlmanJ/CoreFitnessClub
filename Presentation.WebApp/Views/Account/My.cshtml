@@ -90,7 +90,7 @@
                 }
                 else if (section == "booking")
                 {
-                    @await Html.PartialAsync("_BookingPartial")
+                    @await Html.PartialAsync("_BookingPartial", Model.Bookings)
                 }
                 
                 <div class="myStatisticsForm-wrapper">

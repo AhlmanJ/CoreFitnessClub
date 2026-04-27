@@ -5,8 +5,10 @@
     I also asked about the difference between ViewBag and TempData.
  */
 
+using Application.Abstraction.BookingsQueryInterface;
 using Application.Abstraction.MembershipInterface;
 using Application.Abstraction.MembersInterface;
+using Application.Common.Roles;
 using Application.Members.Inputs;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -14,12 +16,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.AccountModels;
 using Presentation.WebApp.ViewModels;
+using System.Data;
 
 namespace Presentation.WebApp.Controllers;
 
 [Authorize]
 [Route("Account")]
-public class AccountController (UserManager<ApplicationUser> userManager, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IGetMembershipByUserIdService getMembershipByUserIdService , IWebHostEnvironment _env) : Controller
+public class AccountController (UserManager<ApplicationUser> userManager, IBookingsQueryService bookingsQueryService, IGetMemberProfileService getMemberProfileService, IUpdateMemberProfileService updateMemberProfileService, IGetMembershipByUserIdService getMembershipByUserIdService , IWebHostEnvironment _env) : Controller
 {
     [HttpGet("my")]
     public async Task<IActionResult> My(string section = "about", CancellationToken ct = default)
@@ -60,6 +63,28 @@ public class AccountController (UserManager<ApplicationUser> userManager, IGetMe
                 EndDate = membership.EndDate
             }
         };
+
+        if (section == "booking")
+        {
+            var member = await getMemberProfileService.ExecuteAsync(user.Id);
+            if (member == null)
+                return Challenge();
+
+            var memberId = member.Value!.Id;
+
+            var bookings = await bookingsQueryService.GetBookingsByMemberIdAsync(memberId);
+
+            viewModel.Bookings = bookings.Select(b => new BookingsViewModel
+            {
+                Id = b.Id,
+                SessionName = b.SessionName,
+                TrainerFirstName = b.TrainerFirstName,
+                TrainerLastName = b.TrainerLastName,
+                StartDate = b.StartDate,
+                EndDate = b.EndDate
+            }).ToList();
+
+        }
 
         ViewBag.Section = section;
 

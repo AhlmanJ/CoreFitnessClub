@@ -17,9 +17,7 @@ using Application.Abstraction.TrainingSessionQueryInterface;
 using Application.Abstraction.TrainingSessionsInterface;
 using Application.Common.Roles;
 using Application.TrainingSessions.Inputs;
-using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.WebApp.Models.TrainingSessionModels;
 using Presentation.WebApp.ViewModels;
@@ -27,15 +25,14 @@ using Presentation.WebApp.ViewModels;
 namespace Presentation.WebApp.Controllers;
 
 [Authorize(Roles = ApplicationRoles.Admin)]
-[Route("TrainingSession")]
-public class TrainingSessionController(UserManager<ApplicationUser> userManager,IMemberQueryService memberQueryService, ICreateTrainingSessionService createTrainingSessionService, ITrainingSessionQueryService trainingSessionQueryService, IGetAllTrainingSessionsService getAllTrainingSessionsService, IUpdateTrainingSessionService updateTrainingSessionService,IDeleteTrainingSessionService deleteTrainingSessionService) : Controller
+[Route("TrainingSessionAdmin")]
+public class TrainingSessionAdminController(IMemberQueryService memberQueryService, ICreateTrainingSessionService createTrainingSessionService, ITrainingSessionQueryService trainingSessionQueryService, IGetAllTrainingSessionsService getAllTrainingSessionsService, IUpdateTrainingSessionService updateTrainingSessionService,IDeleteTrainingSessionService deleteTrainingSessionService) : Controller
 {
     [HttpGet("Index")]
     public async Task<IActionResult> Index()
     {
         var result = await getAllTrainingSessionsService.ExecuteAsync();
         var members = await memberQueryService.GetAllMembersAsync();
-        var trainer = await userManager.GetUsersInRoleAsync("Trainer");
 
         if (!result.Success)
         {
@@ -51,6 +48,7 @@ public class TrainingSessionController(UserManager<ApplicationUser> userManager,
             Sessions = result.Value!.Select(session => new TrainingSessionListViewModel
             {
                 Id = session.Id,
+                SessionName = session.SessionName,
                 TrainerFirstName = session.TrainerFirstName,
                 TrainerLastName = session.TrainerLastName,
                 CreatedAt = session.CreatedAt,
@@ -96,6 +94,7 @@ public class TrainingSessionController(UserManager<ApplicationUser> userManager,
         var input = new CreateTrainingSessionInput
             (
                 viewModel.Form.TrainerMemberId,
+                viewModel.Form.SessionName,
                 viewModel.Form.StartDate,
                 viewModel.Form.EndDate,
                 viewModel.Form.Capacity,
@@ -130,6 +129,7 @@ public class TrainingSessionController(UserManager<ApplicationUser> userManager,
             Form = new TrainingSessionForm
             {
                 TrainerMemberId = result.TrainerMemberId,
+                SessionName = result.SessionName,
                 StartDate = result.StartDate,
                 EndDate = result.EndDate,
                 Capacity = result.Capacity,
@@ -167,6 +167,7 @@ public class TrainingSessionController(UserManager<ApplicationUser> userManager,
             (
                 viewModel.Id,
                 viewModel.Form.TrainerMemberId,
+                viewModel.Form.SessionName,
                 viewModel.Form.StartDate,
                 viewModel.Form.EndDate,
                 viewModel.Form.Capacity,

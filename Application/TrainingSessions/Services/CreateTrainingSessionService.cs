@@ -21,6 +21,7 @@ public class CreateTrainingSessionService(ITrainingSessionRepository trainingSes
             var trainingSession = TrainingSession.Create
                 (
                     input.TrainerMemberId,
+                    input.SessionName,
                     input.StartDate,
                     input.EndDate,
                     input.Capacity,
@@ -34,6 +35,7 @@ public class CreateTrainingSessionService(ITrainingSessionRepository trainingSes
                 (
                     trainingSession.Id,
                     trainingSession.TrainerMemberId,
+                    trainingSession.SessionName,
                     trainingSession.CreatedAt,
                     trainingSession.StartDate,
                     trainingSession.EndDate,

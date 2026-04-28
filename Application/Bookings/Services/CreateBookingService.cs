@@ -3,6 +3,7 @@
 
 using Application.Abstraction;
 using Application.Abstraction.BookingsInterface;
+using Application.Abstraction.MembershipReadInterface;
 using Application.Bookings.Inputs;
 using Application.Bookings.Outputs;
 using Application.Common.Results;
@@ -12,7 +13,7 @@ using Domain.Abstractions.Repositories.TrainingSessions;
 
 namespace Application.Bookings.Services;
 
-public class CreateBookingService(IBookingRepository bookingsRepository,ITrainingSessionRepository trainingSessionRepository, IMembershipRepository membershipRepository, IUnitOfWork unitOfWork) : ICreateBookingService
+public class CreateBookingService(IBookingRepository bookingsRepository,ITrainingSessionRepository trainingSessionRepository, IMembershipQueryService membershipQueryService, IUnitOfWork unitOfWork) : ICreateBookingService
 {
     public async Task<Result<BookingsOutput>> ExecuteAsync(CreateBookingInput input, CancellationToken ct = default)
     {
@@ -29,6 +30,15 @@ public class CreateBookingService(IBookingRepository bookingsRepository,ITrainin
                 return Result<BookingsOutput>.BadRequest($"Could not find a training session with ID: {input.Id}");
 
             var memberId = input.TrainerMemberId;
+
+            var hasMembership = await membershipQueryService.GetMembershipByMemberIdAsync(memberId, ct);
+            if (hasMembership is null)
+                return Result<BookingsOutput>.NotFound("An active membership is required to book a training session.");
+
+            // I was helped by AI to tell me about an effective way to check if a booking already exists. 
+            var isBooked = await bookingsRepository.ExistsSync(memberId, input.Id, ct);
+            if (isBooked == true)
+                return Result<BookingsOutput>.BadRequest("You already have a booking for this training session.");
 
             var newBooking = Domain.Aggregates.Bookings.Bookings.Create
                 (

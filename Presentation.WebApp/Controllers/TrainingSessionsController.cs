@@ -1,4 +1,7 @@
-﻿using Application.Abstraction.BookingsInterface;
+﻿
+// help from chatGPT with debugging. See row 89.
+
+using Application.Abstraction.BookingsInterface;
 using Application.Abstraction.MembersQueryInterface;
 using Application.Abstraction.TrainingSessionsInterface;
 using Application.Bookings.Inputs;
@@ -72,7 +75,7 @@ public class TrainingSessionsController(ICreateBookingService createBookingServi
     public async Task<IActionResult> Create(Guid id, Guid TrainerMemberId)
     {
         if (!ModelState.IsValid)
-            return View("Index");
+            return RedirectToAction("Index");
 
         var input = new CreateBookingInput
             (
@@ -82,12 +85,18 @@ public class TrainingSessionsController(ICreateBookingService createBookingServi
 
         var result = await createBookingService.ExecuteAsync(input);
 
+        /*
+         * My page crashed if i already had a booking but i couldn't find the error, so i had to get AI to help with this.
+         * The problem was that instead of redirecting to my Index Action, i was trying to return the View.
+         */
+
         if (!result.Success)
         {
             TempData["ErrorMessage"] = result.ErrorMessage;
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
+        TempData["SuccessMessage"] = "Training Session Booked";
         return RedirectToAction("Index");
     }
 }

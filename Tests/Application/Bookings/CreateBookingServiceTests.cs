@@ -4,9 +4,11 @@
 // ----- > I have asked chatGPT to explain the code to me < ----
 
 using Application.Abstraction;
+using Application.Abstraction.MembershipReadInterface;
 using Application.Bookings.Inputs;
 using Application.Bookings.Services;
 using Application.Common.Results;
+using Application.Memberships.Outputs;
 using Domain.Abstractions.Repositories.Booking;
 using Domain.Abstractions.Repositories.Memberships;
 using Domain.Abstractions.Repositories.TrainingSessions;
@@ -20,7 +22,7 @@ public class CreateBookingServiceTests
 {
     private readonly IBookingRepository _bookingRepository;
     private readonly ITrainingSessionRepository _trainingSessionRepository;
-    private readonly IMembershipRepository _membershipRepository;
+    private readonly IMembershipQueryService _membershipQueryService;
     private readonly IUnitOfWork _unitOfWork;
     private readonly CreateBookingService _service;
 
@@ -28,13 +30,13 @@ public class CreateBookingServiceTests
     {
         _bookingRepository = Substitute.For<IBookingRepository>();
         _trainingSessionRepository = Substitute.For<ITrainingSessionRepository>();
-        _membershipRepository = Substitute.For<IMembershipRepository>();
+        _membershipQueryService = Substitute.For<IMembershipQueryService>();
         _unitOfWork = Substitute.For<IUnitOfWork>();
 
         _service = new CreateBookingService(
             _bookingRepository,
             _trainingSessionRepository,
-            _membershipRepository,
+            _membershipQueryService,
             _unitOfWork);
     }
 
@@ -83,6 +85,9 @@ public class CreateBookingServiceTests
             .GetByIdAsync(input.Id, Arg.Any<CancellationToken>())
             .Returns((TrainingSession?)null);
 
+        await _membershipQueryService.DidNotReceive()
+        .GetMembershipByMemberIdAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>());
+
         // Act
         var result = await _service.ExecuteAsync(input);
 
@@ -118,6 +123,14 @@ public class CreateBookingServiceTests
         _trainingSessionRepository
             .UpdateAsync(trainingSession, Arg.Any<CancellationToken>())
             .Returns(true);
+
+        _bookingRepository
+        .ExistsSync(memberId, trainingSessionId, Arg.Any<CancellationToken>())
+        .Returns(false);
+
+        _membershipQueryService
+        .GetMembershipByMemberIdAsync(memberId, Arg.Any<CancellationToken>())
+        .Returns(CreateMembership(memberId));
 
         // Act
         var result = await _service.ExecuteAsync(input);
@@ -158,5 +171,91 @@ public class CreateBookingServiceTests
         Assert.False(result.Success);
         Assert.Equal(ErrorTypes.InternalServerError, result.ErrorTypes);
         Assert.Equal("unexpected error", result.ErrorMessage);
+    }
+
+    [Fact]
+    public async Task ExecuteAsync_ShouldReturnBadRequest_WhenBookingAlreadyExists()
+    {
+        // Arrange
+        var trainingSessionId = Guid.NewGuid();
+        var memberId = Guid.NewGuid();
+
+        var input = new CreateBookingInput(trainingSessionId, memberId);
+
+        _trainingSessionRepository
+            .GetByIdAsync(trainingSessionId, Arg.Any<CancellationToken>())
+            .Returns(TrainingSession.Rehydrate(
+                trainingSessionId,
+                Guid.NewGuid(),
+                "Test",
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddHours(1),
+                DateTimeOffset.UtcNow.AddHours(2),
+                10,
+                "Gym"
+            ));
+
+        _bookingRepository
+            .ExistsSync(memberId, trainingSessionId, Arg.Any<CancellationToken>())
+            .Returns(true);
+
+        _membershipQueryService
+        .GetMembershipByMemberIdAsync(memberId, Arg.Any<CancellationToken>())
+        .Returns(CreateMembership(memberId));
+
+        // Act
+        var result = await _service.ExecuteAsync(input);
+
+        // Assert
+        Assert.False(result.Success);
+        Assert.Equal(ErrorTypes.BadRequest, result.ErrorTypes);
+        Assert.Equal("You already have a booking for this training session.", result.ErrorMessage);
+    }
+
+    [Fact]
+    public async Task ExecuteAsync_ShouldReturnNotFound_WhenNoMembershipExists()
+    {
+        // Arrange
+        var trainingSessionId = Guid.NewGuid();
+        var memberId = Guid.NewGuid();
+
+        var input = new CreateBookingInput(trainingSessionId, memberId);
+
+        _trainingSessionRepository
+            .GetByIdAsync(trainingSessionId, Arg.Any<CancellationToken>())
+            .Returns(TrainingSession.Rehydrate(
+                trainingSessionId,
+                Guid.NewGuid(),
+                "Test",
+                DateTimeOffset.UtcNow,
+                DateTimeOffset.UtcNow.AddHours(1),
+                DateTimeOffset.UtcNow.AddHours(2),
+                10,
+                "Gym"
+            ));
+
+        _membershipQueryService
+            .GetMembershipByMemberIdAsync(memberId, Arg.Any<CancellationToken>())
+            .Returns((MembershipResponseOutput?)null);
+
+        // Act
+        var result = await _service.ExecuteAsync(input);
+
+        // Assert
+        Assert.False(result.Success);
+        Assert.Equal(ErrorTypes.NotFound, result.ErrorTypes);
+    }
+
+    private static MembershipResponseOutput CreateMembership(Guid memberId)
+    {
+        return new MembershipResponseOutput(
+            memberId,
+            "Test",
+            "User",
+            "Gold",
+            199m,
+            DateTimeOffset.UtcNow,
+            DateTimeOffset.UtcNow.AddMonths(1)
+        );
     }
 }

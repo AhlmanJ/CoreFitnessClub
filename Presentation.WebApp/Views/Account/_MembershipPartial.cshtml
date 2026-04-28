@@ -29,12 +29,12 @@
 
         <div>
             <div class="Membership-display-label"><p class="Membership-display-label-txt">Start date:</p></div>
-            <div class="Membership-display-output"><p>@Model.StartDate </p></div>
+            <div class="Membership-display-output"><p>@Model.StartDate.ToString("yyyy-MM-dd") </p></div>
         </div>
 
         <div>
             <div class="Membership-display-label"><p class="Membership-display-label-txt">Expiration date:</p></div>
-            <div class="Membership-display-output"><p>@Model.EndDate </p></div>
+            <div class="Membership-display-output"><p>@Model.EndDate.ToString("yyyy-MM-dd") </p></div>
         </div>
 
         <form asp-controller="Membership" asp-action="DeleteMembership" asp-route-id="@Model.MemberId" method="post">

@@ -31,9 +31,9 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
         var isSqlServer = Database.ProviderName ==
                           "Microsoft.EntityFrameworkCore.SqlServer"; // Checks which database is used.
 
-        foreach (var entityType in modelBuilder.Model.GetEntityTypes()) // Loops all Entities in the model
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes()) // Loops through all Entities in the model.
         {
-            var property = entityType.FindProperty("RowVersion"); // Searches for prperty named "RowVersion".
+            var property = entityType.FindProperty("RowVersion"); // Searching for the "RowVersion" property.
 
             if (property == null)
                 continue;
@@ -44,7 +44,7 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
                 property.ValueGenerated =
                     Microsoft.EntityFrameworkCore.Metadata.ValueGenerated.OnAddOrUpdate;
             }
-            else // If not SQL Database = ignore the property "RowVersion".
+            else // If not, ignore the "RowVersion" property in SQL Database.
             {
                 
                 modelBuilder.Entity(entityType.ClrType)

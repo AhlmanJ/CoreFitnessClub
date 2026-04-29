@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace Domain.Aggregates.TraingSessions;
+﻿namespace Domain.Aggregates.TraingSessions;
 
 public class TrainingSession
 {

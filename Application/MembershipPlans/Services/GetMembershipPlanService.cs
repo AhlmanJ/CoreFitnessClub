@@ -2,7 +2,6 @@
 using Application.Common.Results;
 using Application.MembershipPlans.Outputs;
 using Domain.Abstractions.Repositories.MembershipPlans;
-using Domain.Aggregates.MembershipPlan;
 
 namespace Application.MembershipPlans.Services;
 

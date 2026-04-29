@@ -8,7 +8,6 @@
 using Application.Abstraction.BookingsQueryInterface;
 using Application.Abstraction.MembershipInterface;
 using Application.Abstraction.MembersInterface;
-using Application.Common.Roles;
 using Application.Members.Inputs;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;

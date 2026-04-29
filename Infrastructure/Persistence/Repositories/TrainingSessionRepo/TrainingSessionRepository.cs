@@ -2,7 +2,6 @@
 using Domain.Aggregates.TraingSessions;
 using Infrastructure.Entities.TrainingSession;
 using Infrastructure.Persistence.Contexts;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Repositories.TrainingSessionRepo;
 

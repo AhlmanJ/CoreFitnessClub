@@ -1,6 +1,5 @@
 ﻿using Application.Abstraction.MembersQueryInterface;
 using Application.Members.Outputs;
-using Application.Memberships.Outputs;
 using Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 

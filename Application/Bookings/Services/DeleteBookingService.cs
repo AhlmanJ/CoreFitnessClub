@@ -3,7 +3,6 @@ using Application.Abstraction.BookingsInterface;
 using Application.Common.Results;
 using Domain.Abstractions.Repositories.Booking;
 using Domain.Abstractions.Repositories.TrainingSessions;
-using Domain.Aggregates.TraingSessions;
 
 namespace Application.Bookings.Services;
 

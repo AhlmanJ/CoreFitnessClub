@@ -1,5 +1,5 @@
 ﻿
-// Here i got help from chatGPT on how to create a relationship so that a Member can be a trainer.
+// Here i got help from chatGPT on how to create a relation so that a Member can be a trainer.
 
 using Infrastructure.Entities.Booking;
 using Infrastructure.Entities.Members;

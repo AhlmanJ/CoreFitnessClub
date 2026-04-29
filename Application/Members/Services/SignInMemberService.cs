@@ -2,7 +2,6 @@
 using Application.Abstraction.MembersInterface;
 using Application.Common.Results;
 using Application.Members.Inputs;
-using Application.Members.Outputs;
 
 namespace Application.Members.Services;
 

@@ -1,11 +1,9 @@
 ﻿using Application.Abstraction;
 using Application.Abstraction.TrainingSessionsInterface;
 using Application.Common.Results;
-using Application.Members.Outputs;
 using Application.TrainingSessions.Inputs;
 using Application.TrainingSessions.Outputs;
 using Domain.Abstractions.Repositories.TrainingSessions;
-using Domain.Aggregates.TraingSessions;
 
 namespace Application.TrainingSessions.Services;
 

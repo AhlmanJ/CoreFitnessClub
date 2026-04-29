@@ -1,5 +1,4 @@
-﻿using Domain.Aggregates.MembershipPlan;
-using Domain.Persistence.Repositories;
+﻿using Domain.Persistence.Repositories;
 
 namespace Domain.Abstractions.Repositories.MembershipPlans;
 

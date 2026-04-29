@@ -1,6 +1,4 @@
-﻿using Domain.Aggregates.TraingSessions;
-
-namespace Domain.Aggregates.Bookings;
+﻿namespace Domain.Aggregates.Bookings;
 
 public enum BookingStatus
 {

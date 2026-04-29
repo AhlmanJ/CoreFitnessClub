@@ -1,4 +1,5 @@
 ﻿using Application.Abstraction.BookingsInterface;
+using Application.Common.Roles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

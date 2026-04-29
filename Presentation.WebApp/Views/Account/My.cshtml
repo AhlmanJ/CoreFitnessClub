@@ -28,10 +28,24 @@
                         <div class="sidebarMenue-row2">
                             <a asp-action="My" asp-route-section="about" class="myAccount-sidebar-link">About Me <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-action="My" asp-route-section="membership" class="myAccount-sidebar-link">My Membership <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            @if (!User.IsInRole("Admin"))
+                            {
+                                <a asp-action="My" asp-route-section="membership" class="myAccount-sidebar-link">My Membership <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
                             
-                            <a asp-action="My" asp-route-section="booking" class="myAccount-sidebar-link">My Bookings <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
-                            
+                                <a asp-action="My" asp-route-section="booking" class="myAccount-sidebar-link">My Bookings <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>
+                            }
+                            else
+                            {
+                                <div class ="myAccount-sidebar-link">
+                                    My Membership  - (Disabled) <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div>
+                                </div>
+
+                                <div class="myAccount-sidebar-link">
+                                    My Bookings - (Disabled) <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div>
+                                </div>
+
+                            }
+
                             @if(User.IsInRole("Admin"))
                             {
                                 <a asp-controller="Admin" asp-action="Index" class="myAccount-sidebar-link">Admin <div class="myAccount-linkIcon"><i class="fa-solid fa-angle-right"></i></div></a>

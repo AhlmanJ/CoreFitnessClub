@@ -34,8 +34,7 @@ internal class MembershipEntityConfiguration : IEntityTypeConfiguration<Membersh
 
         builder.Property(x => x.RowVersion)
                 .IsRowVersion()
-                .IsConcurrencyToken()
-                .IsRequired();
+                .IsConcurrencyToken();
 
         builder.HasOne(x => x.MembershipPlan)
                 .WithMany(x => x.Memberships)

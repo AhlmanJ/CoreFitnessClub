@@ -30,8 +30,7 @@ internal class BookingEntityConfiguration : IEntityTypeConfiguration<BookingsEnt
 
         builder.Property(x => x.RowVersion)
                 .IsRowVersion()
-                .IsConcurrencyToken()
-                .IsRequired();
+                .IsConcurrencyToken();
 
         builder.HasOne(x => x.Member)
                 .WithMany(x => x.Bookings)

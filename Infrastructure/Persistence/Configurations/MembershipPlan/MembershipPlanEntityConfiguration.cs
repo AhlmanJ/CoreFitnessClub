@@ -42,7 +42,6 @@ internal class MembershipPlanEntityConfiguration : IEntityTypeConfiguration<Memb
 
         builder.Property(x => x.RowVersion)
                 .IsRowVersion()
-                .IsConcurrencyToken()
-                .IsRequired();
+                .IsConcurrencyToken();
     }
 }

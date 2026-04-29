@@ -33,8 +33,7 @@ internal class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity
 
         builder.Property(x => x.RowVersion)
             .IsRowVersion()
-            .IsConcurrencyToken()
-            .IsRequired();
+            .IsConcurrencyToken();
 
         builder.Property(x => x.CreatedAt)
             .IsRequired();

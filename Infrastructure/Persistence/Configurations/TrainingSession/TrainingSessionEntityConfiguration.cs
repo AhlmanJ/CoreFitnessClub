@@ -40,8 +40,7 @@ internal class TrainingSessionEntityConfiguration : IEntityTypeConfiguration<Tra
 
         builder.Property(x => x.RowVersion)
                 .IsRowVersion()
-                .IsConcurrencyToken()
-                .IsRequired();
+                .IsConcurrencyToken();
 
         builder.HasMany(x => x.Bookings)
             .WithOne(x => x.TrainingSession)

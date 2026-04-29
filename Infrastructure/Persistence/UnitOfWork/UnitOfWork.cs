@@ -1,4 +1,7 @@
-﻿using Application.Abstraction;
+﻿
+// I received help from chatGPT with explanations on how to implement Unit Of Work with this backend structure.
+
+using Application.Abstraction;
 using Infrastructure.Persistence.Contexts;
 
 namespace Infrastructure.Persistence.UnitOfWork;
